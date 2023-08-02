@@ -1,0 +1,13 @@
+checks:
+  - varken:
+      source:
+        type: docker-hub
+        namespace: boerderij
+        repository: varken
+        tag: develop
+      destinations:
+        - type: discord
+          webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
+          color: FEE4DF
+          template: "New version of `${docker_hub__image}` pushed ${docker_hub__last_updated}."
+      period: 1d
