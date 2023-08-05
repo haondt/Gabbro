@@ -10,4 +10,8 @@ checks:
           webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
           color: FEE4DF
           template: "New version of `${docker_hub__image}` pushed ${docker_hub__last_updated}."
+        - type: discord
+          webhookURL: ${COM_GABBRO_PYREMINDER_DISCORD_DEBUG_WEBHOOK_URL}
+          color: FEE4DF
+          template: "New version of `${docker_hub__image}` pushed ${docker_hub__last_updated}."
       period: 0.5d

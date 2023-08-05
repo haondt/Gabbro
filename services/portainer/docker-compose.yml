@@ -1,0 +1,11 @@
+services:
+  portainer:
+    image: portainer/agent:latest
+    volumes:
+      - portainer-data:/foo_delete_me
+  foo:
+    image: bar
+    environment:
+      BAZ: "baz"
+volumes:
+  portainer-data:
