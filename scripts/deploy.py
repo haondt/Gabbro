@@ -36,7 +36,7 @@ def filter_services(files):
     bp = re.compile('^' + '|'.join([f'({i})' for i in base_files]) + '$')
     if len([i for i in files if bp.match(i)]) > 0:
         return [d for d in next(os.walk('services'))[1] if os.path.isfile(f'services/{d}/docker-compose.yml')]
-    sp = re.compile('^services\/(.+)\/.+$')
+    sp = re.compile('^services\/([^/]+)\/.+$')
     services = [sp.search(i).group(1) for i in files if sp.match(i)]
     return [s for s in services if os.path.isfile(f'services/{s}/docker-compose.yml')]
 
@@ -246,5 +246,6 @@ if __name__ == '__main__':
     # discard stack trace
     except Exception as e:
         print(f"{type(e).__name__}:", e)
+        exit(1)
 
 
