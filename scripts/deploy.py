@@ -1,5 +1,5 @@
 from git import Repo
-import re, os, requests, yaml, shutil
+import re, os, requests, yaml, shutil, fnmatch
 
 def represent_none(self, _):
     return self.represent_scalar('tag:yaml.org,2002:null', '')
@@ -24,19 +24,6 @@ def get_changes():
     assert not repo.bare
     head = repo.commit("HEAD")
     diff = head.diff("HEAD~", create_patch=False)
-
-    # base + pyreminder
-    #head = repo.commit("HEAD~3")
-    #diff = head.diff("HEAD~4", create_patch=False)
-
-    # just pyreminder
-    #head = repo.commit("HEAD~2")
-    #diff = head.diff("HEAD~3", create_patch=False)
-
-    # nothing
-    #head = repo.commit("HEAD~4")
-    #diff = head.diff("HEAD~5", create_patch=False)
-
     return [i.a_path for i in diff]
 
 # get changed services
@@ -48,10 +35,10 @@ def filter_services(files):
 
     bp = re.compile('^' + '|'.join([f'({i})' for i in base_files]) + '$')
     if len([i for i in files if bp.match(i)]) > 0:
-        return [os.path.basename(p) for p, _, fns in os.walk('services') if 'docker-compose.yml' in fns]
+        return [d for d in next(os.walk('services'))[1] if os.path.isfile(f'services/{d}/docker-compose.yml')]
     sp = re.compile('^services\/(.+)\/.+$')
     services = [sp.search(i).group(1) for i in files if sp.match(i)]
-    return services
+    return [s for s in services if os.path.isfile(f'services/{s}/docker-compose.yml')]
 
 # load env file into a dictionary
 def load_env_file(fn):
@@ -117,7 +104,9 @@ def hydrate(s, d):
 
 # deep merge two dictionaries created from yaml
 # when merging primitives, the one from d2 is preferred
-def deep_merge(d1, d2):
+def deep_merge(d1, d2, conflicts="new", path=""):
+    if conflicts not in ["new", "old", "err"]:
+        raise ValueError("Unexpected conflict resolution:" + conflicts)
     def merge_list(l1, l2):
         return list(set(l1 + l2))
     result = d1.copy()
@@ -126,15 +115,22 @@ def deep_merge(d1, d2):
             result[k] = v
             continue
         if type(v) != type(result[k]):
-            result[k] = v
+            if conflicts == "new":
+                result[k] = v
+            elif conflicts == "err":
+                raise KeyError(f"Multiple entries found for key: {path}.{k}")
             continue
         if isinstance(v, dict):
-            result[k] = deep_merge(result[k], v)
+            result[k] = deep_merge(result[k], v, conflicts, path + "." + k)
             continue
         if isinstance(v, (tuple, list)):
             result[k] = merge_list(result[k], v)
             continue
-        result[k] = v
+
+        if conflicts == "new":
+            result[k] = v
+        elif conflicts == "err":
+            raise KeyError(f"Multiple entries found for key: {path}.{k}")
     return result
 
 def build_service_yaml(service, base_env, base_yaml):
@@ -169,12 +165,21 @@ def build_service_yaml(service, base_env, base_yaml):
         container_loaded = deep_merge(container_loaded, {'services': { f"{container}": service_loaded['services'][container] } })
         # merge container base yaml into service yaml
         service_loaded = deep_merge(service_loaded, container_loaded)
-    return service_loaded
+    return service_loaded, service_env
 
 def clear_tmp():
     shutil.rmtree('tmp')
     os.makedirs("tmp")
 
+def ignore_docker_compose(dir, files):
+    p = 'services/[^/]+/docker-compose.yml'
+    return [i for i in files if re.match(p, os.path.join(dir, i))]
+
+def cpy_services(services):
+    for svc in services:
+        src = f'services/{svc}'
+        dst = f'tmp/{svc}'
+        shutil.copytree(src, dst, ignore=ignore_docker_compose)
 
 def main():
     #  Get changes
@@ -199,9 +204,9 @@ def main():
     service_configs = [build_service_yaml(s, base_env, base_yaml) for s in services]
 
     # merge service configs
-    service_config = service_configs[0].copy()
+    service_config = service_configs[0][0].copy()
     for cfg in service_configs[1:]:
-        service_config = deep_merge(service_config, cfg)
+        service_config = deep_merge(service_config, cfg[0], conflicts="err")
 
     # merge in overrides
     override_yaml = load_file("docker-compose.overrides.yml")
@@ -218,8 +223,18 @@ def main():
     with open('tmp/docker-compose.yml', 'w') as f:
         f.write(final_yaml)
 
-    # TODO: copy service non-docker-compose.yml files into tmp
-    # TODO: hydrate service non-docker filtes listed in sub.gabbro
+    # copy and hydrate extra service files
+    cpy_services(services)
+    for (i, service) in enumerate(services):
+        if os.path.isfile(f'tmp/{service}/hydrate.gabbro'):
+            with open(f'tmp/{service}/hydrate.gabbro', 'r') as f:
+                for fn in f:
+                    fn = f'tmp/{service}/{fn.strip()}'
+                    data = load_file(fn)
+                    hydrated = hydrate(data, service_configs[i][1])
+                    with open(fn, 'w') as _f:
+                        _f.write(hydrated)
+
     # TODO: build command.sh
     for s in changed_services:
         print(f'docker compose up -d --force-recreate --no-cache {s}')
