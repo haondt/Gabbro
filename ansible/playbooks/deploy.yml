@@ -1,0 +1,6 @@
+- name: My first play
+  hosts: gabbro
+  become_user: docker
+  tasks:
+    - name: ping my hosts
+      ping:
