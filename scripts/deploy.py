@@ -168,7 +168,8 @@ def build_service_yaml(service, base_env, base_yaml):
     return service_loaded, service_env
 
 def clear_tmp():
-    shutil.rmtree('tmp')
+    if os.path.isdir('tmp'):
+        shutil.rmtree('tmp')
     os.makedirs("tmp")
 
 def ignore_docker_compose(dir, files):
