@@ -1,0 +1,17 @@
+workflow:
+  name: Deploy
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+      when: always
+    - if: $CI_PIPELINE_BRANCH == "main"
+      when: always
+
+stages:
+  - generate
+
+build-deployment:
+  stage: generate
+  script:
+    - echo "$INFISICAL_SECRET" > "key.txt"
+    - python3 ./scripts/deploy.py
+    - tree
