@@ -16,7 +16,7 @@ def load_file(fn):
         raise FileNotFoundError(fn)
 
 def get_secret_key():
-    return load_file('key.txt')
+    return load_file('key.txt').strip()
 
 # get changed files
 def get_changes():
@@ -241,7 +241,6 @@ def main():
         print(f'docker compose up -d --force-recreate --no-cache {s}')
 
 if __name__ == '__main__':
-    main()
     try:
         main()
     # discard stack trace
