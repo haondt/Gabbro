@@ -1,5 +1,7 @@
 # Gabbro
 
+# Configuration
+
 This repository contains the deployment information for my home server, Gabbro. It is structured in such a way that many services can be added without being overly repetitive or lost in giant docker files.
 This is achieved by segmenting services into seperate docker files, and combining them back together with a python script. The structure is more clearly defined below:
 
@@ -94,3 +96,11 @@ The following plugins are supported:
 ## 4. Final Steps
 
 Once everything has been hydrated and merged into the final docker compose file, it is placed in the tmp directory at `tmp/docker-compose.yml`.
+
+# Deployment
+
+The project is deployed in two steps. Firstly, the python script is run. This will run the change detection, and add the service files in `tmp`.
+
+```shell
+python3 ./scripts/build.py
+```

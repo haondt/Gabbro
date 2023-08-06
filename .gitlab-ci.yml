@@ -11,7 +11,7 @@ build-deployment:
   stage: generate
   script:
     - echo "$INFISICAL_SECRET" > "key.txt"
-    - python3 ./scripts/deploy.py
+    - python3 ./scripts/build.py
     - tree
     - export ANSIBLE_LOOKUP_INFISICAL_KEY=$INFISICAL_SECRET
 
