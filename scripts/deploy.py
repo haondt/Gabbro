@@ -241,6 +241,7 @@ def main():
         print(f'docker compose up -d --force-recreate --no-cache {s}')
 
 if __name__ == '__main__':
+    main()
     try:
         main()
     # discard stack trace
