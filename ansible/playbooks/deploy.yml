@@ -15,12 +15,14 @@
   hosts: gabbro
   become_user: docker
   tasks:
+    - name: check version
+      debug:
+        msg: "ansible.posix version {{ lookup('community.general.collection_version', 'ansible.posix') }}"
     - name: Copy tmp to remote
       synchronize:
         src: "{{ playbook_dir }}/../../tmp/"
         dest: /home/docker/gabbro/
         delete: true
-        rsync_path: "sudo rsync"
       become: no
     - name: Restart containers
       docker_compose:
