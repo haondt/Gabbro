@@ -21,6 +21,9 @@
         dest: /home/docker/gabbro/
         delete: true
       become: no
+    - name: Log changed containers
+      debug:
+        msg: "Changed containers: {{ hostvars['localhost']['container_names_list'] }}"
     - name: Restart containers
       docker_compose:
         project_src: "/home/docker/gabbro"
