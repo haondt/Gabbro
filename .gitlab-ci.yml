@@ -6,6 +6,7 @@ workflow:
 
 stages:
   - generate
+  - deploy
 
 build-deployment:
   stage: generate
