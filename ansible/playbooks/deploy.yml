@@ -20,6 +20,7 @@
         src: "{{ playbook_dir }}/../../tmp/"
         dest: /home/docker/gabbro/
         delete: true
+      become: no
     - name: Restart containers
       docker_compose:
         project_src: "/home/docker/gabbro"
@@ -27,4 +28,3 @@
         remove_orphans: true
         services: "{{ hostvars['localhost']['container_names_list'] }}"
         state: present
-        debug: true
