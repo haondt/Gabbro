@@ -32,6 +32,7 @@ deploy:
     - export ANSIBLE_CONFIG=$(pwd)/ansible/ansible.cfg
     - cat changes.txt
     - openssl aes-256-cbc -md sha512 -salt -pbkdf2 -iter 1000000 -in tmp.enc -out tmp.tar.gz -k $GITLAB_ENCRYPTION_KEY
+    - file tmp.tar.gz
     - tar -xzf tmp.tar.gz
     - tree
     #else
