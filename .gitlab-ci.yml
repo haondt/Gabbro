@@ -27,8 +27,20 @@ build-deployment:
 
 deploy:
   stage: deploy
-  script:
-    - ansible-galaxy collection list
+  script: |
+    if [[ -e tmp.enc ]] && [[ -s tmp.enc ]]; then
+      export ANSIBLE_LOOKUP_INFISICAL_KEY=$INFISICAL_SECRET
+      export ANSIBLE_CONFIG=$(pwd)/ansible/ansible.cfg
+      echo "Decompressing build..."
+      openssl aes-256-cbc -md sha512 -salt -pbkdf2 -iter 1000000 -in tmp.enc -out tmp.tar.gz -k $GITLAB_ENCRYPTION_KEY -d
+      tar -xzf tmp.tar.gz
+      echo "Starting playbook..."
+      cd ansible
+      ansible-playbook playbooks/deploy.yml
+      echo "Deployment complete"
+    else
+      echo "Deployment skipped"
+    fi
   dependencies:
     - build-deployment
 

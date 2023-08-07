@@ -15,11 +15,8 @@
   hosts: gabbro
   become_user: docker
   tasks:
-    - name: check version
-      debug:
-        msg: "ansible.posix version {{ lookup('community.general.collection_version', 'ansible.posix') }}"
     - name: Copy tmp to remote
-      ansible.posix.synchronize:
+      synchronize:
         src: "{{ playbook_dir }}/../../tmp/"
         dest: /home/docker/gabbro/
         delete: true
