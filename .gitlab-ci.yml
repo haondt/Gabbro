@@ -1,5 +1,4 @@
 workflow:
-  name: Deploy
   rules:
     - if: $CI_PIPELINE_SOURCE == "web" || $CI_COMMIT_BRANCH == "main"
       when: always
@@ -12,29 +11,35 @@ build-deployment:
   stage: generate
   script: |
     echo "$INFISICAL_SECRET" > "key.txt"
+    echo "Running build..."
     python3 ./scripts/build.py
     if [[ -e changes.txt ]] && [[ -s changes.txt ]]; then
+      echo "Compressing build..."
       tar -czf tmp.tar.gz tmp
       openssl aes-256-cbc -md sha512 -salt -pbkdf2 -iter 1000000 -in tmp.tar.gz -out tmp.enc -k $GITLAB_ENCRYPTION_KEY
+    else
+      echo "Skipping build export"
     fi
   artifacts:
     paths:
       - tmp.enc
       - changes.txt
 
-    #- cd ansible
-    #- ansible-playbook playbooks/deploy.yml
 deploy:
   stage: deploy
   script: |
     if [[ -e tmp.enc ]] && [[ -s tmp.enc ]]; then
       export ANSIBLE_LOOKUP_INFISICAL_KEY=$INFISICAL_SECRET
       export ANSIBLE_CONFIG=$(pwd)/ansible/ansible.cfg
+      echo "Decompressing build..."
       openssl aes-256-cbc -md sha512 -salt -pbkdf2 -iter 1000000 -in tmp.enc -out tmp.tar.gz -k $GITLAB_ENCRYPTION_KEY -d
       tar -xzf tmp.tar.gz
-      tree
+      echo "Starting playbook..."
+      cd ansible
+      ansible-playbook playbooks/deploy.yml
+      echo "Deployment complete"
     else
-      echo "Deployment not run"
+      echo "Deployment skipped"
     fi
   dependencies:
     - build-deployment
