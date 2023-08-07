@@ -1,0 +1,4 @@
+services:
+  nginx:
+    image: nginxproxy/nginx-proxy
+    restart: always
