@@ -1,4 +1,4 @@
-FROM debian:11.6-slim
+FROM debian:11-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -9,7 +9,8 @@ RUN apt-get update -y && \
 	sudo \
 	wget \
 	curl \
-	sshpass
+	sshpass \
+	rsync
 
 RUN apt-get clean
 
