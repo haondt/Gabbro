@@ -26,17 +26,17 @@ build-deployment:
     #- ansible-playbook playbooks/deploy.yml
 deploy:
   stage: deploy
-  script: |
-    if [[ -e tmp.enc ]] && [[ -s tmp.enc ]]; then
-      export ANSIBLE_LOOKUP_INFISICAL_KEY=$INFISICAL_SECRET
-      export ANSIBLE_CONFIG=$(pwd)/ansible/ansible.cfg
-      cat changes.txt
-      openssl aes-256-cbc -md sha512 -salt -pbkdf2 -iter 1000000 -in tmp.enc -out tmp.tar.gz -k $GITLAB_ENCRYPTION_KEY
-      tar -xzf tmp.tar.gz
-      tree
-    else
-      echo "Deployment not run"
-    fi
+  script:
+    #if [[ -e tmp.enc ]] && [[ -s tmp.enc ]]; then
+    - export ANSIBLE_LOOKUP_INFISICAL_KEY=$INFISICAL_SECRET
+    - export ANSIBLE_CONFIG=$(pwd)/ansible/ansible.cfg
+    - cat changes.txt
+    - openssl aes-256-cbc -md sha512 -salt -pbkdf2 -iter 1000000 -in tmp.enc -out tmp.tar.gz -k $GITLAB_ENCRYPTION_KEY
+    - tar -xzf tmp.tar.gz
+    - tree
+    #else
+    #  echo "Deployment not run"
+    #fi
   dependencies:
     - build-deployment
 
