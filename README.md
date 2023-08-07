@@ -100,7 +100,14 @@ Once everything has been hydrated and merged into the final docker compose file,
 # Deployment
 
 The project is deployed in two steps. Firstly, the python script is run. This will run the change detection, and add the service files in `tmp`.
+It will also create a file called `changes.txt` that lists all the containers of the changed services.
 
 ```shell
 python3 ./scripts/build.py
+```
+
+Next, it will call an ansible playbook, `ansible/playbooks/deploy.yml`, that will copy the files in `tmp` to the remote, and redeploy all the containers in `changes.txt`.
+
+```shell
+ansible-playbook playbooks/deploy.yml
 ```

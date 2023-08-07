@@ -6,12 +6,19 @@ workflow:
 
 stages:
   - generate
+  - deploy
 
 build-deployment:
   stage: generate
   script:
     - echo "$INFISICAL_SECRET" > "key.txt"
     - python3 ./scripts/build.py
-    - tree
+
+deploy:
+  stage: deploy
+  script:
     - export ANSIBLE_LOOKUP_INFISICAL_KEY=$INFISICAL_SECRET
+    - export ANSIBLE_CONFIG=$(pwd)/ansible/ansible.cfg
+    - cd ansible
+    - ansible-playbook playbooks/deploy.yml
 

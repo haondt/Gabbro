@@ -1,6 +1,9 @@
-- name: My first play
+- name: Deploy
   hosts: gabbro
   become_user: docker
   tasks:
-    - name: ping my hosts
-      ping:
+    - name: Copy tmp to remote
+      copy:
+        src: "{{ playbook_dir }}/../../tmp/"
+        dest: /home/docker/gabbro/
+        force: true

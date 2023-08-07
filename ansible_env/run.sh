@@ -4,5 +4,6 @@ docker run -it --rm \
     -e ANSIBLE_CONFIG='/ansible/ansible.cfg' \
     -e ANSIBLE_LOOKUP_INFISICAL_KEY=$(cat '../key.txt' | xargs) \
     -v $(pwd)/../ansible:/ansible \
+    -v $(pwd)/../tmp:/tmp \
     -w /ansible \
     ansible_env
