@@ -6,19 +6,37 @@ workflow:
 
 stages:
   - generate
-  - deploy
 
 build-deployment:
   stage: generate
-  script:
-    - echo "$INFISICAL_SECRET" > "key.txt"
-    - python3 ./scripts/build.py
+  script: |
+    echo "$INFISICAL_SECRET" > "key.txt"
+    python3 ./scripts/build.py
+    if [[ -e changes.txt ]] && [[ -s changes.txt ]]; then
+      tar -czf tmp.tar.gz tmp
+      openssl aes-256-cbc -md sha512 -salt -pbkdf2 -iter 1000000 -in tmp.tar.gz -out tmp.enc -k $GITLAB_ENCRYPTION_KEY
+    fi
+  artifacts:
+    paths:
+      - tmp.enc
+      - changes.txt
 
+    #- cd ansible
+    #- ansible-playbook playbooks/deploy.yml
 deploy:
   stage: deploy
-  script:
-    - export ANSIBLE_LOOKUP_INFISICAL_KEY=$INFISICAL_SECRET
-    - export ANSIBLE_CONFIG=$(pwd)/ansible/ansible.cfg
-    - cd ansible
-    - ansible-playbook playbooks/deploy.yml
+  script: |
+    export ANSIBLE_LOOKUP_INFISICAL_KEY=$INFISICAL_SECRET
+    export ANSIBLE_CONFIG=$(pwd)/ansible/ansible.cfg
+    openssl aes-256-cbc -md sha512 -salt -pbkdf2 -iter 1000000 -in tmp.enc -out tmp.tar.gz -k $GITLAB_ENCRYPTION_KEY
+    mkdir tmp
+    tar -xzf tmp.tar.gz -C tmp
+    tree
+  dependencies:
+    - build-deployment
+  rules:
+    - exists:
+        - tmp.enc
+        - changes.txt
+
 
