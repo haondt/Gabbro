@@ -19,7 +19,7 @@
       debug:
         msg: "ansible.posix version {{ lookup('community.general.collection_version', 'ansible.posix') }}"
     - name: Copy tmp to remote
-      synchronize:
+      ansible.posix.synchronize:
         src: "{{ playbook_dir }}/../../tmp/"
         dest: /home/docker/gabbro/
         delete: true
