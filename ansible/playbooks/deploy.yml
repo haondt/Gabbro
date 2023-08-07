@@ -20,6 +20,7 @@
         src: "{{ playbook_dir }}/../../tmp/"
         dest: /home/docker/gabbro/
         delete: true
+        rsync_path: "sudo rsync"
       become: no
     - name: Restart containers
       docker_compose:
