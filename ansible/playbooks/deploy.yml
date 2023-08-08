@@ -25,6 +25,7 @@
       debug:
         msg: "Changed containers: {{ hostvars['localhost']['container_names_list'] }}"
     - name: Restart containers
+      become: true
       docker_compose:
         project_src: "/home/docker/gabbro"
         recreate: always
