@@ -43,7 +43,7 @@ def filter_services(files):
 
 # load env file into a dictionary
 def load_env_file(fn):
-    plugin_pattern = re.compile("^\s*([^\s#]+)\s*=\{\{\s*([A-Za-z_-]+)\s*\(\s*(?:(?:(?:(?:'([^']*)')|([0-9]+)))(?:\s*,\s*(?:(?:'([^']*)')|([0-9]+)))*)?\s*\)\s*\}\}\s*$")
+    plugin_pattern = re.compile("^\s*([^\s#]+)\s*=\{\{\s*([A-Za-z_-]+)\s*\(\s*([^)]*)\s*\)\s*\}\}\s*$")
     plugin_args_pattern = re.compile("(?:'([^']*)')|([0-9]+)")
 
     base_pattern = re.compile("^\s*([^\s#]+)\s*=\s*([^\s#]*)\s*$")
@@ -61,7 +61,7 @@ def load_env_file(fn):
             pm = plugin_pattern.match(l)
             if pm:
                 g = [i for i in pm.groups() if i != None]
-                args = ([''.join(i) for i in plugin_args_pattern.findall(l)])
+                args = ([''.join(i) for i in plugin_args_pattern.findall(g[2])])
                 if g[0] in d:
                     raise ValueError(f"Multiple entries for variable: {g[0]}")
                 d[g[0]] = plugin(g[1], args)
