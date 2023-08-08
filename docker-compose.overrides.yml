@@ -2,6 +2,9 @@ services:
   nginx:
     networks:
       - nginx
+  influxdb2:
+    networks:
+      - grafana
 
 networks:
   nginx:

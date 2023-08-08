@@ -1,6 +1,7 @@
 services:
   nginx:
     image: nginxproxy/nginx-proxy
-    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
     ports:
       - 80:80
