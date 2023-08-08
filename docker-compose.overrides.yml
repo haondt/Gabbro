@@ -5,6 +5,8 @@ services:
   influxdb2:
     networks:
       - grafana
+    volumes:
+      - /mnt/grafana-influxdb2/:/var/lib/influxdb2
 
 networks:
   nginx:

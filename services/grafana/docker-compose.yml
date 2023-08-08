@@ -2,7 +2,6 @@ services:
   influxdb2:
     image: influxdb:2.5-alpine
     volumes:
-      - influxdb2-data:/var/lib/influxdb2
       - ./grafana/influxdb2/influxdb.conf:/etc/influxdb2/influxdb.conf
       - ./grafana/influxdb2/influx_init.sh:/docker-entrypoint-initdb.d/influx_init.sh
     environment:
@@ -11,6 +10,3 @@ services:
       DOCKER_INFLUXDB_INIT_PASSWORD: {{ COM_GABBRO_GRAFANA_INFLUXDB2_INFLUXDB_INIT_PASSWORD }}
       DOCKER_INFLUXDB_INIT_ORG: org
       DOCKER_INFLUXDB_INIT_BUCKET: telemetry
-
-volumes:
-  influxdb2-data:
