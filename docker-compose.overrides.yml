@@ -6,7 +6,7 @@ services:
     networks:
       - grafana
     volumes:
-      - /mnt/ssd_raid/grafana-influxdb2/:/var/lib/influxdb2
+      - /mnt/ssd_raid/inner/grafana-influxdb2/:/var/lib/influxdb2
 
 networks:
   nginx:
