@@ -1,0 +1,7 @@
+services:
+  filestash:
+    image: machines/filestash:latest
+    environment:
+      APPLICATION_URL: filestash.gabbro
+      VIRTUAL_HOST: filestash.gabbro
+      VIRTUAL_PORT: 8334
