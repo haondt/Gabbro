@@ -22,6 +22,10 @@ services:
       - {{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads
     environment:
       PGID: {{ MEDIA__GROUP }}
+  qbittorrent:
+    volumes:
+      - {{ MEDIA__DOWNLOAD_DIR}}/:/downloads
+      - /srv/storage/local/main/qbittorrent/:/config
 
 networks:
   nginx:
