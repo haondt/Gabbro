@@ -20,6 +20,8 @@ services:
       - /srv/storage/local/main/radarr/:/config
       - {{ MEDIA__PLEX_DIR }}/movies:/mnt/movies
       - {{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads
+    environment:
+      PGID: {{ MEDIA__GROUP }}
 
 networks:
   nginx:
