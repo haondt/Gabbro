@@ -10,7 +10,25 @@ services:
   filestash:
     networks:
       - nginx
+  portainer:
+    ports:
+      - 9001:9001
+  radarr:
+    networks:
+      - nginx
+    volumes:
+      - /srv/storage/local/main/radarr/:/config
+      - {{ MEDIA__PLEX_DIR }}/movies:/mnt/movies
+      - {{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads
 
 networks:
   nginx:
   grafana:
+
+# available volumes:
+# /srv/storage/local/main
+# /srv/storage/remote/hdd1
+# /srv/storage/remote/hdd2
+# /srv/storage/remote/plex4k
+# /srv/storage/remote/raid10
+# /srv/storage/remote/ssd_raid
