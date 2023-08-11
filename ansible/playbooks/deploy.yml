@@ -18,7 +18,7 @@
     - name: Copy tmp to remote
       synchronize:
         src: "{{ playbook_dir }}/../../tmp/"
-        dest: /home/docker/gabbro/
+        dest: /srv/deploy/
         delete: true
       become: no
     - name: Log changed containers
@@ -27,7 +27,7 @@
     - name: Restart containers
       become: true
       docker_compose:
-        project_src: "/home/docker/gabbro"
+        project_src: "/srv/deploy"
         recreate: always
         remove_orphans: true
         services: "{{ hostvars['localhost']['container_names_list'] }}"

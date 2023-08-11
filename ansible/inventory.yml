@@ -4,4 +4,4 @@ all:
       ansible_connection: ssh
       ansible_password: "{{ lookup('infisical', 'gabbro/PASSWORD') }}"
       ansible_become_password: "{{ lookup('infisical', 'gabbro/PASSWORD') }}"
-      ansible_user: docker
+      ansible_user: gabbro
