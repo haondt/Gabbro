@@ -28,6 +28,8 @@ services:
       - /srv/storage/local/main/qbittorrent/:/config
     networks:
       - nginx
+    environment:
+      PGID: {{ MEDIA__GROUP }}
 
 networks:
   nginx:
