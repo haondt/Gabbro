@@ -18,7 +18,7 @@ services:
       - nginx
     volumes:
       - /srv/storage/local/main/radarr/:/config
-      - {{ MEDIA__PLEX_DIR }}/movies:/mnt/movies
+      - {{ MEDIA__PLEX_DIR_0 }}/movies_hd:/mnt/movies0
       - {{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads
     environment:
       PGID: {{ MEDIA__GROUP }}
