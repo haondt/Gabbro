@@ -22,6 +22,15 @@ services:
       - {{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads
     environment:
       PGID: {{ MEDIA__GROUP }}
+  radarr_4k:
+    networks:
+      - nginx
+    volumes:
+      - /srv/storage/local/main/radarr_4k/:/config
+      - {{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0
+      - {{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads
+    environment:
+      PGID: {{ MEDIA__GROUP }}
   qbittorrent:
     volumes:
       - {{ MEDIA__DOWNLOAD_DIR}}/:/downloads
