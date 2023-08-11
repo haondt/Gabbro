@@ -26,6 +26,8 @@ services:
     volumes:
       - {{ MEDIA__DOWNLOAD_DIR}}/:/downloads
       - /srv/storage/local/main/qbittorrent/:/config
+    networks:
+      - nginx
 
 networks:
   nginx:
