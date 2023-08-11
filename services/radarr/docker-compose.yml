@@ -1,0 +1,8 @@
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    group_add:
+      - "{{ MEDIA__GROUP }}"
+    environment:
+      VIRTUAL_HOST: radarr.gabbro
+      VIRTUAL_PORT: 7878

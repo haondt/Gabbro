@@ -215,7 +215,7 @@ def main():
     # merge in overrides
     override_yaml = load_file("docker-compose.overrides.yml")
     override_hydrated = hydrate(override_yaml, base_env)
-    override_obj = yaml.safe_load(override_yaml)
+    override_obj = yaml.safe_load(override_hydrated)
     final_cfg = deep_merge(service_config, override_obj)
 
     # create final file

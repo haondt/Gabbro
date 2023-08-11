@@ -2,8 +2,8 @@ services:
   {{ COM_GABBRO_CONTAINER }}:
     container_name: {{ COM_GABBRO_CONTAINER }}
     labels:
-      com.obsidian.host: {{ COM_GABBRO_HOST }}
-      com.obsidian.service: {{ COM_GABBRO_CONTAINER }}
+      com.gabbro.host: {{ COM_GABBRO_HOST }}
+      com.gabbro.service: {{ COM_GABBRO_CONTAINER }}
     environment:
       PGID: {{ COM_GABBRO_PGID }}
       PUID: {{ COM_GABBRO_PUID }}
