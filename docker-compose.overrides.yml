@@ -25,6 +25,7 @@ services:
   qbittorrent:
     volumes:
       - {{ MEDIA__DOWNLOAD_DIR}}/:/downloads
+      - /srv/storage/remote/raid10/qbittorrent__incomplete/:/downloading
       - /srv/storage/local/main/qbittorrent/:/config
     networks:
       - nginx
