@@ -13,7 +13,7 @@
 
 - name: Deploy
   hosts: gabbro
-  become_user: docker
+  become_user: gabbro
   tasks:
     - name: Copy tmp to remote
       synchronize:
