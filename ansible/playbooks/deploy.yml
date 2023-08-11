@@ -20,12 +20,13 @@
         src: "{{ playbook_dir }}/../../tmp/"
         dest: /srv/deploy/
         delete: true
-      become: no
+      become: false
     - name: Log changed containers
       debug:
         msg: "Changed containers: {{ hostvars['localhost']['container_names_list'] }}"
     - name: Restart containers
       become: true
+      become_user: gabbro
       docker_compose:
         project_src: "/srv/deploy"
         recreate: always
