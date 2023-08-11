@@ -7,6 +7,9 @@ services:
       - grafana
     volumes:
       - /mnt/ssd_raid/grafana__influxdb2/:/var/lib/influxdb2
+  filestash:
+    networks:
+      - nginx
 
 networks:
   nginx:
