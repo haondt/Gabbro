@@ -13,6 +13,9 @@ services:
   portainer:
     ports:
       - 9001:9001
+  dashy:
+    networks:
+      - nginx
   radarr:
     networks:
       - nginx
