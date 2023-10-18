@@ -5,3 +5,6 @@ services:
       APPLICATION_URL: helios.gabbro
       VIRTUAL_HOST: helios.gabbro
       VIRTUAL_PORT: 8000
+    volumes:
+      - ./helios/helios.yml:/config/helios.yml
+      - /srv/storage/local/main/helios:/data
