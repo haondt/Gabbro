@@ -1,0 +1,7 @@
+services:
+  helios:
+    image: haumea/helios
+    environment:
+      APPLICATION_URL: helios.gabbro
+      VIRTUAL_HOST: helios.gabbro
+      VIRTUAL_PORT: 8000

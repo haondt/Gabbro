@@ -1,8 +1,0 @@
-services:
-  dashy:
-    image: lissy93/dashy
-    environment:
-      APPLICATION_URL: dashy.gabbro
-      VIRTUAL_HOST: dashy.gabbro
-      VIRTUAL_PORT: 80
-      NODE_ENV: production

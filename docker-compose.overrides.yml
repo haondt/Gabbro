@@ -13,7 +13,7 @@ services:
   portainer:
     ports:
       - 9001:9001
-  dashy:
+  helios:
     networks:
       - nginx
   radarr:
