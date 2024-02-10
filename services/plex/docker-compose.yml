@@ -1,5 +1,5 @@
 services:
-  plex:
+  plex2:
     image: lscr.io/linuxserver/plex:latest
     ports:
       - 32400:32400
