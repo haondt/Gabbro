@@ -30,24 +30,24 @@ def get_changes():
 # get changed services
 def filter_services(files):
     base_files = [
-        '\.env',
-        'docker-compose\..*\.yml'
+        r'\.env',
+        r'docker-compose\..*\.yml'
     ]
 
     bp = re.compile('^' + '|'.join([f'({i})' for i in base_files]) + '$')
     if len([i for i in files if bp.match(i)]) > 0:
         return [d for d in next(os.walk('services'))[1] if os.path.isfile(f'services/{d}/docker-compose.yml')]
-    sp = re.compile('^services\/([^/]+)\/.+$')
+    sp = re.compile(r'^services\/([^/]+)\/.+$')
     services = [sp.search(i).group(1) for i in files if sp.match(i)]
     return [s for s in services if os.path.isfile(f'services/{s}/docker-compose.yml')]
 
 # load env file into a dictionary
 def load_env_file(fn):
-    plugin_pattern = re.compile("^\s*([^\s#]+)\s*=\{\{\s*([A-Za-z_-]+)\s*\(\s*([^)]*)\s*\)\s*\}\}\s*$")
+    plugin_pattern = re.compile(r"^\s*([^\s#]+)\s*=\{\{\s*([A-Za-z_-]+)\s*\(\s*([^)]*)\s*\)\s*\}\}\s*$")
     plugin_args_pattern = re.compile("(?:'([^']*)')|([0-9]+)")
 
-    base_pattern = re.compile("^\s*([^\s#]+)\s*=\s*([^\s#]*)\s*$")
-    ignore_pattern = re.compile("^\s*(#.*)?$")
+    base_pattern = re.compile(r"^\s*([^\s#]+)\s*=\s*([^\s#]*)\s*$")
+    ignore_pattern = re.compile(r"^\s*(#.*)?$")
 
     d = {}
     with open(fn, 'r') as f:

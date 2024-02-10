@@ -1,11 +1,25 @@
 services:
   radarr:
+    networks:
+      - nginx
+    volumes:
+      - /srv/storage/local/main/radarr/:/config
+      - {{ MEDIA__PLEX_DIR_0 }}/movies_hd:/mnt/movies0
+      - {{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads
     image: lscr.io/linuxserver/radarr:latest
     environment:
+      PGID: {{ MEDIA__GROUP }}
       VIRTUAL_HOST: radarr.gabbro
       VIRTUAL_PORT: 7878
   radarr_4k:
+    networks:
+      - nginx
+    volumes:
+      - /srv/storage/local/main/radarr_4k/:/config
+      - {{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0
+      - {{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads
     image: lscr.io/linuxserver/radarr:latest
     environment:
+      PGID: {{ MEDIA__GROUP }}
       VIRTUAL_HOST: radarr-4k.gabbro
       VIRTUAL_PORT: 7878

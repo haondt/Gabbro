@@ -1,7 +1,10 @@
 services:
   influxdb2:
+    networks:
+      - grafana
     image: influxdb:2.5-alpine
     volumes:
+      - /mnt/ssd_raid/grafana__influxdb2/:/var/lib/influxdb2
       - ./grafana/influxdb2/influxdb.conf:/etc/influxdb2/influxdb.conf
       - ./grafana/influxdb2/influx_init.sh:/docker-entrypoint-initdb.d/influx_init.sh
     environment:

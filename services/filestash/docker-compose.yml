@@ -1,5 +1,7 @@
 services:
   filestash:
+    networks:
+      - nginx
     image: machines/filestash:latest
     environment:
       APPLICATION_URL: filestash.gabbro

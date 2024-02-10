@@ -1,5 +1,7 @@
 services:
   helios:
+    networks:
+      - nginx
     image: haumea/helios
     environment:
       APPLICATION_URL: helios.gabbro

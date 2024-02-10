@@ -1,5 +1,7 @@
 services:
   portainer:
+    ports:
+      - 9001:9001
     image: portainer/agent:2.18.4
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro

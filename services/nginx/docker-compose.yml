@@ -1,5 +1,7 @@
 services:
   nginx:
+    networks:
+      - nginx
     image: nginxproxy/nginx-proxy
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock
