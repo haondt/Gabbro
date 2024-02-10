@@ -1,5 +1,6 @@
 # Gabbro
 
+
 # Configuration
 
 This repository contains the deployment information for my home server, Gabbro. It is structured in such a way that many services can be added without being overly repetitive or lost in giant docker files.
