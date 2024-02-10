@@ -1,6 +1,6 @@
 services:
   plex:
-    image: lscr.io/linuxserver/plex:docker
+    image: lscr.io/linuxserver/plex:latest
     ports:
       - 32400:32400
       - 1900:1900/udp
@@ -17,12 +17,11 @@ services:
       PGID: {{ MEDIA__GROUP }}
       VIRTUAL_HOST: plex.gabbro
       VIRTUAL_PORT: 32400
-      VERSION: docker
     volumes:
       - /srv/storage/local/main/plex/:/config
       - {{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0
   plex_4k:
-    image: lscr.io/linuxserver/plex:docker
+    image: lscr.io/linuxserver/plex:latest
     ports:
       - 32400:32400
       - 1900:1900/udp
@@ -39,7 +38,6 @@ services:
       PGID: {{ MEDIA__GROUP }}
       VIRTUAL_HOST: plex_4k.gabbro
       VIRTUAL_PORT: 32400
-      VERSION: docker
     volumes:
       - /srv/storage/local/main/plex_4k/:/config
       - {{ MEDIA__PLEX_DIR_0 }}/movies_hd:/mnt/movies0
