@@ -1,5 +1,9 @@
 # Gabbro
 
+This repository is mirrored on GitHub at https://github.com/haondt/Gabbro and the upstream source is on GitLab at https://gitlab.com/burghardtnoah/gabbro/.
+
+This repo contains the configuration for my homelab v2, Gabbro. For v1, see [Obsidian](https://github.com/haondt/Obsidian). The management for this repo is handled by its companion cloud environment, [Gabbro-CE](https://github.com/haondt/Gabbro-CE)
+
 # Configuration
 
 This repository contains the deployment information for my home server, Gabbro. It is structured in such a way that many services can be added without being overly repetitive or lost in giant docker files.

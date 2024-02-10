@@ -17,7 +17,6 @@ services:
       PGID: {{ MEDIA__GROUP }}
       VIRTUAL_HOST: plex.gabbro
       VIRTUAL_PORT: 32400
-      PLEX_CLAIM: claim-YQs8MzF3RqaRQfBjxXYD
     volumes:
       - /srv/storage/local/main/plex/:/config
       - {{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0
