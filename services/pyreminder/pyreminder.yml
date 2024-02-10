@@ -15,17 +15,4 @@ checks:
           color: FEE4DF
           template: "New version of `${docker_hub__image}` pushed ${docker_hub__last_updated}."
       period: 1d
-  - test:
-      source:
-        type: reminder
-      enrichments:
-        - type: datetime
-          tz: America/Edmonton
-          format: d M y hh:mm:ss
-      destinations:
-        - type: discord
-          webhookURL: ${COM_GABBRO_PYREMINDER_DISCORD_DEBUG_WEBHOOK_URL}
-          color: FEE4DF
-          template: "it is now ${datetime__formatted}"
-      period: 15s
 
