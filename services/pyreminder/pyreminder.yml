@@ -27,4 +27,5 @@ checks:
           webhookURL: ${COM_GABBRO_PYREMINDER_DISCORD_DEBUG_WEBHOOK_URL}
           color: FEE4DF
           template: "it is now ${datetime__formatted}"
+      period: 15s
 
