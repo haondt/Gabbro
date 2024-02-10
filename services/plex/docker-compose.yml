@@ -11,8 +11,9 @@ services:
       - 32413:32413/udp
       - 32414:32414/udp
       - 32469:32469
-    networks:
-      - nginx
+    network_mode: host
+        #networks:
+        #- nginx
     environment:
       PGID: {{ MEDIA__GROUP }}
       VIRTUAL_HOST: plex.gabbro
