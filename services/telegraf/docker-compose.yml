@@ -10,7 +10,7 @@ services:
       HOST_PROC: /rootfs/proc
       HOST_SYS: /rootfs/sys
       HOST_ETC: /rootfs/etc
-      INFLUXDB_TELEGRAF_TOKEN: {{ secret('grafana', 'INFLUXDB2_TELEMETRY_TOKEN') }}
+      INFLUXDB_TELEGRAF_TOKEN: {{ COM_GABBRO_TELEGRAF_INFLUXDB2_TOKEN }}
       INFLUXDB_URL: influxdb2
       INFLUXDB_BUCKET: telegraf
       INFLUXDB_ORG: org
