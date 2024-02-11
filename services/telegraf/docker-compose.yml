@@ -12,7 +12,7 @@ services:
       HOST_ETC: /rootfs/etc
       INFLUXDB_TELEGRAF_TOKEN: {{ COM_GABBRO_TELEGRAF_INFLUXDB2_TOKEN }}
       INFLUXDB_URL: influxdb2
-      INFLUXDB_BUCKET: telegraf
+      INFLUXDB_BUCKET: telemetry
       INFLUXDB_ORG: org
       COM_GABBRO_HOST: {{ COM_GABBRO_HOST }}
     volumes:
