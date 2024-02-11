@@ -2,12 +2,16 @@ services:
   influxdb2:
     networks:
       - grafana
-    image: influxdb:2.5-alpine
+      - nginx
+    image: influxdb:2.7.5-alpine
     volumes:
       - /mnt/ssd_raid/grafana__influxdb2/:/var/lib/influxdb2
       - ./grafana/influxdb2/influxdb.conf:/etc/influxdb2/influxdb.conf
       - ./grafana/influxdb2/influx_init.sh:/docker-entrypoint-initdb.d/influx_init.sh
     environment:
+      APPLICATION_URL: influxdb2.gabbro
+      VIRTUAL_HOST: influxdb2.gabbro
+      VIRTUAL_PORT: 8086
       DOCKER_INFLUXDB_INIT_MODE: setup
       DOCKER_INFLUXDB_INIT_USERNAME: {{ COM_GABBRO_GRAFANA_INFLUXDB2_INFLUXDB_INIT_USERNAME }}
       DOCKER_INFLUXDB_INIT_PASSWORD: {{ COM_GABBRO_GRAFANA_INFLUXDB2_INFLUXDB_INIT_PASSWORD }}
