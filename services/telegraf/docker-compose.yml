@@ -4,7 +4,7 @@ services:
     networks:
       - grafana
     group_add:
-      - {{ DOCKER__GROUP }}
+      - "{{ DOCKER__GROUP }}"
     user: "telegraf:{{ DOCKER__GROUP }}"
     environment:
       HOST_PROC: /rootfs/proc

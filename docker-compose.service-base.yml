@@ -5,7 +5,7 @@ services:
       com.gabbro.host: {{ COM_GABBRO_HOST }}
       com.gabbro.service: {{ COM_GABBRO_CONTAINER }}
     group_add:
-      - {{ COM_GABBRO_PGID }}
+      - "{{ COM_GABBRO_PGID }}"
     environment:
       PGID: {{ COM_GABBRO_PGID }}
       PUID: {{ COM_GABBRO_PUID }}
