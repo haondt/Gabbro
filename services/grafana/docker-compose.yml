@@ -9,7 +9,6 @@ services:
       - ./grafana/influxdb2/influxdb.conf:/etc/influxdb2/influxdb.conf
       - ./grafana/influxdb2/influx_init.sh:/docker-entrypoint-initdb.d/influx_init.sh
     environment:
-      APPLICATION_URL: influxdb2.gabbro
       VIRTUAL_HOST: influxdb2.gabbro
       VIRTUAL_PORT: 8086
       DOCKER_INFLUXDB_INIT_MODE: setup

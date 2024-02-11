@@ -1,0 +1,23 @@
+services:
+  bazarr:
+    networks:
+      - nginx
+    image: lscr.io/linuxserver/bazarr:latest
+    volumes:
+      - /srv/storage/local/main/bazarr/:/config
+      - {{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0
+    environment:
+      PGID: {{ MEDIA__GROUP }}
+      VIRTUAL_HOST: bazarr.gabbro
+      VIRTUAL_PORT: 6767
+  bazarr_4k:
+    networks:
+      - nginx
+    image: lscr.io/linuxserver/bazarr:latest
+    volumes:
+      - /srv/storage/local/main/bazarr/:/config
+      - {{ MEDIA__PLEX_DIR_0 }}/movies_hd:/mnt/movies0
+    environment:
+      PGID: {{ MEDIA__GROUP }}
+      VIRTUAL_HOST: bazarr-4k.gabbro
+      VIRTUAL_PORT: 6767

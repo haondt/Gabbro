@@ -1,0 +1,10 @@
+services:
+  prowlarr:
+    networks:
+      - nginx
+    image: lscr.io/linuxserver/prowlarr:develop
+    volumes:
+      - /srv/storage/local/main/prowlarr/:/config
+    environment:
+      VIRTUAL_HOST: prowlarr.gabbro
+      VIRTUAL_PORT: 9696
