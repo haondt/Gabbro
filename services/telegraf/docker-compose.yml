@@ -1,0 +1,24 @@
+services:
+  telegraf:
+    image: telegraf:latest
+    networks:
+      - grafana
+    group_add:
+      - {{ DOCKER__GROUP }}
+    user: "telegraf:{{ DOCKER__GROUP }}"
+    environment:
+      HOST_PROC: /rootfs/proc
+      HOST_SYS: /rootfs/sys
+      HOST_ETC: /rootfs/etc
+      INFLUXDB_TELEGRAF_TOKEN: {{ secret('grafana', 'INFLUXDB2_TELEMETRY_TOKEN') }}
+      INFLUXDB_URL: influxdb2
+      INFLUXDB_BUCKET: telegraf
+      INFLUXDB_ORG: org
+      COM_GABBRO_HOST: {{ COM_GABBRO_HOST }}
+      COM_GABBRO_SERVICE: {{ COM_GABBRO_SERVICE }}
+    volumes:
+      - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /sys:/rootfs/sys:ro
+      - /proc:/rootfs/proc:ro
+      - /etc:/rootfs/etc:ro
