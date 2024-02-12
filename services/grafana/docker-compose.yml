@@ -17,6 +17,9 @@ services:
       DOCKER_INFLUXDB_INIT_ORG: org
       DOCKER_INFLUXDB_INIT_BUCKET: telemetry
   grafana:
+    networks:
+      - grafana
+      - nginx
     image: grafana/grafana:latest
     user: "{{ COM_GABBRO_PUID }}:{{ MONITORING__GROUP }}"
     volumes:
