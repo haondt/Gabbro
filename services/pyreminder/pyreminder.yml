@@ -26,16 +26,16 @@ checks:
         name: Radarr
   - sonarr:
       source:
-        type: apt
-        url: https://apt.sonarr.tv/debian
-        component: main
-        dist: jessie
-        package: sonarr
+        type: github
+        owner: Sonarr
+        repo: Sonarr
       destinations:
         - type: discord
           webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
           color: 1d819f
           template: github-discord
+      meta:
+        name: Sonarr
       period: 1d
   - bazarr:
       source:
