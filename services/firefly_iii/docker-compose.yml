@@ -25,6 +25,44 @@ services:
       MYSQL_DATABASE: firefly
     volumes:
       - /srv/storage/local/main/firefly_iii/db/:/var/lib/mysql
+  firefly_iii_importer:
+    networks:
+      - firefly_iii
+    image: fireflyiii/data-importer:latest
+    depends_on:
+      - firefly_iii
+    environment:
+      VIRTUAL_HOST: firefly-iii-di.gabbro
+      VIRTUAL_PORT: 8080
+      FIREFLY_III_URL: 'http://firefly-iii.gabbro'
+      FIREFLY_III_ACCESS_TOKEN: {{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}
+  firefly_iii_pp_node_red:
+    networks:
+      - firefly_iii
+    image: nodered/node-red:latest
+    environment:
+      VIRTUAL_HOST: firefly-iii-nr.gabbro
+      VIRTUAL_PORT: 1880
+    volumes:
+      - /srv/storage/local/main/firefly_iii/node-red/data/:/data
+      - /srv/storage/local/main/firefly_iii/node-red/external/:/external
+  firefly_iii_pp:
+    networks:
+      - firefly_iii
+    image: haumea/fireflyiii-pp:latest
+    environment:
+      VIRTUAL_HOST: firefly-iii-pp.gabbro
+      VIRTUAL_PORT: 80
+      DOTNET_KeyValueStoreSettings__Stores__assetAccounts__Path: assetAccounts.json
+      DOTNET_KeyValueStoreSettings__Stores__assetAccounts__DefaultValueValue: "{\"attributes\":{},\"add_tags\":[]}"
+      DOTNET_KeyValueStoreSettings__Stores__expenseAccounts__Path: expenseAccounts.json
+      DOTNET_KeyValueStoreSettings__Stores__expenseAccounts__DefaultValueValue: "{\"attributes\":{},\"add_tags\":[]}"
+      FireFlyIIISettings__BaseUrl: http://firefly_iii:8080/
+      FireFlyIIISettings__Token: {{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}
+    volumes:
+      - /srv/storage/local/main/firefly_iii/pp/thunder/:/thunder
+      - /srv/storage/local/main/firefly_iii/pp/kvs/:/keyValueStore
+
 
 networks:
   firefly_iii:
