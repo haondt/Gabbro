@@ -20,8 +20,8 @@ services:
     image: mariadb
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: yes
-      MYSQL_USER: {{ secret('firefly_iii', 'FIREFLY_III__DB__USERNAME') }}
-      MYSQL_PASSWORD: {{ secret('firefly_iii', 'FIREFLY_III__DB__PASSWORD') }}
+      MYSQL_USER: {{ COM_GABBRO_FIREFLY_III__DB__USERNAME }}
+      MYSQL_PASSWORD: {{ COM_GABBRO_FIREFLY_III__DB__PASSWORD }}
       MYSQL_DATABASE: firefly
     volumes:
       - /srv/storage/local/main/firefly_iii/db/:/var/lib/mysql
