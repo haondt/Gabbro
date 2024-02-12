@@ -10,10 +10,6 @@ checks:
           webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
           color: FEE4DF
           template: "New version of `${docker_hub__image}` pushed ${docker_hub__last_updated}."
-        - type: discord
-          webhookURL: ${COM_GABBRO_PYREMINDER_DISCORD_DEBUG_WEBHOOK_URL}
-          color: FEE4DF
-          template: "New version of `${docker_hub__image}` pushed ${docker_hub__last_updated}."
       period: 1d
   - radarr:
       source:
@@ -22,7 +18,7 @@ checks:
         repo: Radarr
       destinations:
         - type: discord
-          webhookURL: ${COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL}
+          webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
           color: e0ab2a
           template: github-discord
       period: 1d
@@ -37,7 +33,7 @@ checks:
         package: sonarr
       destinations:
         - type: discord
-          webhookURL: ${COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL}
+          webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
           color: 1d819f
           template: "Version $apt__version of Sonarr has been released."
       period: 1d
@@ -48,7 +44,7 @@ checks:
         repo: bazarr
       destinations:
         - type: discord
-          webhookURL: ${COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL}
+          webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
           color: 9c36b5
           template: github-discord
       meta:
@@ -61,7 +57,7 @@ checks:
         repo: firefly-iii
       destinations:
         - type: discord
-          webhookURL: ${COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL}
+          webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
           color: ef8867
           template: github-discord
       meta:
@@ -69,4 +65,4 @@ checks:
       period: 1d
 templates:
   github-discord: |
-    Version ${github__tag} of ${meta__name} has been released. [Click here to view the release on GitHub](${github__url}).
+    Version {{ github__tag }} of ${meta__name} has been released. [Click here to view the release on GitHub](${github__url}).

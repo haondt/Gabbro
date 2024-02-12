@@ -8,7 +8,5 @@ services:
     volumes:
       - ./pyreminder/pyreminder.yml:/config/pyreminder.yml
       - pyreminder-data:/data
-    environment:
-      COM_GABBRO_PYREMINDER_DISCORD_DEBUG_WEBHOOK_URL: {{ COM_GABBRO_PYREMINDER_DISCORD_DEBUG_WEBHOOK_URL }}
 volumes:
   pyreminder-data:
