@@ -1,0 +1,17 @@
+services:
+  wireguard:
+    image: lscr.io/linuxserver/wireguard:latest
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - SERVERURL={{ COM_GABBRO_WIREGUARD__SERVER_URL }}
+      - SERVERPORT=51820
+      - PEERS=haondPhone
+    volumes:
+      - /srv/storage/local/main/wireguard/:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 51820:51820/udp
+volumes:
+  pyreminder-data:
