@@ -65,4 +65,4 @@ checks:
       period: 1d
 templates:
   github-discord: |
-    Version {{ github__tag }} of ${meta__name} has been released. [Click here to view the release on GitHub](${github__url}).
+    Version ${github__tag} of ${meta__name} has been released. [Click here to view the release on GitHub](${github__url}).
