@@ -19,7 +19,7 @@ services:
       - firefly_iii
     image: mariadb
     environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: yes
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
       MYSQL_USER: {{ COM_GABBRO_FIREFLY_III__DB__USERNAME }}
       MYSQL_PASSWORD: {{ COM_GABBRO_FIREFLY_III__DB__PASSWORD }}
       MYSQL_DATABASE: firefly
