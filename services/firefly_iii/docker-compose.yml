@@ -1,0 +1,30 @@
+services:
+  firefly_iii:
+    networks:
+      - nginx
+      - firefly_iii
+    image: fireflyiii/core:latest
+    volumes:
+      - /srv/storage/local/main/firefly_iii/upload/:/var/www/html/storage/upload
+    env_file:
+      - ./firefly_iii/firefly_iii.env
+    environment:
+      VIRTUAL_HOST: firefly-iii.gabbro
+      VIRTUAL_PORT: 8080
+      SITE_OWNER: burghardtnoah@gmail.com
+    depends_on:
+      - firefly_iii_db
+  firefly_iii_db:
+    networks:
+      - firefly_iii
+    image: mariadb
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
+      MYSQL_USER: {{ secret('firefly_iii', 'FIREFLY_III__DB__USERNAME') }}
+      MYSQL_PASSWORD: {{ secret('firefly_iii', 'FIREFLY_III__DB__PASSWORD') }}
+      MYSQL_DATABASE: firefly
+    volumes:
+      - /srv/storage/local/main/firefly_iii/db/:/var/lib/mysql
+
+networks:
+  firefly_iii:
