@@ -28,6 +28,7 @@ services:
   firefly_iii_importer:
     networks:
       - firefly_iii
+      - nginx
     image: fireflyiii/data-importer:latest
     depends_on:
       - firefly_iii
@@ -39,6 +40,7 @@ services:
   firefly_iii_pp_node_red:
     networks:
       - firefly_iii
+      - nginx
     image: nodered/node-red:latest
     environment:
       VIRTUAL_HOST: firefly-iii-nr.gabbro
@@ -49,6 +51,7 @@ services:
   firefly_iii_pp:
     networks:
       - firefly_iii
+      - nginx
     image: haumea/fireflyiii-pp:latest
     environment:
       VIRTUAL_HOST: firefly-iii-pp.gabbro
