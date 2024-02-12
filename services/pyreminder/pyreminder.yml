@@ -63,6 +63,19 @@ checks:
       meta:
         name: Firefly-iii
       period: 1d
+  - firefly_iii_di:
+      source:
+        type: github
+        owner: firefly-iii
+        repo: data-importer
+      destinations:
+        - type: discord
+          webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
+          color: ef8867
+          template: github-discord
+      meta:
+        name: Firefly-iii Data Importer
+      period: 1d
   - plex:
       source:
         type: get-request
