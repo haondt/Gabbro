@@ -5,9 +5,9 @@ services:
       - NET_ADMIN
       - SYS_MODULE
     environment:
-      - SERVERURL={{ COM_GABBRO_WIREGUARD__SERVER_URL }}
-      - SERVERPORT=51820
-      - PEERS=haondPhone
+      SERVERURL: {{ COM_GABBRO_WIREGUARD__SERVER_URL }}
+      SERVERPORT: 51820
+      PEERS: haondPhone
     volumes:
       - /srv/storage/local/main/wireguard/:/config
       - /lib/modules:/lib/modules
