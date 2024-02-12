@@ -35,7 +35,7 @@ checks:
         - type: discord
           webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
           color: 1d819f
-          template: "Version $apt__version of Sonarr has been released."
+          template: github-discord
       period: 1d
   - bazarr:
       source:
@@ -62,6 +62,18 @@ checks:
           template: github-discord
       meta:
         name: Firefly-iii
+      period: 1d
+  - plex:
+      source:
+        type: get-request
+        url: https://plex.tv/api/downloads/5.json
+        parser: json
+        parseKey: computer.Linux.version
+      destinations:
+        - type: discord
+          webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
+          color: eba921
+          template: "New version of Plex released: ${get_request__text}"
       period: 1d
 templates:
   github-discord: |
