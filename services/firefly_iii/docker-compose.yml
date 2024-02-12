@@ -62,6 +62,8 @@ services:
       DOTNET_KeyValueStoreSettings__Stores__expenseAccounts__DefaultValueValue: "{\"attributes\":{},\"add_tags\":[]}"
       FireFlyIIISettings__BaseUrl: http://firefly_iii:8080/
       FireFlyIIISettings__Token: {{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}
+      NodeRedSettings__BaseUrl: http://firefly_iii_pp_node_red:1880/
+
     volumes:
       - /srv/storage/local/main/firefly_iii/pp/thunder/:/thunder
       - /srv/storage/local/main/firefly_iii/pp/kvs/:/keyValueStore
