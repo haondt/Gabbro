@@ -35,7 +35,7 @@ services:
     environment:
       VIRTUAL_HOST: firefly-iii-di.gabbro
       VIRTUAL_PORT: 8080
-      FIREFLY_III_URL: 'http://firefly-iii.gabbro'
+      FIREFLY_III_URL: 'http://firefly_iii:8080/'
       FIREFLY_III_ACCESS_TOKEN: {{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}
   firefly_iii_pp_node_red:
     networks:
