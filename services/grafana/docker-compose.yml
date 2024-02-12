@@ -18,7 +18,7 @@ services:
       DOCKER_INFLUXDB_INIT_BUCKET: telemetry
   grafana:
     image: grafana/grafana:latest
-    user: "{{ COM_GABBRO_PUID }}/{{ MONITORING__GROUP }}"
+    user: "{{ COM_GABBRO_PUID }}:{{ MONITORING__GROUP }}"
     volumes:
       - /srv/storage/local/main/grafana/provisioning/:/etc/grafana/provisioning
       - /srv/storage/local/main/grafana/storage/:/var/lib/grafana
