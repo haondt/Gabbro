@@ -1,0 +1,10 @@
+services:
+  monica:
+    networks:
+      - nginx
+    image: lscr.io/linuxserver/tautulli:latest
+    volumes:
+      - /srv/storage/local/main/tautulli/:/config
+    environment:
+      VIRTUAL_HOST: tautulli.gabbro
+      VIRTUAL_PORT: 8181
