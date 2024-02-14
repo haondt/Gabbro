@@ -4,6 +4,11 @@ This repository is mirrored on GitHub at https://github.com/haondt/Gabbro and th
 
 This repo contains the configuration for my homelab v2, Gabbro. For v1, see [Obsidian](https://github.com/haondt/Obsidian). The management for this repo is handled by its companion cloud environment, [Gabbro-CE](https://github.com/haondt/Gabbro-CE)
 
+## Related Repositories:
+
+- [Gabbro-CE](https://github.com/haondt/Gabbro-CE) - the cloud environment for automating deployment of Gabbro
+- [Gabbro-Bot](https://github.com/haondt/Gabbro-Bot) - discord bot to help with managing Gabbro docker containers
+
 # Configuration
 
 This repository contains the deployment information for my home server, Gabbro. It is structured in such a way that many services can be added without being overly repetitive or lost in giant docker files.
@@ -81,8 +86,9 @@ All of the non-`docker-compose.yml` files in the service directory will also be 
 
 ## 3. Hydration
 
-Any appearances of the string `{{ SOME_VAR }}` will be replaced with corresponding value from the environment file in any docker compose file. For example, if the docker compose file contains the string `{{ KEY }}` and
-the env file contains the line `KEY=VALUE`, then all occurrences of `{{ KEY }}` will be replaced by `VALUE`.
+Any appearances of the string `{{ SOME_VAR }}` will be replaced with corresponding value from the environment file in any docker compose file. For example, if the docker compose file contains the string `{{ KEY }}` and the env file contains the line `KEY=VALUE`, then all occurrences of `{{ KEY }}` will be replaced by `VALUE`.
+
+Non-docker files can also be hydrate by including a `hydrate.gabbro` file in the service folder. All files listed in `hydrate.gabbro` will be hydrated in the same manner.
 
 ### Environment Files
 
@@ -92,7 +98,9 @@ copied to the deployment, so any environment variables that should be made avail
 
 ### Plugins
 
-A key can be written as `{{ plugin_name('argument1', 'argument2', ...) }}`. In this case, a plugin engine will run and try to resolve the plugin, and use that for the value instead of searching the environment files.
+A key can be written as `{{ plugin_name('argument1', 'argument2', ...) }}`. In this case, a plugin engine will run and try to resolve the plugin, and use that for the value. Plugins are only supported inside `.env` files,
+so a pluging should be mapped to an env var, and the env var can be used for hydration.
+
 The following plugins are supported:
 - `{{ secret('path/to/folder', 'SECRET_NAME') }}` - this will make a url request to Infisical to try and retrieve the secret. It will use the key in `key.txt` as an authorization token to retrieve the secret.
 
