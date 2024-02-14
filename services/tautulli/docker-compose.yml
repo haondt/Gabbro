@@ -1,5 +1,5 @@
 services:
-  monica:
+  tautulli:
     networks:
       - nginx
     image: lscr.io/linuxserver/tautulli:latest
