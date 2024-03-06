@@ -1,0 +1,15 @@
+services:
+  syncthing:
+    networks:
+      - syncthing
+    image: lscr.io/linuxserver/syncthing:latest
+    volumes:
+      - /srv/storage/local/main/syncthing/config/:/config
+      - /srv/storage/remote/raid10/syncthing__data/:/data
+    environment:
+      VIRTUAL_HOST: syncthing.gabbro
+      VIRTUAL_PORT: 8384
+    ports:
+      - 22000:22000/tcp
+      - 22000:22000/udp
+      - 21027:21027/udp
