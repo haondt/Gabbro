@@ -1,7 +1,7 @@
 services:
   syncthing:
     networks:
-      - syncthing
+      - nginx
     image: lscr.io/linuxserver/syncthing:latest
     volumes:
       - /srv/storage/local/main/syncthing/config/:/config
