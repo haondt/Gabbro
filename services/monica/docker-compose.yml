@@ -10,8 +10,8 @@ services:
       VIRTUAL_HOST: monica.gabbro
       VIRTUAL_PORT: 80
       DB_HOST: monica_db
-      DB_USERNAME: {{ COM_GABBRO_MONICA__DB__USERNAME }}
-      DB_PASSWORD: {{ COM_GABBRO_MONICA__DB__PASSWORD }}
+      DB_USERNAME: "{{ COM_GABBRO_MONICA__DB__USERNAME }}"
+      DB_PASSWORD: "{{ COM_GABBRO_MONICA__DB__PASSWORD }}"
       DB_PORT: 3306
       DB_DATABASE: monica
       APP_URL: http://monica.gabbro/
@@ -24,8 +24,8 @@ services:
     image: mariadb:11
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
-      MYSQL_USER: {{ COM_GABBRO_MONICA__DB__USERNAME }}
-      MYSQL_PASSWORD: {{ COM_GABBRO_MONICA__DB__PASSWORD }}
+      MYSQL_USER: "{{ COM_GABBRO_MONICA__DB__USERNAME }}"
+      MYSQL_PASSWORD: "{{ COM_GABBRO_MONICA__DB__PASSWORD }}"
       MYSQL_DATABASE: monica
     volumes:
       - /srv/storage/local/main/monica/db/:/var/lib/mysql

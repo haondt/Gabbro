@@ -87,7 +87,7 @@ def plugin(name, args):
         try:
             response = requests.get(url, headers={"Authorization": f"Bearer {key}"})
             if response.status_code == 200:
-                return f"\"{response.json()['secret']['secretValue']}\""
+                return f"{response.json()['secret']['secretValue']}"
             response.raise_for_status()
         except:
             raise ValueError(f"Unable to retrieve secret {args[0]}/{args[1]}")

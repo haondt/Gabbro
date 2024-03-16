@@ -10,11 +10,11 @@ services:
       HOST_PROC: /rootfs/proc
       HOST_SYS: /rootfs/sys
       HOST_ETC: /rootfs/etc
-      INFLUXDB_TELEGRAF_TOKEN: {{ COM_GABBRO_TELEGRAF_INFLUXDB2_TOKEN }}
+      INFLUXDB_TELEGRAF_TOKEN: "{{ COM_GABBRO_TELEGRAF_INFLUXDB2_TOKEN }}"
       INFLUXDB_URL: http://influxdb2:8086
       INFLUXDB_BUCKET: telemetry
       INFLUXDB_ORG: org
-      COM_GABBRO_HOST: {{ COM_GABBRO_HOST }}
+      COM_GABBRO_HOST: "{{ COM_GABBRO_HOST }}"
     volumes:
       - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro

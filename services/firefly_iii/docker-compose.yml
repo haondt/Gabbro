@@ -20,8 +20,8 @@ services:
     image: mariadb
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
-      MYSQL_USER: {{ COM_GABBRO_FIREFLY_III__DB__USERNAME }}
-      MYSQL_PASSWORD: {{ COM_GABBRO_FIREFLY_III__DB__PASSWORD }}
+      MYSQL_USER: "{{ COM_GABBRO_FIREFLY_III__DB__USERNAME }}"
+      MYSQL_PASSWORD: "{{ COM_GABBRO_FIREFLY_III__DB__PASSWORD }}"
       MYSQL_DATABASE: firefly
     volumes:
       - /srv/storage/local/main/firefly_iii/db/:/var/lib/mysql
@@ -36,7 +36,7 @@ services:
       VIRTUAL_HOST: firefly-iii-di.gabbro
       VIRTUAL_PORT: 8080
       FIREFLY_III_URL: 'http://firefly_iii:8080'
-      FIREFLY_III_ACCESS_TOKEN: {{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}
+      FIREFLY_III_ACCESS_TOKEN: '{{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}'
   firefly_iii_pp_node_red:
     networks:
       - firefly_iii
@@ -61,7 +61,7 @@ services:
       DOTNET_KeyValueStoreSettings__Stores__expenseAccounts__Path: expenseAccounts.json
       DOTNET_KeyValueStoreSettings__Stores__expenseAccounts__DefaultValueValue: "{\"attributes\":{},\"add_tags\":[]}"
       FireFlyIIISettings__BaseUrl: http://firefly_iii:8080/
-      FireFlyIIISettings__Token: {{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}
+      FireFlyIIISettings__Token: '{{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}'
       NodeRedSettings__BaseUrl: http://firefly_iii_pp_node_red:1880/
 
     volumes:
