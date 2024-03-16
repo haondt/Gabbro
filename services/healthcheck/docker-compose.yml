@@ -1,0 +1,8 @@
+services:
+  healthcheck:
+    build:
+      context: ./healthcheck
+    environment:
+      GCP_HEALTHCHECK_URL: "{{ GCP_HEALTHCHECK_URL }}"
+      HEALTHCHECK_TIMEOUT: 1
+      HEALTHCHECK_INTERVAL: 60
