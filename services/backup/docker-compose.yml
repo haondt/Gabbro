@@ -9,6 +9,6 @@ services:
       GCP_CREDENTIALS: "/config/credentials.json"
       GCP_BUCKET: "{{ GCP_BUCKET }}"
 
-      BACKUP__0__CRON: "* 0 * * *"
+      BACKUP__0__CRON: "0 0 * * *"
       BACKUP__0__NAME: "syncthing"
       BACKUP__0__LOCAL_PATH: "/backup/syncthing/"
