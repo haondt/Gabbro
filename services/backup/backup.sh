@@ -1,3 +1,5 @@
+#!/bin/bash
+
 backup_name="$1"
 backup_local_path="$2"
 

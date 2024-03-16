@@ -6,6 +6,7 @@ gcloud auth login --cred-file=$GCP_CREDENTIALS
 
 # get crontab goin
 echo "Setting up crontab..."
+echo "GCP_BUCKET=$GCP_BUCKET" >> /etc/environment
 /config/create_crontab.sh > /etc/cron.d/backup-cron
 crontab /etc/cron.d/backup-cron
 cron
