@@ -21,3 +21,4 @@ services:
       PGID: {{ MEDIA__GROUP }}
       VIRTUAL_HOST: bazarr-4k.gabbro
       VIRTUAL_PORT: 6767
+
