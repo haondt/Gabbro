@@ -1,0 +1,11 @@
+services:
+  paperless_ngx:
+    networks:
+      - nginx
+    image: lscr.io/linuxserver/paperless-ngx:latest
+    volumes:
+      - /srv/storage/local/main/paperless_ngx/config/:/config
+      - /srv/storage/local/main/paperless_ngx/data/:/data
+    environment:
+      VIRTUAL_HOST: paperless-ngx.gabbro
+      VIRTUAL_PORT: 8000
