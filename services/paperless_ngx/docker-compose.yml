@@ -1,11 +1,51 @@
 services:
+  paperless_ngx_broker:
+    networks:
+      - paperless_ngx
+    image: docker.io/library/redis:7
+    volumes:
+      - /srv/storage/local/main/paperless_ngx/redis/:/data
+
+  paperless_ngx_db:
+    networks:
+      - paperless_ngx
+    image: docker.io/library/mariadb:10
+    volumes:
+      - /srv/storage/local/main/paperless_ngx/db/:/var/lib/mysql
+    environment:
+      MARIADB_HOST: paperless
+      MARIADB_DATABASE: paperless
+      MARIADB_USER: paperless
+      MARIADB_PASSWORD: paperless
+      MARIADB_ROOT_PASSWORD: paperless
+
   paperless_ngx:
     networks:
       - nginx
-    image: lscr.io/linuxserver/paperless-ngx:latest
+      - paperless_ngx
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    depends_on:
+      - paperless_ngx_db
+      - paperless_ngx_broker
     volumes:
-      - /srv/storage/local/main/paperless_ngx/config/:/config
-      - /srv/storage/local/main/paperless_ngx/data/:/data
+      - /srv/storage/local/main/paperless_ngx/data/:/usr/src/paperless/data
+      - /srv/storage/local/main/paperless_ngx/media/:/usr/src/paperless/media
+      - /srv/storage/local/main/paperless_ngx/export/:/usr/src/paperless/export
+      - /srv/storage/local/main/paperless_ngx/consume/:/usr/src/paperless/consume
+    env_file: docker-compose.env
     environment:
       VIRTUAL_HOST: paperless-ngx.gabbro
       VIRTUAL_PORT: 8000
+
+      PAPERLESS_REDIS: redis://paperless_ngx_broker:6379
+      PAPERLESS_DBENGINE: mariadb
+      PAPERLESS_DBHOST: paperless_ngx_db
+      PAPERLESS_DBUSER: paperless # only needed if non-default username
+      PAPERLESS_DBPASS: paperless # only needed if non-default password
+      PAPERLESS_DBPORT: 3306
+      PAPERLESS_URL: http://paperless.gabbro
+      PAPERLESS_TIME_ZONE: America/Edmonton
+
+networks:
+  paperless_ngx:
+
