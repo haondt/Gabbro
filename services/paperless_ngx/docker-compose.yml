@@ -45,6 +45,9 @@ services:
       PAPERLESS_URL: http://paperless.gabbro
       PAPERLESS_TIME_ZONE: America/Edmonton
 
+      PAPERLESS_ADMIN_USER: "{{ PAPERLESS_ADMIN_USER }}"
+      PAPERLESS_ADMIN_PASSWORD: "{{ PAPERLESS_ADMIN_PASSWORD }}"
+
 networks:
   paperless_ngx:
 
