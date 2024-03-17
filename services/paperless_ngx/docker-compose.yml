@@ -32,7 +32,6 @@ services:
       - /srv/storage/local/main/paperless_ngx/media/:/usr/src/paperless/media
       - /srv/storage/local/main/paperless_ngx/export/:/usr/src/paperless/export
       - /srv/storage/local/main/paperless_ngx/consume/:/usr/src/paperless/consume
-    env_file: docker-compose.env
     environment:
       VIRTUAL_HOST: paperless-ngx.gabbro
       VIRTUAL_PORT: 8000
