@@ -9,6 +9,7 @@ stages:
 
 build-deployment:
   stage: generate
+  image: registry.gitlab.com/haondt/cicd/registry/gabbro-deployer:main-69237c2b
   script: |
     echo "$INFISICAL_SECRET" > "key.txt"
     echo "Running build..."
@@ -27,6 +28,7 @@ build-deployment:
 
 deploy:
   stage: deploy
+  image: registry.gitlab.com/haondt/cicd/registry/gabbro-deployer:main-69237c2b
   script: |
     if [[ -e tmp.enc ]] && [[ -s tmp.enc ]]; then
       export ANSIBLE_LOOKUP_INFISICAL_KEY=$INFISICAL_SECRET
