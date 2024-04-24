@@ -21,6 +21,8 @@ checks:
           webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
           color: 13bef9
           template: github-discord
+      meta:
+        name: Portainer
       period: 1d
   - radarr:
       source:
