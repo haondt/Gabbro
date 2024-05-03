@@ -1,0 +1,19 @@
+gcp_buckets:
+  gabbro:
+    bucket: "{{ GCP_BUCKET }}"
+
+jobs:
+  gabbro-secret-manager:
+    source:
+      type: http
+      url: http://gsm.gabbro-ce/api/secrets
+      method: get
+      ext: json
+      auth:
+        bearer: "{{ GSM_API_KEY }}"
+    destination:
+      type: gcp_bucket
+      name: gabbro_secret_manager
+      config: gabbro
+    schedule:
+      after: 0s
