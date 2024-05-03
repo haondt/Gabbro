@@ -25,4 +25,3 @@ RUN chmod +x /config/init.sh
 
 # run init script
 CMD /config/init.sh
-
