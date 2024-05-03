@@ -9,6 +9,7 @@ This repo contains the configuration for my homelab v2, Gabbro. For v1, see [Obs
 - [Gabbro-CE](https://github.com/haondt/Gabbro-CE) - the cloud environment for automating deployment of Gabbro
 - [Gabbro-Bot](https://github.com/haondt/Gabbro-Bot) - discord bot to help with managing Gabbro docker containers
 - [gabbro-healthcheck-watcher](https://github.com/haondt/gabbro-healthcheck-watcher/) - small script to be run on vps to listen for healtcheck pings from Gabbro
+- [Gabbro Secret Manager](https://github.com/haondt/Gabbro-Secret-Manager) - home cooked secret manager for deployment purposes
 
 # Configuration
 
