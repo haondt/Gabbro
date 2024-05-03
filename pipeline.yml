@@ -1,0 +1,7 @@
+tasks:
+  - type: docker-deploy
+    target: gabbro@gabbro
+    key: $TARGET_SSH_KEY
+    auto:
+      - source: push
+        branch: main
