@@ -27,6 +27,6 @@ jobs:
       name: syncthing
       config: gabbro
     schedule:
-      after: 0s
+      cron: "0 0 * * *"
 
 
