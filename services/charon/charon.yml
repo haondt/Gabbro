@@ -11,6 +11,7 @@ jobs:
       ext: json
       auth:
         bearer: "{{ GSM_API_KEY }}"
+      encrypt: "{{ ENCRYPTION_KEY }}"
     destination:
       type: gcp_bucket
       name: gabbro_secret_manager
