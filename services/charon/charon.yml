@@ -17,4 +17,16 @@ jobs:
       name: gabbro_secret_manager
       config: gabbro
     schedule:
+      cron: "0 0 * * *"
+  syncthing:
+    source:
+      type: local
+      path: /backup/syncthing
+    destination:
+      type: gcp_bucket
+      name: syncthing
+      config: gabbro
+    schedule:
       after: 0s
+
+
