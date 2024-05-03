@@ -3,6 +3,6 @@ services:
     image: registry.gitlab.com/haondt/cicd/registry/charon:latest
     volumes:
       - ./charon/credentials.json:/config/credentials.json
-      - ./charon.yml:/config/charon.yml
+      - ./charon/charon.yml:/config/charon.yml
     environment:
       GOOGLE_APPLICATION_CREDENTIALS: /config/credentials.json
