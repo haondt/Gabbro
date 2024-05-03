@@ -1,13 +1,13 @@
 services:
-  {{ COM_GABBRO_CONTAINER }}:
-    container_name: {{ COM_GABBRO_CONTAINER }}
+  {{ COM_HAONDT_CONTAINER }}:
+    container_name: "{{ COM_HAONDT_CONTAINER }}"
     labels:
-      com.gabbro.host: {{ COM_GABBRO_HOST }}
-      com.gabbro.service: {{ COM_GABBRO_CONTAINER }}
+      com.gabbro.host: "{{ COM_GABBRO_HOST }}"
+      com.gabbro.service: "{{ COM_HAONDT_CONTAINER }}"
     group_add:
       - "{{ COM_GABBRO_PGID }}"
     environment:
-      PGID: {{ COM_GABBRO_PGID }}
-      PUID: {{ COM_GABBRO_PUID }}
+      PGID: "{{ COM_GABBRO_PGID }}"
+      PUID: "{{ COM_GABBRO_PUID }}"
     volumes:
       - /etc/localtime:/etc/localtime:ro

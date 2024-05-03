@@ -1,7 +1,0 @@
-all:
-  hosts:
-    gabbro:
-      ansible_connection: ssh
-      ansible_password: "{{ lookup('infisical', 'gabbro/PASSWORD') }}"
-      ansible_become_password: "{{ lookup('infisical', 'gabbro/PASSWORD') }}"
-      ansible_user: gabbro

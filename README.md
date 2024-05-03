@@ -22,11 +22,11 @@ There are 3 common `docker-compose.*` files and 1 common `.env` file.
 #### `docker-compose.service-base.yml`
 
 This file contains a single service definition. When loading a `docker-compose.yml` file from a service, each container in the file (i.e. `.services.*`) will be joined with this base service.
-The value `{{ COM_GABBRO_CONTAINER }}` will be replaced with the name of the container from the service. For example, given the following `docker-compose.service-base.yml`:
+The value `{{ COM_HAONDT_CONTAINER }}` will be replaced with the name of the container from the service. For example, given the following `docker-compose.service-base.yml`:
 
 ```yml
 services:
-  {{ COM_GABBRO_CONTAINER }}:
+  {{ COM_HAONDT_CONTAINER }}:
     environment:
       PGID: 1000
     volumes:
@@ -103,8 +103,18 @@ A key can be written as `{{ plugin_name('argument1', 'argument2', ...) }}`. In t
 so a pluging should be mapped to an env var, and the env var can be used for hydration.
 
 The following plugins are supported:
-- `{{ secret('path/to/folder', 'SECRET_NAME') }}` - this will make a url request to Infisical to try and retrieve the secret. It will use the key in `key.txt` as an authorization token to retrieve the secret.
-
+- `{{ secret('path/to/folder', 'SECRET_NAME') }}` - this will make a url request to Infisical to try and retrieve the secret. It requires the following env vars:
+  - `INFISICAL_SECRET_KEY` - the bearer token for infisical
+  - `INFISICAL_URL` - the base url for infisical
+- `{{ gsm('SECRET_NAME', 'secret_tag1', 'secret_tag2', ...) }}` - this will make a url request to Gabbro Secret Manager to try and retrieve the secret. It requires the following env vars:
+  - `GSM_API_KEY` - the bearer token for gabbro secret manager
+  - `GSM_URL` - the base url for gabbro secret manager
+  - it will retrieve a secret that has the matching name and all of the tags. this must result in **exactly one** secret in the response from gabbro secret manager
+- `{{ env('MY_ENV_VAR') }}` - this will be replaced with the value of the environment variable
+- `{{ yaml('PATH', 'foo', 'bar', 0, 'baz')}}` - this will get the yaml file at `PATH` and will use the remaning values to extract a value from the yaml object
+  - `PATH` can be a file path or an environment variable that resolves to a file path, with priority on the latter.
+  - the remaning arguments must be strings or ints
+  - the object that the path resolves to must be a string
 
 ## 4. Final Steps
 
