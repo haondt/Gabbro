@@ -3,9 +3,6 @@ services:
     image: trueosiris/vrising
     restart: unless-stopped
     network_mode: bridge
-    group_add:
-      - "{{ DOCKER__GROUP }}"
-    user: "telegraf:{{ DOCKER__GROUP }}"
     environment:
       TZ: America/Edmonton
       SERVERNAME: HAONDT
