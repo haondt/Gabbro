@@ -1,0 +1,18 @@
+services:
+  vrising:
+    image: trueosiris/vrising
+    restart: unless-stopped
+    network_mode: bridge
+    group_add:
+      - "{{ DOCKER__GROUP }}"
+    user: "telegraf:{{ DOCKER__GROUP }}"
+    environment:
+      TZ: America/Edmonton
+      SERVERNAME: HAONDT
+    ports:
+      - 9876:9876/udp
+      - 9877:9877/udp
+    volumes:
+      - /srv/storage/local/main/vrising/server:/mnt/vrising/server
+      - /srv/storage/local/main/vrising/persistentdata:/mnt/vrising/persistentdata
+
