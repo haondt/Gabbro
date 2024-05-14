@@ -4,6 +4,7 @@ services:
     restart: unless-stopped
     environment:
       TZ: America/Edmonton
+      SERVERNAME: "{{ VRISING_NAME }}"
     ports:
       - '9876:9876/udp'
       - '9877:9877/udp'
