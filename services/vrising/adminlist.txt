@@ -1,1 +1,1 @@
-haondt
+{{ VRISING_ADMIN_LIST }}
