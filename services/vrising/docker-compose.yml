@@ -2,14 +2,15 @@ services:
   vrising:
     image: trueosiris/vrising
     restart: unless-stopped
-    network_mode: bridge
     environment:
       TZ: America/Edmonton
-      SERVERNAME: HAONDT
     ports:
-      - 9876:9876/udp
-      - 9877:9877/udp
+      - '9876:9876/udp'
+      - '9877:9877/udp'
     volumes:
       - /srv/storage/local/main/vrising/server:/mnt/vrising/server
       - /srv/storage/local/main/vrising/persistentdata:/mnt/vrising/persistentdata
+      - ./vrising/adminlist.txt:/mnt/vrising/persistentdata/Settings/adminlist.txt
+      - ./vrising/ServerGameSettings.json:/mnt/vrising/persistentdata/Settings/ServerGameSettings.json
+      - ./vrising/ServerHostSettings.json:/mnt/vrising/persistentdata/Settings/ServerHostSettings.json
 
