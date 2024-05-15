@@ -100,6 +100,20 @@ checks:
           webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
           color: eba921
           template: "New version of Plex released: ${get_request__text}"
+      meta:
+        name: Plex
+      period: 1d
+  - vrising:
+      source:
+        type: docker-hub
+        namespace: trueosiris
+        repository: vrising
+        tag: latest
+      destinations:
+        - type: discord
+          webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
+          color: FEE4DF
+          template: "New version of `${docker_hub__image}` pushed ${docker_hub__last_updated}."
       period: 1d
 templates:
   github-discord: |
