@@ -1,4 +1,5 @@
 {
     "GameDifficulty": 2,
-    "GameModeType": "PvE"
+    "GameModeType": "PvE",
+    "TeleportBoundItems": false
 }
