@@ -2,6 +2,7 @@ services:
   prowlarr:
     networks:
       - nginx
+      - plex
     image: lscr.io/linuxserver/prowlarr:develop
     volumes:
       - /srv/storage/local/main/prowlarr/:/config

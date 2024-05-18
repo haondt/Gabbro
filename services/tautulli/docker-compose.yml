@@ -2,6 +2,7 @@ services:
   tautulli:
     networks:
       - nginx
+      - plex
     image: lscr.io/linuxserver/tautulli:latest
     volumes:
       - /srv/storage/local/main/tautulli/:/config

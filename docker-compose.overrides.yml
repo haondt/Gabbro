@@ -1,6 +1,7 @@
 networks:
   nginx:
   grafana:
+  plex:
 
 # available volumes:
 # /srv/storage/local/main

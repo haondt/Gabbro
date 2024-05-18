@@ -13,6 +13,7 @@ services:
       - 32469:32469
     networks:
       - nginx
+      - plex
     environment:
       PGID: "{{ MEDIA__GROUP }}"
       VIRTUAL_HOST: plex.gabbro

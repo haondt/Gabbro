@@ -2,6 +2,7 @@ services:
   sonarr:
     networks:
       - nginx
+      - plex
     volumes:
       - /srv/storage/local/main/sonarr/:/config
       - "{{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads"

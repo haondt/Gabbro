@@ -2,6 +2,7 @@ services:
   radarr:
     networks:
       - nginx
+      - plex
     volumes:
       - /srv/storage/local/main/radarr/:/config
       - "{{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads"
@@ -16,6 +17,7 @@ services:
   radarr_4k:
     networks:
       - nginx
+      - plex
     volumes:
       - /srv/storage/local/main/radarr_4k/:/config
       - "{{ MEDIA__DOWNLOAD_DIR }}/:/mnt/downloads"
