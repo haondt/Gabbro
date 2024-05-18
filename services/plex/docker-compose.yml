@@ -26,3 +26,4 @@ services:
       - "{{ MEDIA__PLEX_DIR_1 }}/movies:/mnt/movies1"
       - "{{ MEDIA__PLEX_DIR_2 }}/tv_shows:/mnt/tv_shows2"
       - "{{ MEDIA__PLEX_DIR_2 }}/movies:/mnt/movies2"
+
