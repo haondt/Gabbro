@@ -1,5 +1,24 @@
 {
     "GameDifficulty": 2,
     "GameModeType": "PvE",
-    "TeleportBoundItems": false
+    "TeleportBoundItems": false,
+    "CastleStatModifiers_Global": {
+        "HeartLimits": {
+            "Level1": {
+                "FloorLimit": 999
+            },
+            "Level2": {
+                "FloorLimit": 999
+            },
+            "Level3": {
+                "FloorLimit": 999
+            },
+            "Level4": {
+                "FloorLimit": 999
+            },
+            "Level5": {
+                "FloorLimit": 999
+            }
+        }
+    }
 }
