@@ -2,9 +2,57 @@ services:
   nginx:
     networks:
       - nginx
+      - smallstep
     image: nginxproxy/nginx-proxy
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock
       - ./nginx/star_arr.conf:/etc/nginx/vhost.d/radarr.gabbro
+      - ./nginx/star_arr.conf:/etc/nginx/vhost.d/sonarr.gabbro
+      - ./nginx/star_arr.conf:/etc/nginx/vhost.d/radarr-4k.gabbro     
+      - nginx-certs:/etc/nginx/certs
+      - nginx-vhost:/etc/nginx/vhost.d
+      - nginx-html:/usr/share/nginx/html
+      - nginx-acmesh:/etc/acme.sh
     ports:
       - 80:80
+      - 443:443
+    environment:
+      ACME_CA_URI: https://smallstep:9000/acme/acme/directory
+      CA_BUNDLE: /srv/step/certs/root_ca.crt
+
+  nginx-acme:
+    container_name: nginx-acme
+    networks:
+      - smallstep
+    image: nginxproxy/acme-companion
+    volumes_from:
+      - nginx
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - nginx-acmesh:/etc/acme.sh
+      - smallstep-data:/srv/step
+    environment:
+      ACME_CA_URI: https://smallstep:9000/acme/acme/directory
+      CA_BUNDLE: /srv/step/certs/root_ca.crt
+
+  smallstep:
+    networks:
+      - smallstep
+    image: smallstep/step-ca
+    volumes:
+      - smallstep-data:/home/step
+    environment:
+      DOCKER_STEPCA_INIT_NAME: Smallstep
+      DOCKER_STEPCA_INIT_DNS_NAMES: "smallstep,localhost,$(hostname -f),smallstep.gabbro"
+      DOCKER_STEPCA_INIT_ACME: true
+
+networks:
+  nginx:
+  smallstep:
+
+volumes:
+  smallstep-data:
+  nginx-certs:
+  nginx-vhost:
+  nginx-html:
+  nginx-acmesh:
