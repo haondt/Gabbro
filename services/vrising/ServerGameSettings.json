@@ -2,6 +2,9 @@
     "GameDifficulty": 2,
     "GameModeType": "PvE",
     "TeleportBoundItems": false,
+    "GameTimeModifiers": {
+        "DayStartHour": 12
+    },
     "CastleStatModifiers_Global": {
         "HeartLimits": {
             "Level1": {
