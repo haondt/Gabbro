@@ -37,7 +37,6 @@ jobs:
       name: vaultwarden
       config: gabbro
     schedule:
-      after: 0s
       cron: "0 0 * * *"
 
 
