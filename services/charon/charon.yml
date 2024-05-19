@@ -28,5 +28,16 @@ jobs:
       config: gabbro
     schedule:
       cron: "0 0 * * *"
+  vaultwarden:
+    source:
+      type: sqlite
+      db_path: /backup/vaultwarden/db.sqlite3
+    destination:
+      type: gcp_bucket
+      name: vaultwarden
+      config: gabbro
+    schedule:
+      after: 0s
+      cron: "0 0 * * *"
 
 
