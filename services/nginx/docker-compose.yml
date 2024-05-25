@@ -13,13 +13,9 @@ services:
       - nginx-certs:/etc/nginx/certs
       - nginx-vhost:/etc/nginx/vhost.d
       - nginx-html:/usr/share/nginx/html
-      - nginx-acmesh:/etc/acme.sh
     ports:
       - 80:80
       - 443:443
-    environment:
-      ACME_CA_URI: https://smallstep:9000/acme/acme/directory
-      CA_BUNDLE: /srv/step/certs/root_ca.crt
 
   nginx-acme:
     container_name: nginx-acme
