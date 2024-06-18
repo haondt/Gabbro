@@ -5,7 +5,7 @@ services:
       - nginx
     user: uid:gid
     group_add:
-      - "{{ MEDIA_GROUP }}"
+      - "{{ MEDIA__GROUP }}"
     environment:
       JELLYFIN_PublishedServerUrl: http://jellyfin.gabbro
       VIRTUAL_HOST: jellyfin.gabbro
