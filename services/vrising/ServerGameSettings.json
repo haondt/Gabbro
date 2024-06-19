@@ -13,14 +13,15 @@
         "BloodMoonBuff": 1.0
     },
     "TraderModifiers": {
-        "StockModifier": 100.0,
+        "StockModifier": 5.0,
         "PriceModifier": 0.0,
-        "RestockTimerModifier": 0.5
+        "RestockTimerModifier": 0.25
     },
     "DurabilityDrainModifier": 0.0,
-    "CraftRateModifier": 10.0,
+    "CraftRateModifier": 5.0,
     "RefinementRateModifier": 5.0,
-    "RefinementCostModifier": 0.5,
+    "RefinementCostModifier": 0.1,
+    "RecipeCostModifier": 0.1,
     "CastleStatModifiers_Global": {
         "HeartLimits": {
             "Level1": {
