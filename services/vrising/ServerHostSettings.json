@@ -1,8 +1,0 @@
-{
-    "Name": "{{ VRISING_NAME }}",
-    "Password": "{{ VRISING_PASSWORD }}",
-    "ListOnSteam": true,
-    "ListOnEOS": true,
-    "Port": 27015,
-    "QueryPort": 27016
-}

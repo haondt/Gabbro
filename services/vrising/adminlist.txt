@@ -1,1 +1,0 @@
-{{ VRISING_ADMIN_LIST }}
