@@ -10,7 +10,7 @@ services:
       - ./kometa/config.yml:/config.yml
       - /srv/storage/local/main/kometa/:/config
   kometa:
-    image: kometateam/kometa
+    image: kometateam/kometa:v2.0.2
     command: ['--run']
     networks:
       - plex

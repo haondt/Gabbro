@@ -68,3 +68,10 @@ trakt:
   client_id: "{{ TRAKT_ID }}"
   client_secret: "{{ TRAKT_SECRET }}"
   pin: "{{ TRAKT_PIN }}"
+  authorization: # to be filled in by server
+    access_token:
+    token_type:
+    expires_in:
+    refresh_token:
+    scope:
+    created_at:
