@@ -21,15 +21,19 @@ collections:
     collection_order: custom
     collection_level: episode
     sync_mode: sync
-    imdb_list:
-      url: https://www.imdb.com/search/title/?series=tt0149460&sort=user_rating,desc
+    imdb_search:
+      series: tt0149460
+      sort_by: rating.desc
       limit: 100
     sort_title: "*111"
     visible_library: true
     summary: The top 100 Futurama episodes by IMDb user rating
   Fast Laughs:
-    imdb_list:
-      url: https://www.imdb.com/search/title/?title_type=tv_series,tv_episode,tv_short&genres=comedy&runtime=10,30
+    imdb_search:
+      type: tv_series, tv_episode,  tv_short
+      genre.any: comedy
+      runtime.gte: 10
+      runtime.lte: 30
       limit: 150
     collection_order: custom
     sync_mode: sync
