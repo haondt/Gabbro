@@ -11,6 +11,7 @@ services:
       - /srv/storage/local/main/kometa/:/config
   kometa:
     image: kometateam/kometa
+    command: ['--run']
     networks:
       - plex
     group_add:
