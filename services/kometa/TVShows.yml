@@ -46,6 +46,11 @@ metadata:
       mapping_id: 332162
     genre:
       - Anime
+  bna:
+    match:
+      mapping_id: 366460
+    genre:
+      - Anime
   your-lie-in-april:
     match:
       mapping_id: 279830
