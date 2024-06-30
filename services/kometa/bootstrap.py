@@ -43,8 +43,6 @@ def get_nested_value(data, keys):
 
 existing_path = '/config/config.yml'
 config_path = '/config.yml'
-existing_path = './existing.yml'
-config_path = './config.yml'
 existing = None
 config = None
 if os.path.isfile(existing_path):
