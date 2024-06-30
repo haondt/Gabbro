@@ -1,111 +1,25 @@
 metadata:
-  fsn-hf-i:
-    match:
-      mapping_id: 283984
+  283984: &anime-genre
     genre:
       - Anime
-  fsn-hf-ii:
-    match:
-      mapping_id: 390634
-    genre:
-      - Anime
-  fsn-hf-iii:
-    match:
-      mapping_id: 390635
-    genre:
-      - Anime
-  dragon-ball-z-resurrection-f:
-    match:
-      mapping_id: 303857
-    genre:
-      - Anime
-  evangelion-1.0:
-    match:
-      mapping_id: 15137
-    genre:
-      - Anime
-  evangelion-2.0:
-    match:
-      mapping_id: 22843
-    genre:
-      - Anime
-  evangelion-3.0:
-    match:
-      mapping_id: 75629
-    genre:
-      - Anime
-  evangelion-3.0+1.0:
-    match:
-      mapping_id: 283566
-    genre:
-      - Anime
-  fgo-first-order:
-    match:
-      mapping_id: 428142
-    genre:
-      - Anime
-  fate-kaleid-prisma-illya:
-    match:
-      mapping_id: 63576
-    genre:
-      - Anime
-  flcl-progressive:
-    match:
-      mapping_id: 632458
-    genre:
-      - Anime
-  akira:
-    match:
-      mapping_id: 149
-    genre:
-      - Anime
-  gits-1996:
-    match:
-      mapping_id: 9323
-    genre:
-      - Anime
-  gits-innocence:
-    match:
-      mapping_id: 12140
-    genre:
-      - Anime
-  howls-moving-castle:
-    match:
-      mapping_id: 4935
-    genre:
-      - Anime
-  kikis-delivery-service:
-    match:
-      mapping_id: 16859
-    genre:
-      - Anime
-  konosuba-legend-of-crimson:
-    match:
-      mapping_id: 532067
-    genre:
-      - Anime
-  my-neighbor-totoro:
-    match:
-      mapping_id: 8392
-    genre:
-      - Anime
-  nausicaa:
-    match:
-      mapping_id: 81
-    genre:
-      - Anime
-  ngnl-zero:
-    match:
-      mapping_id: 445030
-    genre:
-      - Anime
-  a-silent-voice:
-    match:
-      mapping_id: 378064
-    genre:
-      - Anime
-  spirited-away:
-    match:
-      mapping_id: 129
-    genre:
-      - Anime
+  390634: *anime-genre
+  390635: *anime-genre
+  303857: *anime-genre
+  15137: *anime-genre
+  22843: *anime-genre
+  75629: *anime-genre
+  283566: *anime-genre
+  428142: *anime-genre
+  63576: *anime-genre
+  632458: *anime-genre
+  149: *anime-genre
+  9323: *anime-genre
+  12140: *anime-genre
+  4935: *anime-genre
+  16859: *anime-genre
+  532067: *anime-genre
+  8392: *anime-genre
+  81: *anime-genre
+  445030: *anime-genre
+  378064: *anime-genre
+  129: *anime-genre
