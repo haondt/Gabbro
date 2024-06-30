@@ -30,6 +30,8 @@ libraries:
       - default: universe
       - default: franchise
       - file: config/TVShows.yml
+    metadata_files:
+      - file: config/TVShows.yml
   Movies:
     remove_overlays: true
     template_variables:

@@ -2,13 +2,11 @@ collections:
   Demon Anime:
     anidb_tag:
       tag: 2646
-      limit: 2000
     visible_library: true
     sync_mode: sync
   Post-Apocalyptic Anime:
     anidb_tag:
       tag: 2923
-      limit: 400
     visible_library: true
     sync_mode: sync
   Time Travel Anime:
@@ -42,4 +40,9 @@ collections:
     visible_shared: true
     summary: IMDbs top 150 comedies under 30 minutes
 
-
+metadata:
+  blend-s:
+    match:
+      mapping_id: 332162
+    genre:
+      - Anime
