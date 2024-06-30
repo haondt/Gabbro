@@ -1,0 +1,26 @@
+services:
+  kometa_bootstrap:
+    build:
+      context: ./kometa
+      dockerfile: ./kometa/bootstrap.dockerfile
+    entrypoint: ['python3', '-u', '/app/bootstrap.py']
+    user: "{{ COM_GABBRO_PUID }}:{{ COM_GABBRO_PGID }}"
+    volumes:
+      - ./kometa/bootstrap.py:/app/bootstrap.py
+      - ./kometa/config.yml:/config.yml
+      - /srv/storage/local/main/kometa/:/config
+  kometa:
+    image: kometateam/kometa
+    networks:
+      - plex
+    group_add:
+      - "{{ MEDIA__GROUP }}"
+    user: "{{ COM_GABBRO_PUID }}:{{ COM_GABBRO_PGID }}"
+    environment:
+      VIRTUAL_HOST: .gabbro
+      VIRTUAL_PORT: 8096
+    volumes:
+      - /srv/storage/local/main/kometa/:/config
+    depends_on:
+      kometa_bootstrap:
+        condition: service_completed_successfully
