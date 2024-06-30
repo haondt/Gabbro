@@ -37,7 +37,7 @@ libraries:
         managed: true
         configured: false
       mass_genre_update:
-        - tmdb
+        - tvdb
     collection_files:
       - default: universe
       - default: franchise

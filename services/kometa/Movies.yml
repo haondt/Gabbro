@@ -1,19 +1,4 @@
 metadata:
-  fsn-hf-i:
-    match:
-      mapping_id: 283984
-    genre:
-      - Anime
-  fsn-hf-ii:
-    match:
-      mapping_id: 390634
-    genre:
-      - Anime
-  fsn-hf-iii:
-    match:
-      mapping_id: 390635
-    genre:
-      - Anime
   dragon-ball-z-resurrection-f:
     match:
       mapping_id: 303857
