@@ -22,6 +22,7 @@ libraries:
         configured: false
       mass_genre_update:
         - tvdb
+        - imdb
     collection_files:
       - default: universe
       - default: franchise
@@ -37,8 +38,9 @@ libraries:
         managed: true
         configured: false
       mass_genre_update:
-        - tmdb
         - tvdb
+        - tmdb
+        - imdb
     collection_files:
       - default: universe
       - default: franchise
