@@ -45,6 +45,12 @@ libraries:
     collection_files:
       - default: universe
       - default: franchise
+    metadata:
+      "Fate/Stay Night: Heaven's Feel I >> Presage Flower (2017)":
+        match:
+          mapping_id: 8668
+        genre:
+          - Anime
 
 playlist_files:
   - default: playlist
