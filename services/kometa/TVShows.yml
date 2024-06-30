@@ -1,0 +1,41 @@
+collections:
+  Demon Anime:
+    anidb_tag:
+      tag: 2646
+      limit: 2000
+    visible_library: true
+    sync_mode: sync
+  Post-Apocalyptic Anime:
+    anidb_tag:
+      tag: 2923
+      limit: 400
+    visible_library: true
+    sync_mode: sync
+  Time Travel Anime:
+    anidb_tag:
+      tag: 2637
+      limit: 500
+    visible_library: true
+    sync_mode: sync
+  Futurama Top 100 Episodes:
+    collection_order: custom
+    collection_level: episode
+    sync_mode: sync
+    imdb_list:
+      url: https://www.imdb.com/search/title/?series=tt0149460&sort=user_rating,desc
+      limit: 100
+    sort_title: "*111"
+    visible_library: true
+    summary: The top 100 Futurama episodes by IMDb user rating
+  Fast Laughs:
+    imdb_list:
+      url: https://www.imdb.com/search/title/?title_type=tv_series,tv_episode,tv_short&genres=comedy&runtime=10,30
+      limit: 150
+    collection_order: custom
+    sync_mode: sync
+    visible_home: true
+    visible_library: true
+    visible_shared: true
+    summary: IMDbs top 150 comedies under 30 minutes
+
+

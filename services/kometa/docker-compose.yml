@@ -26,4 +26,3 @@ services:
     depends_on:
       kometa_bootstrap:
         condition: service_completed_successfully
-
