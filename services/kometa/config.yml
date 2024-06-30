@@ -2,7 +2,7 @@ libraries:
   Movies 4K:
     remove_overlays: true
     template_variables:
-      use_seperator: false
+      use_separator: false
     operations:
       delete_collections:
         managed: true
@@ -14,6 +14,40 @@ libraries:
     collection_files:
       - default: universe
       - default: franchise
+  TV Shows:
+    remove_overlays: true
+    template_variables:
+      use_separator: false
+    operations:
+      delete_collections:
+        managed: true
+        configured: false
+      mass_genre_update:
+        - imdb
+        - tmdb
+        - tvdb
+    collection_files:
+      - default: universe
+      - default: franchise
+      - file: config/TVShows.yml
+  Movies:
+    remove_overlays: true
+    template_variables:
+      use_separator: false
+    operations:
+      delete_collections:
+        managed: true
+        configured: false
+      mass_genre_update:
+        - imdb
+        - tmdb
+        - tvdb
+    collection_files:
+      - default: universe
+      - default: franchise
+
+playlist_files:
+  - default: playlist
 
 settings:
   run_order:
