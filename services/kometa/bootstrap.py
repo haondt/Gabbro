@@ -58,5 +58,9 @@ if existing is not None:
         value = get_nested_value(existing, path)
         if value is not None:
             set_nested_value(config, path, value)
-with open(existing_path, 'w') as f:
+
+os.umask(0)
+def opener(path, flags):
+    return os.open(path, flags, 0o775)
+with open(existing_path, 'w', opener=opener) as f:
     yaml.dump(config, f)
