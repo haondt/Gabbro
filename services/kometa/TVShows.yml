@@ -46,3 +46,148 @@ metadata:
       mapping_id: 332162
     genre:
       - Anime
+  your-lie-in-april:
+    match:
+      mapping_id: 279830
+    genre:
+      - Anime
+  eighty-six:
+    match:
+      mapping_id: 378609
+    genre:
+      - Anime
+  attack-on-titan:
+    match:
+      mapping_id: 267440
+    genre:
+      - Anime
+  beaststars:
+    match:
+      mapping_id: 361013
+    genre:
+      - Anime
+  black-clover:
+    match:
+      mapping_id: 331753
+    genre:
+      - Anime
+  chainsaw-man:
+    match:
+      mapping_id: 397934
+    genre:
+      - Anime
+  cowboy-bebop:
+    match:
+      mapping_id: 367234
+    genre:
+      - Anime
+  demon-slayer:
+    match:
+      mapping_id: 348545
+    genre:
+      - Anime
+  elfen-lied:
+    match:
+      mapping_id: 75941
+    genre:
+      - Anime
+  gits-arise-alternative-architecture:
+    match:
+      mapping_id: 293491
+    genre:
+      - Anime
+  gits-stand-alone-complex:
+    match:
+      mapping_id: 73749
+    genre:
+      - Anime
+  god-eater:
+    match:
+      mapping_id: 295224
+    genre:
+      - Anime
+  haikyu:
+    match:
+      mapping_id: 278157
+    genre:
+      - Anime
+  jjba:
+    match:
+      mapping_id: 262954
+    genre:
+      - Anime
+  jjk:
+    match:
+      mapping_id: 377543
+    genre:
+      - Anime
+  kaguya-sama:
+    match:
+      mapping_id: 354198
+    genre:
+      - Anime
+  kaiju-no-8:
+    match:
+      mapping_id: 423075
+    genre:
+      - Anime
+  mha:
+    match:
+      mapping_id: 305074
+    genre:
+      - Anime
+  no-guns-life:
+    match:
+      mapping_id: 367067
+    genre:
+      - Anime
+  princess-connect-re-dive:
+    match:
+      mapping_id: 377034
+    genre:
+      - Anime
+  the-promised-neverland:
+    match:
+      mapping_id: 348002
+    genre:
+      - Anime
+  bunny-girl-senpai:
+    match:
+      mapping_id: 345596
+    genre:
+      - Anime
+  re-zero:
+    match:
+      mapping_id: 305089
+    genre:
+      - Anime
+  shield-hero:
+    match:
+      mapping_id: 353712
+    genre:
+      - Anime
+  tanya-the-evil:
+    match:
+      mapping_id: 315500
+    genre:
+      - Anime
+  that-time-i-got-reincarnated-as-a-slime:
+    match:
+      mapping_id: 352408
+    genre:
+      - Anime
+  tower-of-god:
+    match:
+      mapping_id: 376729
+    genre:
+      - Anime
+  vinland-saga:
+    match:
+      mapping_id: 359274
+    genre:
+      - Anime
+  world-trigger:
+    match:
+      mapping_id: 283934
+    genre:
+      - Anime
