@@ -2,7 +2,7 @@ services:
   kometa_bootstrap:
     build:
       context: ./kometa
-      dockerfile: ./kometa/bootstrap.dockerfile
+      dockerfile: bootstrap.dockerfile
     entrypoint: ['python3', '-u', '/app/bootstrap.py']
     user: "{{ COM_GABBRO_PUID }}:{{ COM_GABBRO_PGID }}"
     volumes:
