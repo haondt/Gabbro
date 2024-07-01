@@ -23,6 +23,9 @@ metadata:
   445030: *anime-genre
   378064: *anime-genre
   129: *anime-genre
+  76170: &superhero-genre
+    genre:
+      - Superhero
 
 collections:
   Anime TMDb:
@@ -32,4 +35,13 @@ collections:
     sync_mode: sync
     item_genre:
       - Anime
+  Superhero TMDb:
+    tmdb_discover:
+      # mcu|dcau|dceu
+      with_keywords: 180547|253375|229266
+    visible_library: false
+    sync_mode: sync
+    item_genre:
+      - Anime
+
 

@@ -196,3 +196,28 @@ metadata:
       mapping_id: 283934
     genre:
       - Anime
+  76168: &superhero-genre
+    genre:
+      - Superhero
+  355567: *superhero-genre
+  413188: *superhero-genre
+  273690: *superhero-genre
+  368207: *superhero-genre
+  367147: *superhero-genre
+  257655: *superhero-genre
+  361315: *superhero-genre
+  295760: *superhero-genre
+  362496: *superhero-genre
+  279121: *superhero-genre
+  417909: *superhero-genre
+  367146: *superhero-genre
+  362472: *superhero-genre
+  368611: *superhero-genre
+  391153: *superhero-genre
+  393203: *superhero-genre
+  368613: *superhero-genre
+  361868: *superhero-genre
+  295759: *superhero-genre
+  361735: *superhero-genre
+  362392: *superhero-genre
+  360733: *superhero-genre
