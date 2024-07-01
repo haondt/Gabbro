@@ -30,6 +30,6 @@ collections:
       - 210024 # anime
     visible_library: false
     sync_mode: sync
-    item_label:
+    item_genre:
       - Anime
 
