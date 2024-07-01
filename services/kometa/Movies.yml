@@ -26,9 +26,8 @@ metadata:
 
 collections:
   Anime TMDb:
-    tmdb:
-      tmdb_keyword:
-        - 210024 # anime
+    tmdb_keyword:
+      - 210024 # anime
     visible_library: false
     sync_mode: sync
     item_label:
