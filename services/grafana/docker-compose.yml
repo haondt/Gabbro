@@ -5,7 +5,7 @@ services:
       - nginx
     image: influxdb:2.7.5-alpine
     volumes:
-      - /srv/storage/local/main/grafana__influxdb2/:/var/lib/influxdb2
+      - /srv/storage/remote/hdd2/grafana__influxdb2/:/var/lib/influxdb2
       - ./grafana/influxdb2/influxdb.conf:/etc/influxdb2/influxdb.conf
       - ./grafana/influxdb2/influx_init.sh:/docker-entrypoint-initdb.d/influx_init.sh
     environment:
