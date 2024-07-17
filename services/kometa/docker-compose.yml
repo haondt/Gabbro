@@ -24,6 +24,7 @@ services:
       - /srv/storage/local/main/kometa/:/config
       - ./kometa/TVShows.yml:/config/TVShows.yml:ro
       - ./kometa/Movies.yml:/config/Movies.yml:ro
+      - ./kometa/All.yml:/config/All.yml:ro
     depends_on:
       kometa_bootstrap:
         condition: service_completed_successfully
