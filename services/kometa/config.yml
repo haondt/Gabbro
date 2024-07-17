@@ -27,6 +27,7 @@ libraries:
       - default: universe
       - default: franchise
       - file: config/TVShows.yml
+      - file: config/All.yml
     metadata_files:
       - file: config/TVShows.yml
   Movies:
@@ -44,6 +45,7 @@ libraries:
       - default: universe
       - default: franchise
       - file: config/Movies.yml
+      - file: config/All.yml
     metadata_files:
       - file: config/Movies.yml
 

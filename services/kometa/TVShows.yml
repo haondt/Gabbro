@@ -39,6 +39,10 @@ collections:
     visible_library: true
     visible_shared: true
     summary: IMDbs top 150 comedies under 30 minutes
+  Adventure Time:
+    trakt_list:
+      - https://trakt.tv/users/haond/lists/adventure-time
+    sync_mode: sync
 
 metadata:
   blend-s:
