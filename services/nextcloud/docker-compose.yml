@@ -6,6 +6,7 @@ services:
     image: nextcloud
     volumes:
       - nextcloud-data:/var/www/html
+      - /mnt/celery/gabbro/nextcloud/data:/var/www/html/data
     links:
       - nextcloud-db
     environment:
