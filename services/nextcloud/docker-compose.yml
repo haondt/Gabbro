@@ -10,7 +10,7 @@ services:
       - nextcloud-db
     environment:
       VIRTUAL_HOST: nextcloud.gabbro
-      VIRTUAL_PORT: 8080
+      VIRTUAL_PORT: 80
       MYSQL_USER: nextcloud
       MYSQL_HOST: nextcloud-db
       MYSQL_PASSWORD: "{{ COM_GABBRO_NEXTCLOUD_DB_PASSWORD }}"
