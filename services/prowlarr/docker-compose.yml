@@ -5,7 +5,7 @@ services:
       - plex
     image: lscr.io/linuxserver/prowlarr:develop
     volumes:
-      - /srv/storage/local/main/prowlarr/:/config
+      - /mnt/celery/gabbro/prowlarr/:/config
     environment:
       VIRTUAL_HOST: prowlarr.gabbro
       VIRTUAL_PORT: 9696

@@ -5,7 +5,7 @@ services:
       - monica
     image: lscr.io/linuxserver/monica:latest
     volumes:
-      - /srv/storage/local/main/monica/monica/:/config
+      - /mnt/celery/gabbro/monica/monica/:/config
     environment:
       VIRTUAL_HOST: monica.gabbro
       VIRTUAL_PORT: 80
@@ -28,7 +28,7 @@ services:
       MYSQL_PASSWORD: "{{ COM_GABBRO_MONICA__DB__PASSWORD }}"
       MYSQL_DATABASE: monica
     volumes:
-      - /srv/storage/local/main/monica/db/:/var/lib/mysql
+      - /mnt/celery/gabbro/monica/mariadb/:/var/lib/mysql
 
 networks:
   monica:

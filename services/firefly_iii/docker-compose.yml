@@ -5,7 +5,7 @@ services:
       - firefly_iii
     image: fireflyiii/core:latest
     volumes:
-      - /srv/storage/local/main/firefly_iii/upload/:/var/www/html/storage/upload
+      - /mnt/celery/gabbro/firefly_iii/upload/:/var/www/html/storage/upload
     env_file:
       - ./firefly_iii/firefly_iii.env
     environment:
@@ -24,7 +24,7 @@ services:
       MYSQL_PASSWORD: "{{ COM_GABBRO_FIREFLY_III__DB__PASSWORD }}"
       MYSQL_DATABASE: firefly
     volumes:
-      - /srv/storage/local/main/firefly_iii/db/:/var/lib/mysql
+      - /mnt/celery/gabbro/firefly_iii/db/:/var/lib/mysql
   firefly_iii_importer:
     networks:
       - firefly_iii
@@ -46,8 +46,8 @@ services:
       VIRTUAL_HOST: firefly-iii-nr.gabbro
       VIRTUAL_PORT: 1880
     volumes:
-      - /srv/storage/local/main/firefly_iii/node-red/data/:/data
-      - /srv/storage/local/main/firefly_iii/node-red/external/:/external
+      - /mnt/celery/gabbro/firefly_iii/node-red/data/:/data
+      - /mnt/celery/gabbro/firefly_iii/node-red/external/:/external
   firefly_iii_pp:
     networks:
       - firefly_iii
@@ -65,8 +65,8 @@ services:
       NodeRedSettings__BaseUrl: http://firefly_iii_pp_node_red:1880/
 
     volumes:
-      - /srv/storage/local/main/firefly_iii/pp/thunder/:/thunder
-      - /srv/storage/local/main/firefly_iii/pp/kvs/:/keyValueStore
+      - /mnt/celery/gabbro/firefly_iii/pp/thunder/:/thunder
+      - /mnt/celery/gabbro/firefly_iii/pp/kvs/:/keyValueStore
 
 
 networks:

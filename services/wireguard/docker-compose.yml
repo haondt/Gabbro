@@ -9,7 +9,7 @@ services:
       SERVERPORT: 51820
       PEERS: haondPhone
     volumes:
-      - /srv/storage/local/main/wireguard/:/config
+      - /mnt/celery/gabbro/wireguard/:/config
       - /lib/modules:/lib/modules
     ports:
       - 51820:51820/udp

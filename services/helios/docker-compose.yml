@@ -8,4 +8,4 @@ services:
       VIRTUAL_PORT: 8000
     volumes:
       - ./helios/helios.yml:/config/helios.yml
-      - /srv/storage/local/main/helios:/data
+      - /mnt/celery/gabbro/helios:/data

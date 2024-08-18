@@ -5,7 +5,7 @@ services:
       - nginx
     image: influxdb:2.7.5-alpine
     volumes:
-      - /srv/storage/remote/hdd2/grafana__influxdb2/:/var/lib/influxdb2
+      - /mnt/celery/gabbro/grafana/influxdb2/:/var/lib/influxdb2
       - ./grafana/influxdb2/influxdb.conf:/etc/influxdb2/influxdb.conf
       - ./grafana/influxdb2/influx_init.sh:/docker-entrypoint-initdb.d/influx_init.sh
     environment:
@@ -21,10 +21,10 @@ services:
       - grafana
       - nginx
     image: grafana/grafana:latest
-    user: "{{ COM_GABBRO_PUID }}:{{ MONITORING__GROUP }}"
+    user: "{{ COM_GABBRO_PUID }}:{{ COM_GABBRO_PGID }}"
     volumes:
-      - /srv/storage/local/main/grafana/provisioning/:/etc/grafana/provisioning
-      - /srv/storage/local/main/grafana/storage/:/var/lib/grafana
+      - /mnt/celery/gabbro/grafana/grafana/provisioning/:/etc/grafana/provisioning
+      - /mnt/celery/gabbro/grafana/grafana/storage/:/var/lib/grafana
       - ./grafana/grafana/grafana.ini:/etc/grafana/grafana.ini
     depends_on:
       - influxdb2

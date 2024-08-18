@@ -6,7 +6,7 @@ jobs:
   gabbro-secret-manager:
     source:
       type: http
-      url: http://gsm.gabbro-ce/api/secrets
+      url: http://gsm.flint/api/export-data
       method: get
       ext: json
       auth:
@@ -38,5 +38,3 @@ jobs:
       config: gabbro
     schedule:
       cron: "0 0 * * *"
-
-

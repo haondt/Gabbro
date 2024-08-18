@@ -5,16 +5,14 @@ services:
       - plex
     image: lscr.io/linuxserver/bazarr:latest
     volumes:
-      - /srv/storage/local/main/bazarr/:/config
+      - /mnt/celery/gabbro/bazarr/:/config
       - "{{ MEDIA__PLEX_DIR_0 }}/tv_shows:/mnt/tv_shows0"
       - "{{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0"
       - "{{ MEDIA__PLEX_DIR_0 }}/movies_hd:/mnt/hd_movies0"
       - "{{ MEDIA__PLEX_DIR_1 }}/tv_shows:/mnt/tv_shows1"
       - "{{ MEDIA__PLEX_DIR_1 }}/movies:/mnt/movies1"
-      - "{{ MEDIA__PLEX_DIR_2 }}/tv_shows:/mnt/tv_shows2"
-      - "{{ MEDIA__PLEX_DIR_2 }}/movies:/mnt/movies2"
+      - "{{ MEDIA__PLEX_DIR_1 }}/movies_hd:/mnt/hd_movies1"
 
     environment:
-      PGID: "{{ MEDIA__GROUP }}"
       VIRTUAL_HOST: bazarr.gabbro
       VIRTUAL_PORT: 6767

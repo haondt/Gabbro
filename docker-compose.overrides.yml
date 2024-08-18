@@ -4,9 +4,5 @@ networks:
   plex:
 
 # available volumes:
-# /srv/storage/local/main
-# /srv/storage/remote/hdd1
-# /srv/storage/remote/hdd2
-# /srv/storage/remote/plex4k
-# /srv/storage/remote/raid10
-# /srv/storage/remote/ssd_raid
+# /mnt/celery/gabbro
+# /mnt/rhyolite/gabbro

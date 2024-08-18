@@ -4,9 +4,9 @@ services:
       - nginx
     image: lscr.io/linuxserver/syncthing:latest
     volumes:
-      - /srv/storage/local/main/syncthing/config/:/config
-      - /srv/storage/remote/raid10/syncthing__data/:/data
-      - /srv/storage/local/main/paperless_ngx/consume/:/mnt/paperless_ngx_consume
+      - /mnt/celery/gabbro/syncthing/config/:/config
+      - /mnt/celery/gabbro/syncthing/data/:/data
+      - /mnt/celery/gabbro/paperless_ngx/consume/:/mnt/paperless_ngx_consume
     environment:
       VIRTUAL_HOST: syncthing.gabbro
       VIRTUAL_PORT: 8384

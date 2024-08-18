@@ -15,16 +15,14 @@ services:
       - nginx
       - plex
     environment:
-      PGID: "{{ MEDIA__GROUP }}"
       VIRTUAL_HOST: plex.gabbro
       VIRTUAL_PORT: 32400
     volumes:
-      - /srv/storage/local/main/plex/:/config
+      - /mnt/celery/gabbro/plex/:/config
       - "{{ MEDIA__PLEX_DIR_0 }}/tv_shows:/mnt/tv_shows0"
       - "{{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0"
       - "{{ MEDIA__PLEX_DIR_0 }}/movies_hd:/mnt/hd_movies0"
       - "{{ MEDIA__PLEX_DIR_1 }}/tv_shows:/mnt/tv_shows1"
       - "{{ MEDIA__PLEX_DIR_1 }}/movies:/mnt/movies1"
-      - "{{ MEDIA__PLEX_DIR_2 }}/tv_shows:/mnt/tv_shows2"
-      - "{{ MEDIA__PLEX_DIR_2 }}/movies:/mnt/movies2"
+      - "{{ MEDIA__PLEX_DIR_1 }}/movies_hd:/mnt/hd_movies1"
 

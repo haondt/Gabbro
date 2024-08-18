@@ -8,20 +8,18 @@ services:
     volumes:
       - ./kometa/bootstrap.py:/app/bootstrap.py
       - ./kometa/config.yml:/config.yml
-      - /srv/storage/local/main/kometa/:/config
+      - /mnt/celery/gabbro/kometa/:/config
   kometa:
     image: kometateam/kometa:v2.0.2
     command: ['--run']
     networks:
       - plex
-    group_add:
-      - "{{ MEDIA__GROUP }}"
     user: "{{ COM_GABBRO_PUID }}:{{ COM_GABBRO_PGID }}"
     environment:
       VIRTUAL_HOST: .gabbro
       VIRTUAL_PORT: 8096
     volumes:
-      - /srv/storage/local/main/kometa/:/config
+      - /mnt/celery/gabbro/kometa/:/config
       - ./kometa/TVShows.yml:/config/TVShows.yml:ro
       - ./kometa/Movies.yml:/config/Movies.yml:ro
       - ./kometa/All.yml:/config/All.yml:ro

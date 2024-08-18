@@ -4,14 +4,14 @@ services:
       - paperless_ngx
     image: docker.io/library/redis:7
     volumes:
-      - /srv/storage/local/main/paperless_ngx/redis/:/data
+      - /mnt/celery/gabbro/paperless_ngx/redis/:/data
 
   paperless_ngx_db:
     networks:
       - paperless_ngx
     image: docker.io/library/mariadb:10
     volumes:
-      - /srv/storage/local/main/paperless_ngx/db/:/var/lib/mysql
+      - /mnt/celery/gabbro/paperless_ngx/db/:/var/lib/mysql
     environment:
       MARIADB_HOST: paperless
       MARIADB_DATABASE: paperless
@@ -28,10 +28,10 @@ services:
       - paperless_ngx_db
       - paperless_ngx_broker
     volumes:
-      - /srv/storage/local/main/paperless_ngx/data/:/usr/src/paperless/data
-      - /srv/storage/local/main/paperless_ngx/media/:/usr/src/paperless/media
-      - /srv/storage/local/main/paperless_ngx/export/:/usr/src/paperless/export
-      - /srv/storage/local/main/paperless_ngx/consume/:/usr/src/paperless/consume
+      - /mnt/celery/gabbro/paperless_ngx/data/:/usr/src/paperless/data
+      - /mnt/celery/gabbro/paperless_ngx/media/:/usr/src/paperless/media
+      - /mnt/celery/gabbro/paperless_ngx/export/:/usr/src/paperless/export
+      - /mnt/celery/gabbro/paperless_ngx/consume/:/usr/src/paperless/consume
     environment:
       VIRTUAL_HOST: paperless-ngx.gabbro
       VIRTUAL_PORT: 8000

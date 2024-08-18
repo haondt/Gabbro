@@ -4,14 +4,12 @@ services:
       - nginx
       - plex
     volumes:
-      - /srv/storage/local/main/sonarr/:/config
+      - /mnt/celery/gabbro/sonarr/:/config
       - "{{ MEDIA__DOWNLOAD_DIR }}/:/downloads"
       - "{{ MEDIA__PLEX_DIR_0 }}/tv_shows:/mnt/tv_shows0"
       - "{{ MEDIA__PLEX_DIR_1 }}/tv_shows:/mnt/tv_shows1"
-      - "{{ MEDIA__PLEX_DIR_2 }}/tv_shows:/mnt/tv_shows2"
     image: lscr.io/linuxserver/sonarr:latest
     environment:
-      PGID: "{{ MEDIA__GROUP }}"
       VIRTUAL_HOST: sonarr.gabbro
       VIRTUAL_PORT: 8989
 

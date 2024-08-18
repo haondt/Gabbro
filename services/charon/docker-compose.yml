@@ -4,7 +4,7 @@ services:
     volumes:
       - ./charon/credentials.json:/config/credentials.json
       - ./charon/charon.yml:/config/charon.yml
-      - /srv/storage/remote/raid10/syncthing__data/:/backup/syncthing/
-      - /srv/storage/local/main/vaultwarden/db.sqlite3:/backup/vaultwarden/db.sqlite3
+      - /mnt/celery/gabbro/syncthing/data/:/backup/syncthing/
+      - /mnt/celery/gabbro/vaultwarden/db.sqlite3:/backup/vaultwarden/db.sqlite3
     environment:
       GOOGLE_APPLICATION_CREDENTIALS: /config/credentials.json
