@@ -16,7 +16,6 @@ services:
       MYSQL_PASSWORD: "{{ COM_GABBRO_NEXTCLOUD_DB_PASSWORD }}"
       MYSQL_DATABASE: nextcloud
 
-
   nextcloud-db:
     networks:
       - nextcloud
@@ -30,7 +29,10 @@ services:
       MYSQL_PASSWORD: "{{ COM_GABBRO_NEXTCLOUD_DB_PASSWORD }}"
       MYSQL_DATABASE: nextcloud
 
-networks:
+volumes:
   nextcloud-db-data:
   nextcloud-data:
+
+networks:
+  nextcloud:
 
