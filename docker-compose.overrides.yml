@@ -1,8 +1,0 @@
-networks:
-  nginx:
-  grafana:
-  plex:
-
-# available volumes:
-# /mnt/celery/gabbro
-# /mnt/rhyolite/gabbro
