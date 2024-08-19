@@ -18,7 +18,7 @@ services:
       VIRTUAL_HOST: plex.gabbro
       VIRTUAL_PORT: 32400
     volumes:
-      - /mnt/celery/gabbro/plex/:/config
+      - /mnt/celery/gabbro/plex/config:/config
       - "{{ MEDIA__PLEX_DIR_0 }}/tv_shows:/mnt/tv_shows0"
       - "{{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0"
       - "{{ MEDIA__PLEX_DIR_0 }}/movies_hd:/mnt/hd_movies0"
