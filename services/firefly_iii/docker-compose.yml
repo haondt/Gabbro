@@ -68,6 +68,5 @@ services:
       - /mnt/celery/gabbro/firefly_iii/pp/thunder/:/thunder
       - /mnt/celery/gabbro/firefly_iii/pp/kvs/:/keyValueStore
 
-
 networks:
   firefly_iii:
