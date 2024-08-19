@@ -1,0 +1,5 @@
+services:
+  flaresolverr:
+    networks:
+      - plex
+    image: flaresolverr/flaresolverr:latest
