@@ -1,5 +1,5 @@
 libraries:
-  Movies 4K:
+  Movies HD:
     remove_overlays: true
     template_variables:
       use_separator: false
