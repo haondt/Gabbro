@@ -2,7 +2,6 @@ services:
   nginx:
     networks:
       - nginx
-      - smallstep
     image: nginxproxy/nginx-proxy
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock
@@ -20,36 +19,25 @@ services:
 
   nginx-acme:
     container_name: nginx-acme
-    networks:
-      - smallstep
     image: nginxproxy/acme-companion
     volumes_from:
       - nginx
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - nginx-acmesh:/etc/acme.sh
-      - smallstep-data:/srv/step
     environment:
-      ACME_CA_URI: https://smallstep:9000/acme/acme/directory
-      CA_BUNDLE: /srv/step/certs/root_ca.crt
-
-  smallstep:
-    networks:
-      - smallstep
-    image: smallstep/step-ca
-    volumes:
-      - smallstep-data:/home/step
-    environment:
-      DOCKER_STEPCA_INIT_NAME: Smallstep
-      DOCKER_STEPCA_INIT_DNS_NAMES: "smallstep,localhost,$(hostname -f),smallstep.gabbro"
-      DOCKER_STEPCA_INIT_ACME: true
+      DEFAULT_EMAIL: "{{ DEFAULT_EMAIL }}"
+      ACME_CHALLENGE: DNS-01
+      ACMESH_DNS_API_CONFIG: |-
+        DNS_API: dns_cf
+        CF_Token: {{ CF_TOKEN }}
+        CF_Zone_ID: {{ CF_ZONE_ID }}
+        CF_Account_ID: {{ CF_ACCOUNT_ID }}
 
 networks:
   nginx:
-  smallstep:
 
 volumes:
-  smallstep-data:
   nginx-certs:
   nginx-vhost:
   nginx-html:
