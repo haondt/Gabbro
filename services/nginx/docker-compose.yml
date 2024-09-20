@@ -9,6 +9,7 @@ services:
       - ./nginx/star_arr.conf:/etc/nginx/vhost.d/sonarr.gabbro
       - ./nginx/star_arr.conf:/etc/nginx/vhost.d/radarr-4k.gabbro
       - ./nginx/vaultwarden.conf:/etc/nginx/vhost.d/vaultwarden.gabbro
+      - ./nginx/vaultwarden.conf:/etc/nginx/vhost.d/vaultwarden.gabbro.local.haondt.dev
       - ./nginx/fidi.conf:/etc/nginx/vhost.d/firefly-iii-di.gabbro
       - nginx-certs:/etc/nginx/certs
       - nginx-vhost:/etc/nginx/vhost.d
