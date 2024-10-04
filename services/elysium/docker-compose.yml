@@ -1,0 +1,54 @@
+services:
+  elysium:
+    networks:
+      - gabbro_nginx
+      - elysium
+    image: registry.gitlab.com/haondt/cicd/registry/elysium:main-20594b02
+    depends_on:
+      - elysium-silo
+    environment:
+      VIRTUAL_HOST: "elysium.{{ COM_GABBRO_HOST }},elysium.{{ LETSENCRYPT_HOST }}"
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+    env_file:
+      - ./elysium/elysium.env
+      - ./elysium/shared.env
+  elysium-silo:
+    networks:
+      - gabbro_nginx
+      - elysium
+    image: registry.gitlab.com/haondt/cicd/registry/elysium-silo:main-20594b02
+    depends_on:
+      - elysium-postgres
+      - elysium-redis
+    environment:
+      VIRTUAL_HOST: "elysium.{{ COM_GABBRO_HOST }},elysium.{{ LETSENCRYPT_HOST }}"
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+    env_file:
+      - ./elysium/shared.env
+    # deploy:
+    #   replicas: 2
+  elysium-postgres:
+    networks:
+      - elysium
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: elysium
+      POSTGRES_PASSWORD: elysium
+      PGDATA: /data/pgdata
+    volumes:
+      - elysium-postgres-data:/data
+      - ./elysium/postgresql-init.sql:/docker-entrypoint-initdb.d/postgresql-init.sql
+  elysium-redis:
+    image: redis
+    networks:
+      - elysium
+
+networks:
+  gabbro_nginx:
+    external: true
+  elysium:
+
+volumes:
+  elysium-postgres-data:

@@ -1,0 +1,12 @@
+- src:
+    path: elysium.env.yml
+    type: yaml
+  dst:
+    path: elysium.env
+    type: env
+- src:
+    path: shared.env.yml
+    type: yaml
+  dst:
+    path: shared.env
+    type: env
