@@ -10,7 +10,7 @@ services:
       VIRTUAL_HOST: "elysium.{{ COM_GABBRO_HOST }},elysium.{{ LETSENCRYPT_HOST }}"
       VIRTUAL_PORT: 8080
       DEFAULT_ROOT: none
-      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      # LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
     env_file:
       - ./elysium/elysium.env
       - ./elysium/shared.env
@@ -26,7 +26,7 @@ services:
       VIRTUAL_HOST: "elysium-silo.{{ COM_GABBRO_HOST }},elysium-silo.{{ LETSENCRYPT_HOST }}"
       VIRTUAL_PORT: 8080
       DEFAULT_ROOT: none
-      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      # LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
     env_file:
       - ./elysium/shared.env
     # deploy:
