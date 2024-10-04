@@ -1,7 +1,7 @@
 services:
   elysium:
     networks:
-      - gabbro_nginx
+      - nginx
       - elysium
     image: registry.gitlab.com/haondt/cicd/registry/elysium:main-20594b02
     depends_on:
@@ -15,7 +15,7 @@ services:
       - ./elysium/shared.env
   elysium-silo:
     networks:
-      - gabbro_nginx
+      - nginx
       - elysium
     image: registry.gitlab.com/haondt/cicd/registry/elysium-silo:main-20594b02
     depends_on:
@@ -46,8 +46,6 @@ services:
       - elysium
 
 networks:
-  gabbro_nginx:
-    external: true
   elysium:
 
 volumes:
