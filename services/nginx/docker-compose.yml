@@ -10,7 +10,8 @@ services:
       - ./nginx/star_arr.conf:/etc/nginx/vhost.d/radarr-4k.gabbro
       - ./nginx/vaultwarden.conf:/etc/nginx/vhost.d/vaultwarden.gabbro
       - ./nginx/vaultwarden.conf:/etc/nginx/vhost.d/vaultwarden.gabbro.local.haondt.dev
-      - ./nginx/elysium.conf:/etc/nginx/vhost.d/elysium.gabbro
+      - ./nginx/elysium.location.conf:/etc/nginx/vhost.d/elysium.gabbro_42099b4af021e53fd8fd4e056c2568d7c2e3ffa8_location
+      - ./nginx/elysium-silo.location.conf:/etc/nginx/vhost.d/elysium-silo.gabbro_42099b4af021e53fd8fd4e056c2568d7c2e3ffa8_location
       - ./nginx/fidi.conf:/etc/nginx/vhost.d/firefly-iii-di.gabbro
       - nginx-certs:/etc/nginx/certs
       - nginx-vhost:/etc/nginx/vhost.d
