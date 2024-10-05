@@ -10,6 +10,7 @@ services:
       VIRTUAL_HOST: "elysium.{{ LETSENCRYPT_HOST }}"
       VIRTUAL_PORT: 8080
       LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HostingSettings__Host: elysium.{{ LETSENCRYPT_HOST }}
     env_file:
       - ./elysium/elysium.env
       - ./elysium/shared.env
@@ -24,6 +25,7 @@ services:
     environment:
       VIRTUAL_HOST: "elysium-silo.{{ COM_GABBRO_HOST }}"
       VIRTUAL_PORT: 8080
+      HostingSettings__Host: elysium.{{ LETSENCRYPT_HOST }}
     env_file:
       - ./elysium/shared.env
     # deploy:
