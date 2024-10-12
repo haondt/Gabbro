@@ -1,0 +1,14 @@
+services:
+  microbin:
+    image: danielszabo99/microbin:2.0.4
+    environment:
+      VIRTUAL_HOST: microbin.gabbro
+      VIRTUAL_PORT: 8080
+      # see https://github.com/szabodanika/microbin/blob/master/.env
+      MICROBIN_HIDE_LOGO: true
+      MICROBIN_PRIVATE: true
+      MICROBIN_GC_DAYS: 0
+      MICROBIN_QR: true
+      MICROBIN_ETERNAL_PASTA: true
+      MICROBIN_DEFAULT_EXPIRY: 24hour
+      MICROBIN_LIST_SERVER: false
