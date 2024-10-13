@@ -6,7 +6,8 @@ services:
     environment:
       VIRTUAL_HOST: samba.gabbro
       VIRTUAL_PORT: 445
-      HTTP_PORT: 445
+      HTTP_PORT: 1234
+      HTTPS_PORT: 5678
       USER: "samba"
       PASS: "samba"
       UID: "{{ COM_GABBRO_PGID }}"
