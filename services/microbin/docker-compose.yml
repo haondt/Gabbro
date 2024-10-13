@@ -12,3 +12,5 @@ services:
       MICROBIN_ETERNAL_PASTA: true
       MICROBIN_DEFAULT_EXPIRY: 24hour
       MICROBIN_LIST_SERVER: false
+    networks:
+      - nginx
