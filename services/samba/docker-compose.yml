@@ -12,4 +12,4 @@ services:
       UID: "{{ COM_GABBRO_PGID }}"
       GID: "{{ COM_GABBRO_PUID }}"
     volumes:
-      - /mnt/celery/gabbro/samba/data:/mnt/celery
+      - /mnt/celery/gabbro/samba/data:/storage
