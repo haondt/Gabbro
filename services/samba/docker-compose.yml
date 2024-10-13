@@ -10,3 +10,4 @@ services:
       - 445:445
     volumes:
       - /mnt/celery/gabbro/samba/data:/storage
+      - ./samba/smb.conf:/etc/samba/smb.conf
