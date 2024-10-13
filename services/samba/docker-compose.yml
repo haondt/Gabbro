@@ -1,0 +1,15 @@
+services:
+  samba:
+    image: dockurr/samba:4.20.2
+    networks:
+      - nginx
+    environment:
+      VIRTUAL_HOST: samba.gabbro
+      VIRTUAL_PORT: 445
+      HTTP_PORT: 445
+      USER: "samba"
+      PASS: "samba"
+      UID: "{{ COM_GABBRO_PGID }}"
+      GID: "{{ COM_GABBRO_PUID }}"
+    volumes:
+      - /mnt/celery/gabbro/samba/data:/mnt/celery
