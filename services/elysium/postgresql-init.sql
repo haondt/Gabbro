@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS "foreignKeys" (
     id SERIAL PRIMARY KEY,
     ForeignKey TEXT,
     KeyString TEXT NOT NULL,
-    PrimaryKey TEXT REFERENCES "elysium"(PrimaryKey) ON DELETE CASCADE
+    PrimaryKey TEXT REFERENCES "elysium"(PrimaryKey) ON DELETE CASCADE,
+    CONSTRAINT unique_ForeignKey_PrimaryKey UNIQUE (ForeignKey, PrimaryKey)
 );
 
 CREATE INDEX IF NOT EXISTS idx_foreign_key
