@@ -3,7 +3,7 @@ services:
     networks:
       - nginx
       - elysium
-    image: registry.gitlab.com/haondt/cicd/registry/elysium:queue-b19dedc5
+    image: registry.gitlab.com/haondt/cicd/registry/elysium:queue-85e40102
     depends_on:
       - elysium-silo
     environment:
@@ -18,7 +18,7 @@ services:
     networks:
       - nginx
       - elysium
-    image: registry.gitlab.com/haondt/cicd/registry/elysium-silo:queue-b19dedc5
+    image: registry.gitlab.com/haondt/cicd/registry/elysium-silo:queue-85e40102
     depends_on:
       - elysium-postgres
       - elysium-redis
