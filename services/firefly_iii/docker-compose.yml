@@ -73,3 +73,4 @@ networks:
   firefly_iii:
 volumes:
   firefly-iii-node-red-data:
+
