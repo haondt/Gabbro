@@ -48,8 +48,7 @@ services:
       - ./firefly_iii/flows.json:/external/flows.json
       - ./firefly_iii/flows_cred.json:/external/flows_cred.json
       - ./firefly_iii/settings.js:/data/settings.js
-      - /mnt/celery/gabbro/firefly_iii/node-red/data/:/data
-      - /mnt/celery/gabbro/firefly_iii/node-red/external/:/external
+      - firefly-iii-node-red-data:/data
   firefly_iii_pp:
     networks:
       - firefly_iii
@@ -72,3 +71,5 @@ services:
 
 networks:
   firefly_iii:
+volumes:
+  firefly-iii-node-red-data:
