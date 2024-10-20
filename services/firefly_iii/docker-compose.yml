@@ -45,8 +45,8 @@ services:
       VIRTUAL_HOST: firefly-iii-nr.gabbro
       VIRTUAL_PORT: 1880
     volumes:
-      - ./firefly_iii/flows.json:/external/flows.json
-      - ./firefly_iii/flows_cred.json:/external/flows_cred.json
+      - ./firefly_iii/flows.json:/data/flows.json
+      - ./firefly_iii/flows_cred.json:/data/flows_cred.json
       - ./firefly_iii/settings.js:/data/settings.js
       - firefly-iii-node-red-data:/data
   firefly_iii_pp:
