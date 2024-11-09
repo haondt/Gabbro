@@ -1,6 +1,10 @@
 services:
   plex:
     image: lscr.io/linuxserver/plex:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '8'
     ports:
       - 32400:32400
       - 1900:1900/udp
