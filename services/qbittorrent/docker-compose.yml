@@ -1,5 +1,9 @@
 services:
   qbittorrent:
+    deploy:
+      resources:
+        limits:
+          memory: 2gb
     networks:
       - nginx
       - plex
