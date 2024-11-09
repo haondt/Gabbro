@@ -5,6 +5,7 @@ services:
       resources:
         limits:
           cpus: '8'
+          memory: 4gb 
     ports:
       - 32400:32400
       - 1900:1900/udp
