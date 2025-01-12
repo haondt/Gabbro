@@ -1,0 +1,6 @@
+- src:
+    path: midas.env.yml
+    type: yaml
+  dst:
+    path: midas.env
+    type: env

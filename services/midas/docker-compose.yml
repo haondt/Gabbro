@@ -1,0 +1,54 @@
+services:
+  midas:
+    networks:
+      - nginx
+      - midas
+    image: registry.gitlab.com/haondt/cicd/registry/midas:v0.0.2
+    group_add:
+      - 80085
+    volumes:
+      - midas-data:/data
+    depends_on:
+      - midas-data-init
+      - midas-node-red
+    environment:
+      VIRTUAL_HOST: "midas.{{ LETSENCRYPT_HOST }}"
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+    env_file:
+      - ./midas/midas.env
+
+  midas-node-red:
+    networks:
+      - nginx
+      - midas
+    build:
+      context: midas/nodered
+    volumes:
+      - ./midas/nodered/settings.js:/data/settings.js
+      - midas-node-red-data:/data
+    environment:
+      VIRTUAL_HOST: "midas-node-red.{{ LETSENCRYPT_HOST }}"
+      VIRTUAL_PORT: 1880
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      MIDAS_API_URL: http://midas:8080/
+
+  midas-data-init:
+    group_add:
+      - 80085
+    volumes:
+      - midas-data:/data
+    user: root
+    image: alpine
+    command: >
+      sh -c "
+        if [ ! -f /data/.initialized ]; then
+          chgrp -R 80085 /data && chmod -R 775 /data && touch /data/.initialized;
+        fi"
+
+networks:
+  midas:
+
+volumes:
+  midas-data:
+  midas-node-red-data:
