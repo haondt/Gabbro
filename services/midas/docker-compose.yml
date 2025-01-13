@@ -5,7 +5,7 @@ services:
       - midas
     image: registry.gitlab.com/haondt/cicd/registry/midas:0.0.7
     group_add:
-      - 80085
+      - "{{ COM_GABBRO_PGID }}"
     volumes:
       - /mnt/celery/gabbro/midas/midas__data/:/data
     depends_on:
@@ -35,15 +35,15 @@ services:
 
   midas-data-init:
     group_add:
-      - 80085
+      - "{{ COM_GABBRO_PGID }}"
     volumes:
-      - midas-data:/data
+      - /mnt/celery/gabbro/midas/midas__data/:/data
     user: root
     image: alpine
     command: >
       sh -c "
         if [ ! -f /data/.initialized ]; then
-          chgrp -R 80085 /data && chmod -R 775 /data && touch /data/.initialized;
+          chgrp -R {{ COM_GABBRO_PGID }} /data && chmod -R 775 /data && touch /data/.initialized;
         fi"
 
 networks:
