@@ -3,7 +3,7 @@ services:
     networks:
       - nginx
       - midas
-    image: registry.gitlab.com/haondt/cicd/registry/midas:0.0.3
+    image: registry.gitlab.com/haondt/cicd/registry/midas:0.0.4
     group_add:
       - 80085
     volumes:
