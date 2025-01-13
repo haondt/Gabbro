@@ -3,11 +3,11 @@ services:
     networks:
       - nginx
       - midas
-    image: registry.gitlab.com/haondt/cicd/registry/midas:0.0.6
+    image: registry.gitlab.com/haondt/cicd/registry/midas:0.0.7
     group_add:
       - 80085
     volumes:
-      - midas-data:/data
+      - /mnt/celery/gabbro/midas/midas__data/:/data
     depends_on:
       - midas-data-init
       - midas-node-red
@@ -48,6 +48,3 @@ services:
 
 networks:
   midas:
-
-volumes:
-  midas-data:
