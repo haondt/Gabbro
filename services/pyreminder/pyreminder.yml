@@ -11,6 +11,19 @@ checks:
           color: FEE4DF
           template: "New version of `${docker_hub__image}` pushed ${docker_hub__last_updated}."
       period: 1d
+  - vaultwarden:
+      source:
+        type: github
+        owner: dani-garcia
+        repo: vaultwarden
+      destinations:
+        - type: discord
+          webhookURL: {{ COM_GABBRO_PYREMINDER_DISCORD_WEBHOOK_URL }}
+          color: 1c60dc
+          template: github-discord
+      meta:
+        name: Portainer
+      period: 1d
   - portainer:
       source:
         type: github
