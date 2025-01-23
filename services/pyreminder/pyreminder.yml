@@ -22,7 +22,7 @@ checks:
           color: 1c60dc
           template: github-discord
       meta:
-        name: Portainer
+        name: Vaultwarden
       period: 1d
   - portainer:
       source:
