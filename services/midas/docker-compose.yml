@@ -3,7 +3,7 @@ services:
     networks:
       - nginx
       - midas
-    image: registry.gitlab.com/haondt/cicd/registry/midas:0.1.9
+    image: registry.gitlab.com/haondt/cicd/registry/midas:try-fix-date-bug-daf42823
     group_add:
       - "{{ COM_GABBRO_PGID }}"
     volumes:
