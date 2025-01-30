@@ -3,7 +3,7 @@ services:
     networks:
       - nginx
       - midas
-    image: registry.gitlab.com/haondt/cicd/registry/midas:try-fix-date-bug-daf42823
+    image: registry.gitlab.com/haondt/cicd/registry/midas:0.1.11
     group_add:
       - "{{ COM_GABBRO_PGID }}"
     volumes:
@@ -15,6 +15,7 @@ services:
       VIRTUAL_HOST: "midas.{{ LETSENCRYPT_HOST }}"
       VIRTUAL_PORT: 8080
       LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      NodeRedSettings__ClientUrl: "https://midas-node-red.{{ LETSENCRYPT_HOST }}"
     env_file:
       - ./midas/midas.env
 
