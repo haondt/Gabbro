@@ -8,4 +8,3 @@ services:
       - /mnt/celery/gabbro/vaultwarden/db.sqlite3:/backup/vaultwarden/db.sqlite3
     environment:
       GOOGLE_APPLICATION_CREDENTIALS: /config/credentials.json
-
