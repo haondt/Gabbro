@@ -3,7 +3,7 @@ services:
     networks:
       - nginx
       - midas
-    image: registry.gitlab.com/haondt/cicd/registry/midas:0.1.12
+    image: registry.gitlab.com/haondt/cicd/registry/midas:fix-datetime-again-db4d00fb
     group_add:
       - "{{ COM_GABBRO_PGID }}"
     volumes:
