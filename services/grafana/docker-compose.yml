@@ -3,7 +3,7 @@ services:
     networks:
       - grafana
       - nginx
-    image: influxdb:2.7.5-alpine
+    image: influxdb:2-alpine
     volumes:
       - /mnt/celery/gabbro/grafana/influxdb2/:/var/lib/influxdb2
       - ./grafana/influxdb2/influxdb.conf:/etc/influxdb2/influxdb.conf
