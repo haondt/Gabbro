@@ -7,7 +7,7 @@ services:
     environment:
       SERVERURL: "{{ COM_GABBRO_WIREGUARD__SERVER_URL }}"
       SERVERPORT: 51820
-      PEERS: haondPhone
+      PEERS: 1
     volumes:
       - /mnt/celery/gabbro/wireguard/:/config
       - /lib/modules:/lib/modules
