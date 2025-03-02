@@ -11,6 +11,11 @@ services:
       - /mnt/celery/gabbro/kometa/:/config
   kometa:
     image: kometateam/kometa:v2.0.2
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 0.5gb 
     command: ['--run']
     networks:
       - plex
