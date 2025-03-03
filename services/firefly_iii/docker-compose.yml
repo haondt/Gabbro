@@ -3,7 +3,7 @@ services:
     networks:
       - nginx
       - firefly_iii
-    image: fireflyiii/core:latest
+    image: docker.io/fireflyiii/core:latest@sha256:b368f3ba77a34314da1e4925a1450f2f9cfaa5a173ef12683af2940223d7a428
     x-tl: "+!"
     volumes:
       - /mnt/celery/gabbro/firefly_iii/upload/:/var/www/html/storage/upload
@@ -29,7 +29,7 @@ services:
     networks:
       - firefly_iii
       - nginx
-    image: fireflyiii/data-importer:latest
+    image: docker.io/fireflyiii/data-importer:latest@sha256:40e10f996a7bf72285dd6475c49424a02255fb02437904fe2ee6c44bc07e1bfc
     x-tl: "+!"
     depends_on:
       - firefly_iii
@@ -42,7 +42,7 @@ services:
     networks:
       - firefly_iii
       - nginx
-    image: nodered/node-red:latest
+    image: docker.io/nodered/node-red:latest@sha256:7a3e18f29578feb271bb8daab4379e4ebd355b87ea64b699ce74e6ff49d907aa
     x-tl: "+!"
     environment:
       VIRTUAL_HOST: firefly-iii-nr.gabbro
