@@ -4,13 +4,7 @@ services:
       - nginx
       - firefly_iii
     image: fireflyiii/core:latest
-    x-talos:
-      bump: major
-      strategy:
-        digest: push
-        patch: push
-        minor: push
-        major: push
+    x-tl: "+!"
     volumes:
       - /mnt/celery/gabbro/firefly_iii/upload/:/var/www/html/storage/upload
     env_file:
@@ -36,13 +30,7 @@ services:
       - firefly_iii
       - nginx
     image: fireflyiii/data-importer:latest
-    x-talos:
-      bump: major
-      strategy:
-        digest: push
-        patch: push
-        minor: push
-        major: push
+    x-tl: "+!"
     depends_on:
       - firefly_iii
     environment:
@@ -55,13 +43,7 @@ services:
       - firefly_iii
       - nginx
     image: nodered/node-red:latest
-    x-talos:
-      bump: major
-      strategy:
-        digest: push
-        patch: push
-        minor: push
-        major: push
+    x-tl: "+!"
     environment:
       VIRTUAL_HOST: firefly-iii-nr.gabbro
       VIRTUAL_PORT: 1880
@@ -83,7 +65,6 @@ services:
       FireFlyIIISettings__BaseUrl: http://firefly_iii:8080/
       FireFlyIIISettings__Token: '{{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}'
       NodeRedSettings__BaseUrl: http://firefly_iii_pp_node_red:1880/
-
     volumes:
       - /mnt/celery/gabbro/firefly_iii/pp/thunder/:/thunder
       - /mnt/celery/gabbro/firefly_iii/pp/kvs/:/keyValueStore
