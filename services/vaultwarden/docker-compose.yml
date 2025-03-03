@@ -1,6 +1,7 @@
 services:
   vaultwarden:
-    image: vaultwarden/server:latest
+    image: vaultwarden/server:1.33.2
+    x-tl: "+:!!!?"
     logging:
       driver: "json-file"
       options:
