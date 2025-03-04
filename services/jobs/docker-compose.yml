@@ -12,6 +12,7 @@ services:
       VIRTUAL_PORT: 1880
       VIRTUAL_HOST: "jobs.{{ LETSENCRYPT_HOST }}"
       LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      GSM_API_KEY: "{{ GSM_API_KEY }}"
   jobs-redis: 
     image: redis
     networks:
