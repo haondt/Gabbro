@@ -1,0 +1,22 @@
+services:
+  jobs:
+    networks:
+      - jobs
+      - nginx
+    build:
+      context: jobs
+    volumes:
+      - ./jobs/settings.js:/data/settings.js
+      - /mnt/celery/gabbro/jobs/nodered_data/:/data
+    environment:
+      VIRTUAL_PORT: 1880
+      VIRTUAL_HOST: "jobs.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+  jobs-redis: 
+    image: redis
+    networks:
+      - jobs
+
+
+networks:
+  jobs:
