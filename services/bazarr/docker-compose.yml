@@ -3,7 +3,8 @@ services:
     networks:
       - nginx
       - plex
-    image: lscr.io/linuxserver/bazarr:latest
+    image: lscr.io/linuxserver/bazarr:1.4.3
+    x-tl: "+.!!?"
     volumes:
       - /mnt/celery/gabbro/bazarr/:/config
       - "{{ MEDIA__PLEX_DIR_0 }}/tv_shows:/mnt/tv_shows0"
