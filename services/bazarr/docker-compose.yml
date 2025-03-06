@@ -15,5 +15,7 @@ services:
       - "{{ MEDIA__PLEX_DIR_1 }}/movies_hd:/mnt/hd_movies1"
 
     environment:
-      VIRTUAL_HOST: bazarr.gabbro
       VIRTUAL_PORT: 6767
+      VIRTUAL_HOST: "bazarr.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
