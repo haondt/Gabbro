@@ -4,6 +4,7 @@ services:
       - nginx
       - monica
     image: lscr.io/linuxserver/monica:latest
+    x-tl: +!
     volumes:
       - /mnt/celery/gabbro/monica/monica/:/config
     environment:

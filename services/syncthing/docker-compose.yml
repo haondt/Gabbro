@@ -3,6 +3,7 @@ services:
     networks:
       - nginx
     image: lscr.io/linuxserver/syncthing:latest
+    x-tl: +!
     volumes:
       - /mnt/celery/gabbro/syncthing/config/:/config
       - /mnt/celery/gabbro/syncthing/data/:/data

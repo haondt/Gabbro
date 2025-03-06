@@ -3,6 +3,7 @@ services:
     networks:
       - nginx
     image: nginxproxy/nginx-proxy
+    x-tl: "+!"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock
       - ./nginx/star_arr.conf:/etc/nginx/vhost.d/radarr.{{ COM_GABBRO_HOST }}

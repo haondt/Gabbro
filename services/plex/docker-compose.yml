@@ -1,6 +1,7 @@
 services:
   plex:
     image: lscr.io/linuxserver/plex:latest
+    x-tl: +!
     deploy:
       resources:
         limits:

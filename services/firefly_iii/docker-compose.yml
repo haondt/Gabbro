@@ -18,6 +18,7 @@ services:
     networks:
       - firefly_iii
     image: mariadb
+    x-tl: x
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
       MYSQL_USER: "{{ COM_GABBRO_FIREFLY_III__DB__USERNAME }}"
@@ -55,6 +56,7 @@ services:
       - firefly_iii
       - nginx
     image: haumea/fireflyiii-pp:latest
+    x-tl: "+!"
     environment:
       VIRTUAL_HOST: firefly-iii-pp.gabbro
       VIRTUAL_PORT: 80

@@ -1,6 +1,7 @@
 services:
   microbin:
     image: danielszabo99/microbin:2.0.4
+    x-tl: "+!"
     environment:
       VIRTUAL_HOST: microbin.gabbro
       VIRTUAL_PORT: 8080

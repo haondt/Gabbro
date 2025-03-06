@@ -2,4 +2,5 @@ services:
   flaresolverr:
     networks:
       - plex
-    image: flaresolverr/flaresolverr:latest
+    image: flaresolverr/flaresolverr:v3.3.21
+    x-tl: "+:.!!?"

@@ -4,6 +4,7 @@ services:
       - nginx
       - plex
     image: lscr.io/linuxserver/tautulli:latest
+    x-tl: +!
     volumes:
       - /mnt/celery/gabbro/tautulli/:/config
     environment:

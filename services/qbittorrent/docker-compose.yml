@@ -8,6 +8,7 @@ services:
       - nginx
       - plex
     image: lscr.io/linuxserver/qbittorrent:latest
+    x-tl: +!
     volumes:
       - "{{ MEDIA__DOWNLOAD_DIR}}/:/downloads"
       - /mnt/celery/gabbro/qbittorrent/incomplete/:/downloading
