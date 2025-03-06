@@ -4,7 +4,6 @@ services:
       - nginx
       - plex
     image: lscr.io/linuxserver/prowlarr:develop
-    x-tl: +!
     volumes:
       - /mnt/celery/gabbro/prowlarr/:/config
     environment:
