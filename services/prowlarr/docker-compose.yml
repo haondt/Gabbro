@@ -7,5 +7,7 @@ services:
     volumes:
       - /mnt/celery/gabbro/prowlarr/:/config
     environment:
-      VIRTUAL_HOST: prowlarr.gabbro
       VIRTUAL_PORT: 9696
+      VIRTUAL_HOST: "prowlarr.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp

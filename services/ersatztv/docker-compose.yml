@@ -14,8 +14,10 @@ services:
       - "{{ MEDIA__PLEX_DIR_1 }}/movies:/mnt/movies1"
       - "{{ MEDIA__PLEX_DIR_1 }}/movies_hd:/mnt/hd_movies1"
     environment:
-      VIRTUAL_HOST: ersatztv.gabbro
       VIRTUAL_PORT: 8409
+      VIRTUAL_HOST: "ersatztv.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
 
 volumes:
   ersatztv-data:

@@ -8,5 +8,8 @@ services:
     volumes:
       - /mnt/celery/gabbro/tautulli/:/config
     environment:
-      VIRTUAL_HOST: tautulli.gabbro
       VIRTUAL_PORT: 8181
+      VIRTUAL_HOST: "tautulli.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
+

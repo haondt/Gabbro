@@ -4,6 +4,8 @@ services:
       - nginx
     image: machines/filestash:latest
     environment:
-      APPLICATION_URL: filestash.gabbro
-      VIRTUAL_HOST: filestash.gabbro
+      APPLICATION_URL: "filestash.{{ LETSENCRYPT_HOST }}"
       VIRTUAL_PORT: 8334
+      VIRTUAL_HOST: "filestash.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp

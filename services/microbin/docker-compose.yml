@@ -3,8 +3,10 @@ services:
     image: docker.io/danielszabo99/microbin:2.0.4@sha256:c5bd4643135540a68a2846950fe4f65f3bcc94b62ed7c7644e563dfde6f1732c
     x-tl: "+!"
     environment:
-      VIRTUAL_HOST: microbin.gabbro
       VIRTUAL_PORT: 8080
+      VIRTUAL_HOST: "microbin.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
       # see https://github.com/szabodanika/microbin/blob/master/.env
       MICROBIN_HIDE_LOGO: true
       MICROBIN_PRIVATE: true

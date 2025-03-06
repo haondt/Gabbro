@@ -11,8 +11,10 @@ services:
       - "{{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0"
       - "{{ MEDIA__PLEX_DIR_1 }}/movies:/mnt/movies1"
     environment:
-      VIRTUAL_HOST: radarr.gabbro
       VIRTUAL_PORT: 7878
+      VIRTUAL_HOST: "radarr.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
   radarr_4k:
     image: lscr.io/linuxserver/radarr:5.19.3@sha256:0a8020afc5e3dcad1413ba125a980729a2b16ff0d88d108b3e1779111ef1c896
     x-tl: "+:.!!?"
@@ -25,5 +27,7 @@ services:
       - "{{ MEDIA__PLEX_DIR_0 }}/movies_hd:/mnt/hd_movies0"
       - "{{ MEDIA__PLEX_DIR_1 }}/movies_hd:/mnt/hd_movies1"
     environment:
-      VIRTUAL_HOST: radarr-4k.gabbro
       VIRTUAL_PORT: 7878
+      VIRTUAL_HOST: "radarr-4k.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp

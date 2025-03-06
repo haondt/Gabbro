@@ -4,8 +4,10 @@ services:
       - nginx
     image: haumea/helios
     environment:
-      VIRTUAL_HOST: helios.gabbro
       VIRTUAL_PORT: 8000
+      VIRTUAL_HOST: "helios.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
     volumes:
       - ./helios/helios.yml:/config/helios.yml
       - /mnt/celery/gabbro/helios:/data

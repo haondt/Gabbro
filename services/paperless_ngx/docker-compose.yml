@@ -33,8 +33,10 @@ services:
       - /mnt/celery/gabbro/paperless_ngx/export/:/usr/src/paperless/export
       - /mnt/celery/gabbro/paperless_ngx/consume/:/usr/src/paperless/consume
     environment:
-      VIRTUAL_HOST: paperless-ngx.gabbro
       VIRTUAL_PORT: 8000
+      VIRTUAL_HOST: "paperless-ngx.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
 
       PAPERLESS_REDIS: redis://paperless_ngx_broker:6379
       PAPERLESS_DBENGINE: mariadb

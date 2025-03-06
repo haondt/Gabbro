@@ -4,9 +4,11 @@ services:
     networks:
       - nginx
     environment:
-      JELLYFIN_PublishedServerUrl: http://jellyfin.gabbro
-      VIRTUAL_HOST: jellyfin.gabbro
+      JELLYFIN_PublishedServerUrl: http://jellyfin.{{ LETSENCRYPT_HOST }}
       VIRTUAL_PORT: 8096
+      VIRTUAL_HOST: "jellyfin.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
     volumes:
       - jellyfin-config:/config
       - jellyfin-cache:/cache

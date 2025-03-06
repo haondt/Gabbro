@@ -15,6 +15,7 @@ services:
       VIRTUAL_HOST: "midas.{{ LETSENCRYPT_HOST }}"
       VIRTUAL_PORT: 8080
       LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
       NodeRedSettings__ClientUrl: "https://midas-node-red.{{ LETSENCRYPT_HOST }}"
     env_file:
       - ./midas/midas.env

@@ -11,6 +11,8 @@ services:
       - "{{ MEDIA__PLEX_DIR_0 }}/tv_shows:/mnt/tv_shows0"
       - "{{ MEDIA__PLEX_DIR_1 }}/tv_shows:/mnt/tv_shows1"
     environment:
-      VIRTUAL_HOST: sonarr.gabbro
       VIRTUAL_PORT: 8989
+      VIRTUAL_HOST: "sonarr.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
 

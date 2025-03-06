@@ -12,6 +12,7 @@ services:
       VIRTUAL_PORT: 1880
       VIRTUAL_HOST: "jobs.{{ LETSENCRYPT_HOST }}"
       LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
       GSM_API_KEY: "{{ GSM_API_KEY }}"
   jobs-redis: 
     image: redis
@@ -26,6 +27,7 @@ services:
       VIRTUAL_PORT: 5540
       VIRTUAL_HOST: "jobs-redis.{{ LETSENCRYPT_HOST }}"
       LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
     volumes:
       - jobs-redis-insight-data:/data
 

@@ -9,8 +9,10 @@ services:
       - ./grafana/influxdb2/influxdb.conf:/etc/influxdb2/influxdb.conf
       - ./grafana/influxdb2/influx_init.sh:/docker-entrypoint-initdb.d/influx_init.sh
     environment:
-      VIRTUAL_HOST: influxdb2.gabbro
       VIRTUAL_PORT: 8086
+      VIRTUAL_HOST: "influxdb2.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
       DOCKER_INFLUXDB_INIT_MODE: setup
       DOCKER_INFLUXDB_INIT_USERNAME: "{{ COM_GABBRO_GRAFANA_INFLUXDB2_INFLUXDB_INIT_USERNAME }}"
       DOCKER_INFLUXDB_INIT_PASSWORD: "{{ COM_GABBRO_GRAFANA_INFLUXDB2_INFLUXDB_INIT_PASSWORD }}"
@@ -29,10 +31,12 @@ services:
     depends_on:
       - influxdb2
     environment:
-      VIRTUAL_HOST: grafana.gabbro
       VIRTUAL_PORT: 3000
       GF_SECURITY_ADMIN_USER: "{{ COM_GABBRO_GRAFANA_INIT_USERNAME }}"
       GF_SECURITY_ADMIN_PASSWORD: "{{ COM_GABBRO_GRAFANA_INIT_PASSWORD }}"
+      VIRTUAL_HOST: "grafana.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
 
 networks:
   grafana:

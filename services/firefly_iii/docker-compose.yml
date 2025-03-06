@@ -10,8 +10,10 @@ services:
     env_file:
       - ./firefly_iii/firefly_iii.env
     environment:
-      VIRTUAL_HOST: firefly-iii.gabbro
       VIRTUAL_PORT: 8080
+      VIRTUAL_HOST: "firefly-iii.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
     depends_on:
       - firefly_iii_db
   firefly_iii_db:
@@ -35,10 +37,12 @@ services:
     depends_on:
       - firefly_iii
     environment:
-      VIRTUAL_HOST: firefly-iii-di.gabbro
       VIRTUAL_PORT: 8080
       FIREFLY_III_URL: 'http://firefly_iii:8080'
       FIREFLY_III_ACCESS_TOKEN: '{{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}'
+      VIRTUAL_HOST: "firefly-iii-di.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
   firefly_iii_pp_node_red:
     networks:
       - firefly_iii
@@ -46,8 +50,10 @@ services:
     image: docker.io/nodered/node-red:latest@sha256:7a3e18f29578feb271bb8daab4379e4ebd355b87ea64b699ce74e6ff49d907aa
     x-tl: "+!"
     environment:
-      VIRTUAL_HOST: firefly-iii-nr.gabbro
       VIRTUAL_PORT: 1880
+      VIRTUAL_HOST: "firefly-iii-nr.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
     volumes:
       - ./firefly_iii/settings.js:/data/settings.js
       - firefly-iii-node-red-data:/data
@@ -58,7 +64,6 @@ services:
     image: docker.io/haumea/fireflyiii-pp:latest@sha256:225731fec9cc7ef7f9101cd0725e62386e294ad2d3dac0208fcdc524ea817d3d
     x-tl: "+!"
     environment:
-      VIRTUAL_HOST: firefly-iii-pp.gabbro
       VIRTUAL_PORT: 80
       DOTNET_KeyValueStoreSettings__Stores__assetAccounts__Path: assetAccounts.json
       DOTNET_KeyValueStoreSettings__Stores__assetAccounts__DefaultValueValue: "{\"attributes\":{},\"add_tags\":[]}"
@@ -67,6 +72,9 @@ services:
       FireFlyIIISettings__BaseUrl: http://firefly_iii:8080/
       FireFlyIIISettings__Token: '{{ COM_GABBRO_FIREFLY_III__ACCESS_TOKEN }}'
       NodeRedSettings__BaseUrl: http://firefly_iii_pp_node_red:1880/
+      VIRTUAL_HOST: "firefly-iii-pp.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
     volumes:
       - /mnt/celery/gabbro/firefly_iii/pp/thunder/:/thunder
       - /mnt/celery/gabbro/firefly_iii/pp/kvs/:/keyValueStore
