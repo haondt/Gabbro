@@ -3,7 +3,7 @@ services:
     networks:
       - nginx
       - plex
-    image: lscr.io/linuxserver/tautulli:latest
+    image: lscr.io/linuxserver/tautulli:latest@sha256:f0b8701bece5c420800bcaf76a1b824076737b9c5ccef905b8f2c89192ce7919
     x-tl: +!
     volumes:
       - /mnt/celery/gabbro/tautulli/:/config

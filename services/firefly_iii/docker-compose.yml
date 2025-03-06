@@ -55,7 +55,7 @@ services:
     networks:
       - firefly_iii
       - nginx
-    image: haumea/fireflyiii-pp:latest
+    image: docker.io/haumea/fireflyiii-pp:latest@sha256:225731fec9cc7ef7f9101cd0725e62386e294ad2d3dac0208fcdc524ea817d3d
     x-tl: "+!"
     environment:
       VIRTUAL_HOST: firefly-iii-pp.gabbro
