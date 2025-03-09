@@ -3,7 +3,7 @@ services:
     image: postgres:16-alpine
     x-tl: x
     volumes:
-      - ./postgresql:/var/lib/postgresql/data
+      - /mnt/celery/gabbro/tandoor/postgresql:/data
     env_file:
       - ./tandoor/tandoor.env
     networks:
@@ -40,7 +40,6 @@ services:
       VIRTUAL_HOST: "tandoor.{{ LETSENCRYPT_HOST }}"
       VIRTUAL_PORT: 80
       LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
-
 
 networks:
   tandoor:
