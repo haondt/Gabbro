@@ -2,6 +2,8 @@ services:
   linkding:
     image: sissbruecker/linkding:latest
     x-tl: +!
+    networks:
+      - nginx
     volumes:
       - linkding-data:/etc/linkding/data
     env_file:
