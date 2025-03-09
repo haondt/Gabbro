@@ -1,0 +1,15 @@
+services:
+  linkding:
+    image: sissbruecker/linkding:latest
+    x-tl: +!
+    volumes:
+      - linkding-data:/etc/linkding/data
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_PORT: 9090
+      VIRTUAL_HOST: "linkding.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
+volumes:
+  linkding-data:
