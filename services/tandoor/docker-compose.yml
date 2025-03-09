@@ -1,0 +1,54 @@
+services:
+  tandoor_db:
+    image: postgres:16-alpine
+    x-tl: x
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data
+    env_file:
+      - ./tandoor/tandoor.env
+    networks:
+      - tandoor
+
+  tandoor:
+    image: vabene1111/recipes:1.5.31
+    x-tl: +:.!!?
+    env_file:
+      - ./tandoor/tandoor.env
+    volumes:
+      - tandoor-static:/opt/recipes/staticfiles
+      # Do not make this a bind mount, see https://docs.tandoor.dev/install/docker/#volumes-vs-bind-mounts
+      - tandoor-nginx-conf:/opt/recipes/nginx/conf.d
+      - /mnt/celery/gabbro/tandoor/mediafiles:/opt/recipes/mediafiles
+    depends_on:
+      - tandoor_db
+    networks:
+      - tandoor
+
+  tandoor_nginx:
+    image: nginx:mainline-alpine
+    x-tl: +!
+    restart: always
+    env_file:
+      - ./tandoor/tandoor.env
+    depends_on:
+      - tandoor
+    volumes:
+      # Do not make this a bind mount, see https://docs.tandoor.dev/install/docker/#volumes-vs-bind-mounts
+      - tandoor-nginx-conf:/etc/nginx/conf.d:ro
+      - tandoor-static:/static:ro
+      - /mnt/celery/gabbro/tandoor/mediafiles:/media:ro
+    networks:
+      - tandoor
+      - nginx
+    environment:
+      VIRTUAL_HOST: "tandoor.{{ LETSENCRYPT_HOST }}"
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+
+
+networks:
+  tandoor:
+
+volumes:
+  tandoor-nginx-conf:
+  tandoor-static:
