@@ -5,7 +5,7 @@ services:
     volumes:
       - linkding-data:/etc/linkding/data
     env_file:
-      - .env
+      - ./linkding/linkding.env
     environment:
       VIRTUAL_PORT: 9090
       VIRTUAL_HOST: "linkding.{{ LETSENCRYPT_HOST }}"
