@@ -1,0 +1,11 @@
+services:
+  glance:
+    image: glanceapp/glance:latest
+    x-tl: +!
+    volumes:
+      - ./glance/glance.yml:/app/config/glance.yml:ro
+    environment:
+      VIRTUAL_PORT: 8080
+      VIRTUAL_HOST: "glance.{{ LETSENCRYPT_HOST }}"
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
