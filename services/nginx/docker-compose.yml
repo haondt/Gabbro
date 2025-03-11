@@ -23,6 +23,7 @@ services:
 
   nginx-acme:
     image: nginxproxy/acme-companion
+    x-tl: +!
     volumes_from:
       - nginx
     volumes:

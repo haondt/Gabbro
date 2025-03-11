@@ -4,6 +4,7 @@ services:
       - nginx
       - nextcloud
     image: nextcloud
+    x-tl: +!
     volumes:
       - nextcloud-data:/var/www/html
       - /mnt/celery/gabbro/nextcloud/data:/mnt/celery
@@ -21,6 +22,7 @@ services:
     networks:
       - nextcloud
     image: mariadb:11
+    x-tl: ^!
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     volumes:
       - nextcloud-db-data:/var/lib/mysql

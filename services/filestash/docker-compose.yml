@@ -3,6 +3,7 @@ services:
     networks:
       - nginx
     image: machines/filestash:latest
+    x-tl: +!
     environment:
       APPLICATION_URL: "filestash.{{ LETSENCRYPT_HOST }}"
       VIRTUAL_PORT: 8334

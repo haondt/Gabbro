@@ -1,6 +1,7 @@
 services:
   pyreminder:
     image: haumea/pyreminder:latest
+    x-tl: +!
     labels:
       test: foo
     group_add:

@@ -1,6 +1,7 @@
 services:
   telegraf:
     image: telegraf:latest
+    x-tl: +!
     networks:
       - grafana
     group_add:

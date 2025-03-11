@@ -1,7 +1,7 @@
 services:
   tandoor_db:
     image: postgres:16-alpine
-    x-tl: x
+    x-tl: ^!
     volumes:
       - /mnt/celery/gabbro/tandoor/postgresql:/data
     env_file:

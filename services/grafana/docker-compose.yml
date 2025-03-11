@@ -4,6 +4,7 @@ services:
       - grafana
       - nginx
     image: influxdb:2-alpine
+    x-tl: ^!
     volumes:
       - /mnt/celery/gabbro/grafana/influxdb2/:/var/lib/influxdb2
       - ./grafana/influxdb2/influxdb.conf:/etc/influxdb2/influxdb.conf
@@ -23,6 +24,7 @@ services:
       - grafana
       - nginx
     image: grafana/grafana:latest
+    x-tl: +!
     user: "{{ COM_GABBRO_PUID }}:{{ COM_GABBRO_PGID }}"
     volumes:
       - /mnt/celery/gabbro/grafana/grafana/provisioning/:/etc/grafana/provisioning

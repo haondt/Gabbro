@@ -1,6 +1,7 @@
 services:
   charon:
     image: registry.gitlab.com/haondt/cicd/registry/charon:1.2.0
+    x-tl: x
     volumes:
       - ./charon/credentials.json:/config/credentials.json
       - ./charon/charon.yml:/config/charon.yml

@@ -1,6 +1,7 @@
 services:
   ersatztv:
     image: jasongdove/ersatztv:latest
+    x-tl: +!
     networks:
       - nginx
       - plex

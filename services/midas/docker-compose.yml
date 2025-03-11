@@ -4,6 +4,7 @@ services:
       - nginx
       - midas
     image: registry.gitlab.com/haondt/cicd/registry/midas:fix-datetime-again-db4d00fb
+    x-tl: x
     group_add:
       - "{{ COM_GABBRO_PGID }}"
     volumes:
@@ -26,6 +27,7 @@ services:
       - midas
     build:
       context: midas/nodered
+    x-tl: x
     volumes:
       - ./midas/nodered/settings.js:/data/settings.js
       - /mnt/celery/gabbro/midas/nodered__data/:/data
@@ -42,6 +44,7 @@ services:
       - /mnt/celery/gabbro/midas/midas__data/:/data
     user: root
     image: alpine
+    x-tl: x
     command: >
       sh -c "
         if [ ! -f /data/.initialized ]; then

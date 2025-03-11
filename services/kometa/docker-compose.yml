@@ -3,6 +3,7 @@ services:
     build:
       context: ./kometa
       dockerfile: bootstrap.dockerfile
+    x-tl: x
     entrypoint: ['python3', '-u', '/app/bootstrap.py']
     user: "{{ COM_GABBRO_PUID }}:{{ COM_GABBRO_PGID }}"
     volumes:
@@ -11,6 +12,7 @@ services:
       - /mnt/celery/gabbro/kometa/:/config
   kometa:
     image: kometateam/kometa:v2.0.2
+    x-tl: +:.!!?
     deploy:
       resources:
         limits:

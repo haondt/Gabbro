@@ -5,6 +5,7 @@ services:
       - nginx
     build:
       context: jobs
+    x-tl: x
     volumes:
       - ./jobs/settings.js:/data/settings.js
       - /mnt/celery/gabbro/jobs/nodered_data/:/data
@@ -17,10 +18,12 @@ services:
       GCP_HEALTHCHECK_URL: "{{ GCP_HEALTHCHECK_URL }}"
   jobs-redis: 
     image: redis
+    x-tl: +!
     networks:
       - jobs
   jobs-redis-insight:
     image: redis/redisinsight
+    x-tl: +!
     networks:
       - jobs
       - nginx

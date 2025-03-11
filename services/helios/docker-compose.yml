@@ -3,6 +3,7 @@ services:
     networks:
       - nginx
     image: haumea/helios
+    x-tl: x
     environment:
       VIRTUAL_PORT: 8000
       VIRTUAL_HOST: "helios.{{ LETSENCRYPT_HOST }}"

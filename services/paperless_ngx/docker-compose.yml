@@ -3,6 +3,7 @@ services:
     networks:
       - paperless_ngx
     image: docker.io/library/redis:7
+    x-tl: ^!
     volumes:
       - /mnt/celery/gabbro/paperless_ngx/redis/:/data
 
@@ -24,6 +25,7 @@ services:
       - nginx
       - paperless_ngx
     image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    x-tl: +!
     depends_on:
       - paperless_ngx_db
       - paperless_ngx_broker

@@ -4,6 +4,7 @@ services:
       - nginx
       - elysium
     image: registry.gitlab.com/haondt/cicd/registry/elysium:queue-e0412475
+    x-tl: x
     depends_on:
       - elysium-silo
     environment:
@@ -19,6 +20,7 @@ services:
       - nginx
       - elysium
     image: registry.gitlab.com/haondt/cicd/registry/elysium-silo:queue-e0412475
+    x-tl: x
     depends_on:
       - elysium-postgres
       - elysium-redis
@@ -34,6 +36,7 @@ services:
     networks:
       - elysium
     image: postgres:16-alpine
+    x-tl: +!
     environment:
       POSTGRES_USER: elysium
       POSTGRES_PASSWORD: elysium
@@ -43,6 +46,7 @@ services:
       - ./elysium/postgresql-init.sql:/docker-entrypoint-initdb.d/postgresql-init.sql
   elysium-redis:
     image: redis
+    x-tl: +!
     networks:
       - elysium
 

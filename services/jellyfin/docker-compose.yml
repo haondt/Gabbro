@@ -1,6 +1,7 @@
 services:
   jellyfin:
     image: jellyfin/jellyfin
+    x-tl: +!
     networks:
       - nginx
     environment:

@@ -16,8 +16,8 @@ services:
       LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
       HTTPS_METHOD: nohttp
   radarr_4k:
-    image: lscr.io/linuxserver/radarr:5.19.3@sha256:0a8020afc5e3dcad1413ba125a980729a2b16ff0d88d108b3e1779111ef1c896
-    x-tl: "+:.!!?"
+    image: docker.io/linuxserver/radarr:latest@sha256:620189d67078ddcfeb7a4efa424eb62f827ef734ef1e56980768bf8efd73782a
+    x-tl: +!
     networks:
       - nginx
       - plex
