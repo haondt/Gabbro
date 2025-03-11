@@ -17,7 +17,7 @@ services:
       DB_PASSWORD: "{{ COM_GABBRO_MONICA__DB__PASSWORD }}"
       DB_PORT: 3306
       DB_DATABASE: monica
-      APP_URL: http://monica.gabbro/
+      APP_URL: https://monica.{{ LETSENCRYPT_HOST }}/
     depends_on:
       - monica_db
 
