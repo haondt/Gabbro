@@ -2,6 +2,8 @@ services:
   glance:
     image: glanceapp/glance:latest
     x-tl: +!
+    networks:
+      - nginx
     volumes:
       - ./glance/glance.yml:/app/config/glance.yml:ro
     environment:
