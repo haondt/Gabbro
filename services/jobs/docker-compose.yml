@@ -16,6 +16,12 @@ services:
       HTTPS_METHOD: nohttp
       GSM_API_KEY: "{{ GSM_API_KEY }}"
       GCP_HEALTHCHECK_URL: "{{ GCP_HEALTHCHECK_URL }}"
+      TWITCH_CLIENT_ID: "{{ TWITCH_CLIENT_ID }}"
+      TWITCH_CLIENT_SECRET: "{{ TWITCH_CLIENT_SECRET }}"
+      TWITCH_CODE: "{{ TWITCH_CODE }}"
+      TWITCH_REDIRECT_URL: "http://localhost"
+      TWITCH_USER_ID: "{{ TWITCH_USER_ID }}" 
+
   jobs-redis: 
     image: redis
     x-tl: +!
