@@ -21,7 +21,7 @@ services:
       TWITCH_REDIRECT_URL: "http://localhost"
 
   jobs-redis: 
-    image: redis
+    image: docker.io/library/redis:latest@sha256:6aafb7f25fc93c4ff74e99cff8e85899f03901bc96e61ba12cd3c39e95503c73
     x-tl: +!
     networks:
       - jobs
