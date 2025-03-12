@@ -21,7 +21,7 @@ services:
   nextcloud-db:
     networks:
       - nextcloud
-    image: mariadb:11
+    image: docker.io/library/mariadb:11@sha256:310d29fbb58169dcddb384b0ff138edb081e2773d6e2eceb976b3668089f2f84
     x-tl: ^!
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     volumes:
