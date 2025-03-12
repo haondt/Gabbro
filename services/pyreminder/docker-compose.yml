@@ -1,6 +1,6 @@
 services:
   pyreminder:
-    image: haumea/pyreminder:latest
+    image: docker.io/haumea/pyreminder:latest@sha256:e311ca8ef1fbaff94dc6115019ebe4f96a71c9a737669db618d69434c69509cb
     x-tl: +!
     labels:
       test: foo
