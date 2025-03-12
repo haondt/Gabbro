@@ -11,6 +11,7 @@ services:
     networks:
       - paperless_ngx
     image: docker.io/library/mariadb:10
+    x-tl: ^!
     volumes:
       - /mnt/celery/gabbro/paperless_ngx/db/:/var/lib/mysql
     environment:
@@ -46,7 +47,7 @@ services:
       PAPERLESS_DBUSER: paperless # only needed if non-default username
       PAPERLESS_DBPASS: paperless # only needed if non-default password
       PAPERLESS_DBPORT: 3306
-      PAPERLESS_URL: http://paperless.gabbro
+      PAPERLESS_URL: https://paperless-ngx.{{ LETSENCRYPT_HOST }}
       PAPERLESS_TIME_ZONE: America/Edmonton
 
       PAPERLESS_ADMIN_USER: "{{ PAPERLESS_ADMIN_USER }}"
