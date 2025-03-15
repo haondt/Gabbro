@@ -4,6 +4,8 @@ services:
     labels:
       com.gabbro.host: "{{ COM_GABBRO_HOST }}"
       com.gabbro.service: "{{ COM_HAONDT_CONTAINER }}"
+      com.haondt.host: "{{ COM_GABBRO_HOST }}"
+      com.haondt.service: "{{ COM_HAONDT_CONTAINER }}"
     group_add:
       - "{{ COM_GABBRO_PGID }}"
     environment:
