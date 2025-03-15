@@ -1,5 +1,7 @@
 services:
   kometa_bootstrap:
+    labels:
+      dev.haondt.lifecycle: ephemeral
     build:
       context: ./kometa
       dockerfile: bootstrap.dockerfile

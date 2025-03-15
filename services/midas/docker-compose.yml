@@ -38,6 +38,8 @@ services:
       MIDAS_API_URL: http://midas:8080/
 
   midas-data-init:
+    labels:
+      dev.haondt.lifecycle: ephemeral
     group_add:
       - "{{ COM_GABBRO_PGID }}"
     volumes:
