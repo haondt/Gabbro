@@ -1,6 +1,6 @@
 services:
   telegraf:
-    image: docker.io/library/telegraf:latest@sha256:5c1ae2187f43d6039196a12b7dd9960b2dbd80d996036894d0da3e4ca692885d
+    image: docker.io/library/telegraf:latest@sha256:9eb6b87162c5687ef1d1f239b632902e4ae75c16075047f3766c7323b94fbcc3
     x-tl: +!
     networks:
       - grafana
