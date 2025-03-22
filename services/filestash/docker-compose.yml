@@ -2,7 +2,7 @@ services:
   filestash:
     networks:
       - nginx
-    image: docker.io/machines/filestash:latest@sha256:372aa3d53c5bb3f33e7ea895ca74213091c4860da652f2993e35585cb6c7818f
+    image: docker.io/machines/filestash:latest@sha256:41833beb277fd0e4ddc706a2acd09d390d168448680562f90e20683d940e52b1
     x-tl: +!
     environment:
       APPLICATION_URL: "filestash.{{ LETSENCRYPT_HOST }}"
