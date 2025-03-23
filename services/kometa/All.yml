@@ -1,9 +1,0 @@
-collections:
-  Stop Motion:
-    trakt_list:
-      - https://trakt.tv/users/haond/lists/claymation
-    sync_mode: sync
-  Dark Fantasy:
-    trakt_list:
-      - https://trakt.tv/users/haond/lists/dark-fantasy
-    sync_mode: sync
