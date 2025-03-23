@@ -39,6 +39,12 @@ services:
       - "{{ MEDIA__PLEX_DIR_1 }}/tv_shows:/mnt/tv_shows1"
       - "{{ MEDIA__PLEX_DIR_1 }}/movies:/mnt/movies1"
       - "{{ MEDIA__PLEX_DIR_1 }}/movies_hd:/mnt/hd_movies1"
+      - type: tmpfs
+        target: /transcode # must be configured in settings > transcoder 
+        tmpfs:
+          mode: 0777
+          size: 2G 
+
 
 networks:
   plex:
