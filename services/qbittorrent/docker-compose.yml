@@ -7,7 +7,7 @@ services:
     networks:
       - nginx
       - plex
-    image: lscr.io/linuxserver/qbittorrent:latest@sha256:804854c50e27e093425eeb252af15e5b587670afb689c8773e4d8ade8ce456b7
+    image: lscr.io/linuxserver/qbittorrent:latest@sha256:dc9e13d2edab18cc7c42367526182b2798f9f0f4c590559337f954fb4e3bdc35
     x-tl: +!
     volumes:
       - "{{ MEDIA__DOWNLOAD_DIR}}/:/downloads"
