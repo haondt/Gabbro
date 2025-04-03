@@ -7,7 +7,7 @@ services:
       - plex
     volumes:
       - ersatztv-data:/root/.local/share/ersatztv
-      - ersatztv-transcode:/root/.local/share/etv-transcode
+      - /mnt/tomato/gabbro/ersatztv/transcode:/root/.local/share/etv-transcode
       - "{{ MEDIA__PLEX_DIR_0 }}/tv_shows:/mnt/tv_shows0"
       - "{{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0"
       - "{{ MEDIA__PLEX_DIR_0 }}/movies_hd:/mnt/hd_movies0"
@@ -22,8 +22,3 @@ services:
 
 volumes:
   ersatztv-data:
-  ersatztv-transcode:
-    driver_opts:
-      type: tmpfs
-      o: size=1000000
-      device: tmpfs
