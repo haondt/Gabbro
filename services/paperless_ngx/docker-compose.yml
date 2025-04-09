@@ -10,7 +10,7 @@ services:
   paperless_ngx_db:
     networks:
       - paperless_ngx
-    image: docker.io/library/mariadb:10@sha256:3958f2df725a9ebdabd0ae6a0c0a841da8e45194b36a33d8bd83abb7dd6c034a
+    image: docker.io/library/mariadb:10@sha256:beda104493ec7b25249451de5e331caa5cab3de93fcc554add8d3dce7bb2c32e
     x-tl: ^!
     volumes:
       - /mnt/celery/gabbro/paperless_ngx/db/:/var/lib/mysql
