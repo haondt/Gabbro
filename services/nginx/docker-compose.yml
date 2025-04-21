@@ -2,7 +2,7 @@ services:
   nginx:
     networks:
       - nginx
-    image: docker.io/nginxproxy/nginx-proxy:latest@sha256:489d8a9ebc17870891c2484dde912c381e7b983158d66c2896ed3d047494737d
+    image: docker.io/nginxproxy/nginx-proxy:latest@sha256:62ee3b5f23f3f849815780c75e9efb66461f32969584c60072bdf5a4c5b9263d
     x-tl: "+!"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock
