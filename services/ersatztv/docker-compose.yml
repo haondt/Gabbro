@@ -6,7 +6,7 @@ services:
       - nginx
       - plex
     volumes:
-      - ersatztv-data:/root/.local/share/ersatztv
+      - /mnt/celery/gabbro/ersatztv/config/:/root/.local/share/ersatztv
       - /mnt/tomato/gabbro/ersatztv/transcode:/root/.local/share/etv-transcode
       - "{{ MEDIA__PLEX_DIR_0 }}/tv_shows:/mnt/tv_shows0"
       - "{{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0"
