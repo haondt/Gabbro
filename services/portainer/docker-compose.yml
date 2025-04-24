@@ -2,7 +2,7 @@ services:
   portainer:
     ports:
       - 9001:9001
-    image: docker.io/portainer/agent:2.29.1@sha256:59a5ee21805dcbb6e0712e6d93469679cf1b93769aee84e833661a07cdad590a
+    image: docker.io/portainer/agent:2.29.2@sha256:3d880f293f8ce0266dabe844f30ae44cbecb7599c5030f20f39844d6d15ffe0f
     x-tl: ^:.!!?
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
