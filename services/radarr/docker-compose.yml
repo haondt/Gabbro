@@ -1,6 +1,6 @@
 services:
   radarr:
-    image: docker.io/linuxserver/radarr:latest@sha256:01233b9ea9435fd00eab51891f133d86c9b6293f5adb8c3bf44e7a314c9c3423
+    image: docker.io/linuxserver/radarr:latest@sha256:3a220dd02a24cb3610441ec6811bf70846e851e05f3219ec4801a06bd0646912
     x-tl: +!
     networks:
       - nginx
@@ -16,7 +16,7 @@ services:
       LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
       HTTPS_METHOD: nohttp
   radarr_4k:
-    image: docker.io/linuxserver/radarr:latest@sha256:01233b9ea9435fd00eab51891f133d86c9b6293f5adb8c3bf44e7a314c9c3423
+    image: docker.io/linuxserver/radarr:latest@sha256:3a220dd02a24cb3610441ec6811bf70846e851e05f3219ec4801a06bd0646912
     x-tl: +!
     networks:
       - nginx
