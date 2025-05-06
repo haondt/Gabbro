@@ -2,7 +2,7 @@ services:
   syncthing:
     networks:
       - nginx
-    image: lscr.io/linuxserver/syncthing:latest@sha256:01066805eeeb18cb215c62e0f1882345eb30a9791389fb2d6ee98d9cc95b327e
+    image: lscr.io/linuxserver/syncthing:latest@sha256:6ba986d886e60ee860356f74fa458d40eaee77b1420ca601273f03deaaf1baf2
     x-tl: +!
     volumes:
       - /mnt/celery/gabbro/syncthing/config/:/config
