@@ -35,7 +35,7 @@ services:
   elysium-postgres:
     networks:
       - elysium
-    image: docker.io/library/postgres:16-alpine@sha256:3b057e1c2c6dfee60a30950096f3fab33be141dbb0fdd7af3d477083de94166c
+    image: docker.io/library/postgres:16-alpine@sha256:82e673f8f61ecd961b19210a55bbbe2ec33ed3026144119766065e79d77cdea2
     x-tl: ^!
     environment:
       POSTGRES_USER: elysium
