@@ -1,6 +1,6 @@
 services:
   plex:
-    image: lscr.io/linuxserver/plex:latest@sha256:53e6a94b2649b3c817757bbdf28d7970bc10e036ec0868b0704f3f51aa612742
+    image: lscr.io/linuxserver/plex:latest@sha256:fad37d3811bbd089f95886cd14768addf009648a4913a01ea3db0a623e633025
     x-tl: +!
     deploy:
       resources:
