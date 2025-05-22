@@ -45,7 +45,7 @@ services:
       - elysium-postgres-data:/data
       - ./elysium/postgresql-init.sql:/docker-entrypoint-initdb.d/postgresql-init.sql
   elysium-redis:
-    image: docker.io/library/redis:latest@sha256:c49bdcc516aa4b2d66d8a46526afd7d38f2e53d069c5a2c1cb0efe76ebffa737
+    image: docker.io/library/redis:latest@sha256:b3ad79880c88e302deb5e0fed6cee3e90c0031eb90cd936b01ef2f83ff5b3ff2
     x-tl: +!
     networks:
       - elysium
