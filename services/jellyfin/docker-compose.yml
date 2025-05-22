@@ -5,15 +5,16 @@ services:
     networks:
       - nginx
     environment:
-      JELLYFIN_PublishedServerUrl: http://jellyfin.{{ LETSENCRYPT_HOST }}
-      VIRTUAL_PORT: 8096
-      VIRTUAL_HOST: "jellyfin.{{ LETSENCRYPT_HOST }}"
-      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
-      HTTPS_METHOD: nohttp
+      JELLYFIN_PublishedServerUrl: https://jellyfin.haondt.dev
+      RATHOLE_VIRTUAL_PORT: 8096
+      RATHOLE_VIRTUAL_HOST: "jellyfin.haondt.dev"
+      RATHOLE_INCLUDE:
     volumes:
-      - jellyfin-config:/config
-      - jellyfin-cache:/cache
-
-volumes:
-  jellyfin-config:
-  jellyfin-cache:
+      - "{{ MEDIA__PLEX_DIR_0 }}/tv_shows:/mnt/tv_shows0"
+      - "{{ MEDIA__PLEX_DIR_0 }}/movies:/mnt/movies0"
+      - "{{ MEDIA__PLEX_DIR_0 }}/movies_hd:/mnt/hd_movies0"
+      - "{{ MEDIA__PLEX_DIR_1 }}/tv_shows:/mnt/tv_shows1"
+      - "{{ MEDIA__PLEX_DIR_1 }}/movies:/mnt/movies1"
+      - "{{ MEDIA__PLEX_DIR_1 }}/movies_hd:/mnt/hd_movies1"
+      - /mnt/tomato/gabbro/jellyfin/cache:/cache
+      - /mnt/celery/gabbro/jellyfin/config/:/config
