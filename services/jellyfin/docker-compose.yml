@@ -3,7 +3,7 @@ services:
     image: docker.io/jellyfin/jellyfin:latest@sha256:7ae36aab93ef9b6aaff02b37f8bb23df84bb2d7a3f6054ec8fc466072a648ce2
     x-tl: +!
     networks:
-      - nginx
+      - deployments-gabbro_rathole
     environment:
       JELLYFIN_PublishedServerUrl: https://jellyfin.haondt.dev
       RATHOLE_VIRTUAL_PORT: 8096
@@ -18,3 +18,7 @@ services:
       - "{{ MEDIA__PLEX_DIR_1 }}/movies_hd:/mnt/hd_movies1"
       - /mnt/tomato/gabbro/jellyfin/cache:/cache
       - /mnt/celery/gabbro/jellyfin/config/:/config
+networks:
+  deployments-gabbro_rathole:
+    external: true
+
