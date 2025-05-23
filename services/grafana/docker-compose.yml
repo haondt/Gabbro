@@ -23,7 +23,7 @@ services:
     networks:
       - grafana
       - nginx
-    image: docker.io/grafana/grafana:latest@sha256:6fc2fee54f8551a3ae452a2dd14fd524143026e46a0f06b0302c79117fe89fcf
+    image: docker.io/grafana/grafana:latest@sha256:06dc8d60e184705e5dc00e051a6d92342a44010d7d5e538d0a36339e85abb9b7
     x-tl: +!
     user: "{{ COM_GABBRO_PUID }}:{{ COM_GABBRO_PGID }}"
     volumes:
