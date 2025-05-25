@@ -9,8 +9,10 @@ services:
       - /mnt/celery/gabbro/syncthing/data/:/data
       - /mnt/celery/gabbro/paperless_ngx/consume/:/mnt/paperless_ngx_consume
     environment:
-      VIRTUAL_HOST: syncthing.gabbro
+      VIRTUAL_HOST: "syncthing.{{ LETSENCRYPT_HOST }}"
       VIRTUAL_PORT: 8384
+      LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
+      HTTPS_METHOD: nohttp
     ports:
       - 22000:22000/tcp
       - 22000:22000/udp
