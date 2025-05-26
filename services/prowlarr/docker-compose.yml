@@ -3,7 +3,7 @@ services:
     networks:
       - nginx
       - plex
-    image: lscr.io/linuxserver/prowlarr:develop@sha256:7e60f2f679bb9725928497a020747e021a2a283a2867772e4c26aee9b4c8ec3f
+    image: lscr.io/linuxserver/prowlarr:develop@sha256:5e779891566a522df703a96ebdf72196267e6793f47f2514add7ad4db9552283
     x-tl: +!
     volumes:
       - /mnt/celery/gabbro/prowlarr/:/config
