@@ -1,6 +1,6 @@
 services:
   emby:
-    image: lscr.io/linuxserver/emby:latest@sha256:2c3c82ccb015dc63f385ad5baa6b362a59e98fb3ad58f9e6e9313f8b6e255b19
+    image: lscr.io/linuxserver/emby:latest@sha256:7e6eff1550f3ca54aea32fdd8919226f03f2282b66d9025b88fbe5d8a320e9ee
     x-tl: +!
     networks:
       - deployments-gabbro_rathole
