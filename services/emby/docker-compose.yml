@@ -2,6 +2,11 @@ services:
   emby:
     image: lscr.io/linuxserver/emby:latest@sha256:7e6eff1550f3ca54aea32fdd8919226f03f2282b66d9025b88fbe5d8a320e9ee
     x-tl: +!
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2gb 
     networks:
       - deployments-gabbro_rathole
     environment:
