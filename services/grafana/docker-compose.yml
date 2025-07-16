@@ -3,7 +3,7 @@ services:
     networks:
       - grafana
       - nginx
-    image: docker.io/library/influxdb:2-alpine@sha256:ef14203d7014ac9a0df4f087d186901ea7d19993410b35782f6c3c421738eb25
+    image: docker.io/library/influxdb:2-alpine@sha256:d948cd7aa274696d76ccc3f7ef732180d9f9a4229aace3cf68ae008693665137
     x-tl: ^!
     volumes:
       - /mnt/celery/gabbro/grafana/influxdb2/:/var/lib/influxdb2
