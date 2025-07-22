@@ -2,7 +2,7 @@ services:
   paperless_ngx_broker:
     networks:
       - paperless_ngx
-    image: docker.io/library/redis:7@sha256:b52fce7a50c718c6836eef354f19428a9c9a6802379da6eb8a23853152e23f89
+    image: docker.io/library/redis:7@sha256:29a89f06d273d36ae70fbebf186bbed4ebfd92a70027d917f2eed3461ba3fdda
     x-tl: ^!
     volumes:
       - /mnt/celery/gabbro/paperless_ngx/redis/:/data
