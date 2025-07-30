@@ -3,7 +3,7 @@ services:
     networks:
       - nginx
       - monica
-    image: lscr.io/linuxserver/monica:latest@sha256:171fdc3be97978ec691bd399712063ea4f65140296a435cb680db3ce4a9ef0fe
+    image: lscr.io/linuxserver/monica:latest@sha256:e8e5960aca59b91f9a17203ea5d863b1903d90541dce09639a5c81b2a6a39903
     x-tl: +!
     volumes:
       - /mnt/celery/gabbro/monica/monica/:/config
