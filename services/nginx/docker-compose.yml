@@ -22,7 +22,7 @@ services:
       - 443:443
 
   nginx-acme:
-    image: docker.io/nginxproxy/acme-companion:latest@sha256:f1d744cd933b423e4111379bb5f731b1ef0c6d2b2d56c099acc815b537e7fd83
+    image: docker.io/nginxproxy/acme-companion:latest@sha256:c3692aff38d8b7a65784296c216e310095ed9a9eae4729fa510baf284036b2a0
     x-tl: +!
     volumes_from:
       - nginx
