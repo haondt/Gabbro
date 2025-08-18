@@ -2,7 +2,7 @@ services:
   nginx:
     networks:
       - nginx
-    image: docker.io/nginxproxy/nginx-proxy:latest@sha256:2d12074113d45d6bb63640c689dd348226164dff2bb1406873e08416b0ae58da
+    image: docker.io/nginxproxy/nginx-proxy:latest@sha256:42951081b024cd9601aa5c14b4e2b3645f7782f090d5bc5e7dc7f49dcf66b323
     x-tl: "+!"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock
@@ -23,7 +23,7 @@ services:
       - 443:443
 
   nginx-acme:
-    image: docker.io/nginxproxy/acme-companion:latest@sha256:c3692aff38d8b7a65784296c216e310095ed9a9eae4729fa510baf284036b2a0
+    image: docker.io/nginxproxy/acme-companion:latest@sha256:180eb2b730f0acb530b7d053857805659e65665c8f0d2d6bdf107c866a0fccdd
     x-tl: +!
     volumes_from:
       - nginx
