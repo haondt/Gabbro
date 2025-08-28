@@ -12,3 +12,4 @@ services:
     volumes:
       - ./helios/helios.yml:/config/helios.yml
       - /mnt/celery/gabbro/helios:/data
+
