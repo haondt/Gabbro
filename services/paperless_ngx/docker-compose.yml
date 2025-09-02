@@ -25,7 +25,7 @@ services:
     networks:
       - nginx
       - paperless_ngx
-    image: ghcr.io/paperless-ngx/paperless-ngx:latest@sha256:fbe142ff2e02713740329ebb5981c6bb6fe54f8b4de18e98637c2ff586ea1935
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest@sha256:6dbe57d8198fa117158ba9e867e2d45280b65e9c37ea54c1df7b34c4085a564c
     x-tl: +!
     depends_on:
       - paperless_ngx_db
