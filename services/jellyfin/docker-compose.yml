@@ -21,7 +21,7 @@ services:
       - "{{ MEDIA__PLEX_DIR_1 }}/tv_shows:/mnt/tv_shows1"
       - "{{ MEDIA__PLEX_DIR_1 }}/movies:/mnt/movies1"
       - "{{ MEDIA__PLEX_DIR_1 }}/movies_hd:/mnt/hd_movies1"
-      - /mnt/tomato/gabbro/jellyfin/cache:/cache
+      - /mnt/pepper/gabbro/jellyfin/cache:/cache
       - /mnt/celery/gabbro/jellyfin/config/:/config
 networks:
   deployments-gabbro_rathole:
