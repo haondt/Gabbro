@@ -10,7 +10,7 @@ services:
       - tandoor
 
   tandoor:
-    image: docker.io/vabene1111/recipes:2.1.1@sha256:d352711c4377f22c66e8fda62cdc1cb16362b5edf05fc3dcf7a153a248fb6131
+    image: docker.io/vabene1111/recipes:2.1.2@sha256:c4e58714f66de21add4a855a0262239412d42fa43d088a03397b9b213f328b6f
     x-tl: +:.!!?
     env_file:
       - ./tandoor/tandoor.env
