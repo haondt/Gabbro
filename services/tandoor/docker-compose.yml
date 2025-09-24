@@ -1,6 +1,6 @@
 services:
   tandoor_db:
-    image: docker.io/library/postgres:16-alpine@sha256:1c6d2f6e4d30d49c529e09a627e8178db5011dde88d955eb08db2e135e64aa09
+    image: docker.io/library/postgres:16-alpine@sha256:94fc73d17b549c313f0505b0f8396d141746ee8f4fdce85339e560395f551e5a
     x-tl: ^!
     volumes:
       - /mnt/celery/gabbro/tandoor/postgresql:/data
