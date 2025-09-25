@@ -12,4 +12,3 @@ services:
       VIRTUAL_HOST: "tautulli.{{ LETSENCRYPT_HOST }}"
       LETSENCRYPT_HOST: "*.{{ LETSENCRYPT_HOST }}"
       HTTPS_METHOD: nohttp
-
