@@ -1,5 +1,0 @@
-helios:
-  data_file: '/data/data.json'
-  search_delay_ms: 100
-  mark_width: 65
-
