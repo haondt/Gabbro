@@ -1,6 +1,6 @@
 services:
   emby:
-    image: lscr.io/linuxserver/emby:latest@sha256:ecadb8c69fdba4c14d58c74652480b498b6a8f93c1bee65f79c1c53bc20e0373
+    image: lscr.io/linuxserver/emby:latest@sha256:c88ae9693e4ed26d1f41088a551466f3bbb67e5819655402c9a9b8e55bd9ad45
     x-tl: +!
     deploy:
       resources:
