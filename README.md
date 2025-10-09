@@ -1,3 +1,7 @@
+# Deprecation Notice
+
+This repo has (finally) been completely absorbed into https://gitlab.com/haondt/deployments/ and is no longer in use.
+
 # Gabbro
 
 This repository is mirrored on GitHub at https://github.com/haondt/Gabbro and the upstream source is on GitLab at https://gitlab.com/burghardtnoah/gabbro/.
